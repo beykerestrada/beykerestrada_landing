@@ -52,7 +52,7 @@ export default function Header({ upworkUrl }: { upworkUrl: string }) {
     { href: `${homeBase}#services`, label: dictionary.header.nav.services, prefetch: false },
     { href: `${homeBase}#value`, label: dictionary.header.nav.value, prefetch: false },
     { href: `${homeBase}#process`, label: dictionary.header.nav.process, prefetch: false },
-    //{ href: `${homeBase}/blog`, label: dictionary.header.nav.blog, prefetch: true },
+    { href: `${homeBase}/blog`, label: dictionary.header.nav.blog, prefetch: true },
     { href: `${homeBase}#contact`, label: dictionary.header.nav.contact, prefetch: false },
   ];
 
@@ -65,12 +65,12 @@ export default function Header({ upworkUrl }: { upworkUrl: string }) {
           </Link>
 
           <nav className="header-nav">
-            {/* <ProductsMenu
+            <ProductsMenu
               baseHref={`${homeBase}/products`}
               label={dictionary.header.nav.products}
               allLabel={dictionary.productsPage.categories.title}
               items={productCategories}
-            /> */}
+            />
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="nav-link" prefetch={item.prefetch}>
                 {item.label}

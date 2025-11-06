@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import Section from "@/components/Section";
 import Footer from "@/components/Footer";
-import { use } from "react";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { DEFAULT_LOCALE, Locale, isLocale } from "@/lib/i18n/config";
 
@@ -10,8 +9,8 @@ const UPWORK = "https://www.upwork.com/freelancers/~01577deb572030ada8";
 
 type ParamsPromise = Promise<{ locale: string }>;
 
-export default function BlogPage({ params }: { params: ParamsPromise }) {
-  const { locale } = use(params);
+export default async function BlogPage({ params }: { params: ParamsPromise }) {
+  const { locale } = await params;
   const normalized: Locale = isLocale(locale) ? (locale as Locale) : DEFAULT_LOCALE;
   const dictionary = getDictionary(normalized);
 
