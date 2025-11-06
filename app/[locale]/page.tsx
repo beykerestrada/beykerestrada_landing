@@ -3,7 +3,6 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Value from "@/components/Value";
 import Services from "@/components/Services";
-import FeaturedProducts from "@/components/FeaturedProducts";
 import Process from "@/components/Process";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -19,7 +18,6 @@ export default function Page() {
       <Hero upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
       <Value />
       <Services upworkUrl={UPWORK} consultationUrl={CONSULTATION} />
-      <FeaturedProducts />
       <Process />
       <FinalCTA upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
       <Footer upworkUrl={UPWORK} />

@@ -13,8 +13,6 @@ export type SiteDictionary = {
       value: string;
       process: string;
       contact: string;
-      products: string;
-      blog: string;
     };
     hireCta: string;
     themeToggle: string;
@@ -54,45 +52,6 @@ export type SiteDictionary = {
       cta: string;
     };
   };
-  featuredProducts: {
-    badge: string;
-    title: string;
-    subtitle: string;
-    cta: string;
-    items: { title: string; type: string; summary: string }[];
-  };
-  productsPage: {
-    hero: {
-      title: string;
-      subtitle: string;
-      description: string;
-      cta: string;
-    };
-    intro: {
-      title: string;
-      description: string;
-    };
-    categories: {
-      title: string;
-      items: { slug: string; title: string; type: string; summary: string; linkText: string }[];
-    };
-    backToLibrary: string;
-    library: Record<
-      string,
-      {
-        title: string;
-        description: string;
-        items: {
-          title: string;
-          type: string;
-          summary: string;
-          highlights: string[];
-          action: string;
-          href?: string;
-        }[];
-      }
-    >;
-  };
   process: {
     badge: string;
     title: string;
@@ -127,8 +86,6 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       value: "Value",
       process: "Process",
       contact: "Contact",
-      products: "Products",
-      blog: "Blog",
       },
       hireCta: "Hire on Upwork",
       themeToggle: "Toggle color theme",
@@ -204,154 +161,6 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         cta: "Book a consultation call",
       },
     },
-    featuredProducts: {
-      badge: "Featured products",
-      title: "Ready-to-use systems and accelerators.",
-      subtitle: "Templates, automations, and curriculum built from real client engagements — ship a solution without starting from scratch.",
-      cta: "View the full library",
-      items: [
-        {
-          title: "Notion Company OS template",
-          type: "Notion template",
-          summary: "Executive dashboards, team workspaces, and pipeline views designed for seed to Series B teams.",
-        },
-        {
-          title: "n8n lifecycle automation pack",
-          type: "n8n workflow",
-          summary: "Automations covering lead routing, enrichment, and lifecycle messaging with plug-and-play nodes.",
-        },
-        {
-          title: "Notion x n8n systems bootcamp",
-          type: "Course",
-          summary: "Self-paced curriculum teaching your ops team the patterns I use to ship production systems.",
-        },
-      ],
-    },
-    productsPage: {
-      hero: {
-        title: "Operational products crafted for modern teams.",
-        subtitle: "A growing library of Notion templates, n8n automations, and learning products that help you deploy leverage fast.",
-        description: "Each product is battle-tested with high-velocity teams and includes documentation plus optional upgrade paths if you need bespoke support.",
-        cta: "Request a custom build",
-      },
-      intro: {
-        title: "Explore by format",
-        description: "Pick what fits your roadmap today — templates to launch, workflow packs to automate, or deep-dive training to upskill your operators.",
-      },
-      categories: {
-        title: "Product library",
-        items: [
-          {
-            slug: "notion-templates",
-            title: "Notion templates",
-            type: "Templates",
-            summary: "Company OS, CRM, and strategy execution spaces engineered for clarity and adoption.",
-            linkText: "Browse templates",
-          },
-          {
-            slug: "n8n-automations",
-            title: "n8n automation packs",
-            type: "Automations",
-            summary: "Workflow bundles for handoffs, lifecycle, and analytics — ready to deploy or extend.",
-            linkText: "Browse automations",
-          },
-          {
-            slug: "courses-playbooks",
-            title: "Courses & playbooks",
-            type: "Learning",
-            summary: "Structured curriculum and playbooks to train your team on system design and automation ops.",
-            linkText: "Browse courses",
-          },
-        ],
-      },
-      backToLibrary: "Back to products",
-      library: {
-        "notion-templates": {
-          title: "Notion templates",
-          description: "Templates architected from live client systems so your team gets clarity, governance, and momentum from day one.",
-          items: [
-            {
-              title: "Notion Company OS blueprint",
-              type: "Template",
-              summary: "End-to-end operating system for product-led teams with executive dashboards, governance, and quarterly planning.",
-              highlights: [
-                "Leadership and team scorecards linked to goals",
-                "CRM, projects, and knowledge base stitched together",
-                "Handoff-ready documentation with implementation guide",
-              ],
-              action: "Get the template",
-            },
-            {
-              title: "Revenue workspace kit",
-              type: "Template",
-              summary: "Pipeline, account plans, mutual action plans, and enablement hub to help GTM teams stay coordinated.",
-              highlights: [
-                "Deals, renewal, and expansion trackers with alerts",
-                "Executive dashboards for forecast and coverage",
-                "Playbook vault with version control baked in",
-              ],
-              action: "Request access",
-            },
-          ],
-        },
-        "n8n-automations": {
-          title: "n8n automation packs",
-          description: "Production-ready workflows that handle routing, enrichment, alerts, and reporting without stitching scripts together.",
-          items: [
-            {
-              title: "Lifecycle orchestration bundle",
-              type: "Automation pack",
-              summary: "Lead capture to onboarding automation with enrichments, dedupe, and SLA notifications.",
-              highlights: [
-                "Webhook intake with branching for source-specific logic",
-                "Clear error handling and monitoring dashboards",
-                "Email and Slack notifications configurable per team",
-              ],
-              action: "Get the automations",
-            },
-            {
-              title: "Analytics sync kit",
-              type: "Automation pack",
-              summary: "Automate data syncs between Notion, data warehouse, and BI tools for live reporting.",
-              highlights: [
-                "Bi-directional sync patterns with conflict resolution",
-                "Scheduling presets and retry logic baked in",
-                "Documentation for extending nodes to your stack",
-              ],
-              action: "Request automations",
-            },
-          ],
-        },
-        "courses-playbooks": {
-          title: "Courses & playbooks",
-          description: "Train your operators and team leads to build, maintain, and scale Notion + n8n systems the right way.",
-          items: [
-            {
-              title: "Notion x n8n systems bootcamp",
-              type: "Course",
-              summary: "Self-paced curriculum covering system design, automation strategy, and governance best practices.",
-              highlights: [
-                "Video modules, templates, and implementation tasks",
-                "Office hours templates for internal enablement",
-                "Capability assessments and planning worksheets",
-              ],
-              action: "Join the bootcamp",
-            },
-            {
-              title: "Ops architecture playbook",
-              type: "Playbook",
-              summary: "Step-by-step methodologies to map processes, select automation candidates, and govern changes.",
-              highlights: [
-                "Workshop agendas and stakeholder interview scripts",
-                "Prioritization frameworks for automation backlog",
-                "Rollout and change management checklists",
-              ],
-              action: "Get the playbook",
-            },
-          ],
-        },
-      },
-    },
     process: {
       badge: "Process",
       title: "A grounded path from idea to adoption.",
@@ -406,8 +215,6 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       value: "Valor",
       process: "Proceso",
       contact: "Contacto",
-      products: "Productos",
-      blog: "Blog",
       },
       hireCta: "Contrata en Upwork",
       themeToggle: "Cambiar tema de color",
@@ -481,154 +288,6 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         title: "Auditoría de workspace y consulta",
         summary: "¿No sabes por dónde comenzar? Agenda una consulta: audito tu workspace, identifico brechas y te entrego recomendaciones accionables para el siguiente build.",
         cta: "Agenda una consulta",
-      },
-    },
-    featuredProducts: {
-      badge: "Productos destacados",
-      title: "Sistemas y aceleradores listos para usar.",
-      subtitle: "Plantillas, automatizaciones y formación creadas a partir de proyectos reales — implementa sin partir de cero.",
-      cta: "Ver biblioteca completa",
-      items: [
-        {
-          title: "Plantilla Notion Company OS",
-          type: "Plantilla Notion",
-          summary: "Dashboards ejecutivos, espacios de equipo y vistas de pipeline para equipos seed a Serie B.",
-        },
-        {
-          title: "Pack de automatizaciones n8n lifecycle",
-          type: "Workflow n8n",
-          summary: "Automatizaciones para ruteo, enriquecimiento y lifecycle messaging con nodos plug-and-play.",
-        },
-        {
-          title: "Bootcamp Notion x n8n systems",
-          type: "Curso",
-          summary: "Programa self-paced que enseña los patrones que uso para lanzar sistemas en producción.",
-        },
-      ],
-    },
-    productsPage: {
-      hero: {
-        title: "Productos operativos creados para equipos modernos.",
-        subtitle: "Biblioteca en crecimiento de plantillas Notion, automatizaciones n8n y productos educativos para desplegar leverage rápido.",
-        description: "Cada producto está probado con equipos de alta velocidad e incluye documentación y opciones de upgrade si necesitas soporte a medida.",
-        cta: "Solicita un build personalizado",
-      },
-      intro: {
-        title: "Explora por formato",
-        description: "Elige lo que tu roadmap necesita hoy: plantillas para lanzar, packs de workflows para automatizar o formación para escalar a tu equipo.",
-      },
-      categories: {
-        title: "Biblioteca de productos",
-        items: [
-          {
-            slug: "notion-templates",
-            title: "Plantillas Notion",
-            type: "Plantillas",
-            summary: "Company OS, CRM y espacios de ejecución diseñados para claridad y adopción.",
-            linkText: "Ver plantillas",
-          },
-          {
-            slug: "n8n-automations",
-            title: "Packs de automatización n8n",
-            type: "Automatizaciones",
-            summary: "Bundles de workflows para handoffs, lifecycle y analytics — listos para desplegar o extender.",
-            linkText: "Ver automatizaciones",
-          },
-          {
-            slug: "courses-playbooks",
-            title: "Cursos y playbooks",
-            type: "Aprendizaje",
-            summary: "Currículos estructurados para formar a tu equipo en diseño de sistemas y operaciones de automatización.",
-            linkText: "Ver cursos",
-          },
-        ],
-      },
-      backToLibrary: "Volver a productos",
-      library: {
-        "notion-templates": {
-          title: "Plantillas Notion",
-          description: "Plantillas diseñadas a partir de sistemas reales para que tu equipo gane claridad, gobierno y momentum desde el día uno.",
-          items: [
-            {
-              title: "Blueprint de Company OS",
-              type: "Plantilla",
-              summary: "Sistema operativo end-to-end para equipos product-led con dashboards ejecutivos, gobierno y planeación trimestral.",
-              highlights: [
-                "Scorecards de liderazgo y equipos conectados a objetivos",
-                "CRM, proyectos y base de conocimiento integrados",
-                "Documentación lista para handoff con guía de implementación",
-              ],
-              action: "Obtener plantilla",
-            },
-            {
-              title: "Kit de revenue workspace",
-              type: "Plantilla",
-              summary: "Pipelines, account plans, mutual action plans y hub de enablement para coordinación GTM.",
-              highlights: [
-                "Trackers de deals, renovaciones y expansion con alertas",
-                "Dashboards ejecutivos para forecast y coverage",
-                "Repositorio de playbooks con control de versiones",
-              ],
-              action: "Solicitar acceso",
-            },
-          ],
-        },
-        "n8n-automations": {
-          title: "Packs de automatización n8n",
-          description: "Workflows listos para producción que manejan ruteo, enriquecimiento, alertas y reporting sin mantener scripts dispersos.",
-          items: [
-            {
-              title: "Bundle de orquestación lifecycle",
-              type: "Pack de automatizaciones",
-              summary: "Automatización desde captura de leads hasta onboarding con enriquecimiento, dedupe y notificaciones SLA.",
-              highlights: [
-                "Intake por webhook con lógica por fuente",
-                "Manejo de errores y tableros de monitoreo incluidos",
-                "Notificaciones por email y Slack configurables por equipo",
-              ],
-              action: "Obtener automatizaciones",
-            },
-            {
-              title: "Kit de sincronización analytics",
-              type: "Pack de automatizaciones",
-              summary: "Automatiza sincronizaciones entre Notion, data warehouse y BI para reporting en vivo.",
-              highlights: [
-                "Patrones bi-direccionales con resolución de conflictos",
-                "Programaciones predefinidas y lógica de reintentos",
-                "Documentación para extender nodos a tu stack",
-              ],
-              action: "Solicitar automatizaciones",
-            },
-          ],
-        },
-        "courses-playbooks": {
-          title: "Cursos y playbooks",
-          description: "Forma a tus operadores y líderes para construir, mantener y escalar sistemas Notion + n8n correctamente.",
-          items: [
-            {
-              title: "Bootcamp Notion x n8n systems",
-              type: "Curso",
-              summary: "Currículo self-paced sobre diseño de sistemas, estrategia de automatización y mejores prácticas de gobierno.",
-              highlights: [
-                "Módulos en video, plantillas y tareas de implementación",
-                "Plantillas de office hours para enablement interno",
-                "Evaluaciones de capacidad y worksheets de planeación",
-              ],
-              action: "Unirte al bootcamp",
-            },
-            {
-              title: "Playbook de arquitectura operativa",
-              type: "Playbook",
-              summary: "Metodologías paso a paso para mapear procesos, seleccionar automatizaciones y gobernar cambios.",
-              highlights: [
-                "Agendas de workshop y guiones de entrevistas",
-                "Frameworks de priorización para backlog de automatización",
-                "Checklists de rollout y change management",
-              ],
-              action: "Obtener playbook",
-            },
-          ],
-        },
       },
     },
     process: {

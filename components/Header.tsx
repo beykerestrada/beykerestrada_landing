@@ -25,8 +25,6 @@ export default function Header({ upworkUrl }: { upworkUrl: string }) {
   });
   const dictionary = useTranslations();
   const locale = useLocale();
-  const productCategories = dictionary.productsPage.categories.items;
-
   useEffect(() => {
     if (typeof document === "undefined") {
       return;
@@ -52,7 +50,6 @@ export default function Header({ upworkUrl }: { upworkUrl: string }) {
     { href: `${homeBase}#services`, label: dictionary.header.nav.services, prefetch: false },
     { href: `${homeBase}#value`, label: dictionary.header.nav.value, prefetch: false },
     { href: `${homeBase}#process`, label: dictionary.header.nav.process, prefetch: false },
-    { href: `${homeBase}/blog`, label: dictionary.header.nav.blog, prefetch: true },
     { href: `${homeBase}#contact`, label: dictionary.header.nav.contact, prefetch: false },
   ];
 
@@ -65,12 +62,6 @@ export default function Header({ upworkUrl }: { upworkUrl: string }) {
           </Link>
 
           <nav className="header-nav">
-            <ProductsMenu
-              baseHref={`${homeBase}/products`}
-              label={dictionary.header.nav.products}
-              allLabel={dictionary.productsPage.categories.title}
-              items={productCategories}
-            />
             {navItems.map((item) => (
               <Link key={item.href} href={item.href} className="nav-link" prefetch={item.prefetch}>
                 {item.label}
@@ -140,40 +131,5 @@ function IconMoon() {
         strokeLinejoin="round"
       />
     </svg>
-  );
-}
-
-type ProductsMenuProps = {
-  baseHref: string;
-  label: string;
-  allLabel: string;
-  items: {
-    slug: string;
-    title: string;
-    type: string;
-    summary: string;
-    linkText: string;
-  }[];
-};
-
-function ProductsMenu({ baseHref, label, allLabel, items }: ProductsMenuProps) {
-  return (
-    <div className="nav-dropdown">
-      <Link href={baseHref} className="nav-link" prefetch>
-        {label}
-      </Link>
-      <div className="nav-dropdown-panel">
-        <Link href={baseHref} prefetch>
-          {label}
-          <span>{allLabel}</span>
-        </Link>
-        {items.map((item) => (
-          <Link key={item.slug} href={`${baseHref}/${item.slug}`} prefetch>
-            {item.title}
-            <span>{item.summary}</span>
-          </Link>
-        ))}
-      </div>
-    </div>
   );
 }
