@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "./TranslationProvider";
 
@@ -79,7 +79,9 @@ export default function Header({ upworkUrl }: { upworkUrl: string }) {
           </nav>
 
           <div className="header-cta">
-            <LanguageSwitcher />
+            <Suspense fallback={null}>
+              <LanguageSwitcher />
+            </Suspense>
             <button
               type="button"
               className="theme-toggle"
