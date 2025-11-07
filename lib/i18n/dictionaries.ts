@@ -30,7 +30,12 @@ export type SiteDictionary = {
     intro: string;
     steps: { title: string; description: string }[];
   };
-
+  workflows: {
+    badge: string;
+    title: string;
+    intro: string;
+    steps: { title: string; description: string }[];
+  };
   value: {
     badge: string;
     title: string;
@@ -123,6 +128,22 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         }
       ]
     },
+    workflows: {
+      badge: "Workflows",
+      title: "What my systems actually look like",
+      intro: "Examples of real systems I build to streamline operations.",
+      steps: [
+        {
+          title: "Notion Control Hub",
+          description: "A central dashboard connecting Projects, Tasks, and Company OS for visibility and action.",
+        },
+        {
+          title: "n8n Lead Flow",
+          description: "Webhook intake → enrichment → routing. No manual follow-ups or handoffs.",
+        },
+      ],
+    },
+
     value: {
       badge: "Where the leverage is",
       title: "Operational clarity without the complexity.",
@@ -264,6 +285,22 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         }
       ]
     },
+    workflows: {
+      badge: "Workflows",
+      title: "What my systems actually look like",
+      intro: "Examples of real systems I build to streamline operations.",
+      steps: [
+        {
+          title: "Notion Control Hub",
+          description: "A central dashboard connecting Projects, Tasks, and Company OS for visibility and action.",
+        },
+        {
+          title: "n8n Lead Flow",
+          description: "Webhook intake → enrichment → routing. No manual follow-ups or handoffs.",
+        },
+      ],
+    },
+
     value: {
       badge: "Donde está el apalancamiento",
       title: "Claridad operativa sin complejidad innecesaria.",

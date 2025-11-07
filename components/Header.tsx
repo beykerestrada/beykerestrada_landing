@@ -1,51 +1,74 @@
 "use client";
 
 import Link from "next/link";
-import LanguageSwitcher from "./LanguageSwitcher";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "./TranslationProvider";
+import { LOCALE_COOKIE } from "@/lib/i18n/dictionaries";
 
-export default function Header({ upworkUrl }: { upworkUrl: string }) {
-  const t = useTranslations();
+export default function Header() {
+  const pathname = usePathname();
+  const dictionary = useTranslations();
+  const header = dictionary.header;
+
+  const currentLocale = pathname.split("/")[1] || "en";
+
+  const buildLocalizedPath = (locale: string) => {
+    const segments = pathname.split("/");
+    segments[1] = locale;
+    return segments.join("/") || "/";
+  };
 
   return (
-    <header style={{ padding: "1.5rem 0", borderBottom: "1px solid var(--border)" }}>
-      <div
-        className="container"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        {/* Left: Brand name */}
-        <div style={{ fontWeight: 600, fontSize: "1rem", letterSpacing: "-0.015em" }}>
-          <Link href="/">Beyker Estrada</Link>
-        </div>
+    <header className="site-header">
+      <div className="container">
+        <div className="nav-wrapper">
+          <Link href={`/${currentLocale}`} className="brand">
+            {header.brand}
+          </Link>
 
-        {/* Center: Navigation */}
-        <nav style={{ display: "flex", gap: "2rem", alignItems: "center" }}>
-          <Link href="#method" className="nav-link">
-            Method
-          </Link>
-          <Link href="#workflows" className="nav-link">
-            Workflows
-          </Link>
-          <Link href="#about" className="nav-link">
-            About
-          </Link>
-        </nav>
+          <nav className="nav-links">
+            <Link href={`/${currentLocale}#services`} className="nav-link">
+              {header.nav.services}
+            </Link>
+            <Link href={`/${currentLocale}#value`} className="nav-link">
+              {header.nav.value}
+            </Link>
+            <Link href={`/${currentLocale}#process`} className="nav-link">
+              {header.nav.process}
+            </Link>
+            <Link href={`/${currentLocale}#contact`} className="nav-link">
+              {header.nav.contact}
+            </Link>
+          </nav>
 
-        {/* Right: Language & CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <LanguageSwitcher />
-          <a
-            href={upworkUrl}
-            className="btn btn-sm btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t.header.hireCta}
-          </a>
+          <div className="nav-actions">
+            <a
+              href="https://www.upwork.com/freelancers/~01577deb572030ada8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hire-cta"
+            >
+              {header.hireCta}
+            </a>
+
+            <div className="language-switcher">
+              {Object.entries(header.languageNames).map(([locale, name]) => {
+                if (locale === currentLocale) return null;
+                return (
+                  <Link
+                    key={locale}
+                    href={buildLocalizedPath(locale)}
+                    className="language-button"
+                    hrefLang={locale}
+                    prefetch={false}
+                    locale={false}
+                  >
+                    {name}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </header>

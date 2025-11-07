@@ -1,26 +1,27 @@
 "use client";
 
-// components/Footer.tsx
 import { useTranslations } from "./TranslationProvider";
 
-export default function Footer({ upworkUrl }: { upworkUrl: string }) {
-  const year = new Date().getFullYear();
+export default function Footer() {
   const dictionary = useTranslations();
   const footer = dictionary.footer;
 
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-shell">
-          <div>
-            <p>{footer.description}</p>
-            <span>
-              {footer.legal} © {year}
-            </span>
+        <div className="footer-content">
+          <p className="footer-description">{footer.description}</p>
+          <div className="footer-links">
+            <a
+              href="https://www.upwork.com/freelancers/~01577deb572030ada8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-cta"
+            >
+              {footer.hireCta}
+            </a>
+            <span className="footer-legal">{footer.legal}</span>
           </div>
-          <a href={upworkUrl} className="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">
-            {footer.hireCta}
-          </a>
         </div>
       </div>
     </footer>

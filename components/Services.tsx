@@ -1,69 +1,40 @@
 "use client";
 
-// components/Services.tsx
-import Section from "./Section";
 import { useTranslations } from "./TranslationProvider";
 
-type Props = {
-  upworkUrl: string;
-  consultationUrl?: string;
-};
-
-export default function Services({ upworkUrl, consultationUrl }: Props) {
+export default function Services() {
   const dictionary = useTranslations();
   const services = dictionary.services;
-  const consultationHref = consultationUrl ?? upworkUrl;
 
   return (
-    <Section id="services" className="services">
-      <div className="section-heading">
+    <section className="section-pad-lg">
+      <div className="container">
         <span className="section-badge">{services.badge}</span>
         <h2 className="section-title">{services.title}</h2>
         <p className="section-subtitle">{services.subtitle}</p>
-      </div>
 
-      <div className="services-grid">
-        {services.cards.map((service) => (
-          <article key={service.title} className="service-card">
-            <div className="service-card-header">
-              <h3>{service.title}</h3>
-              <span className="service-price">
-                {services.fromLabel} {service.price}
-              </span>
+        <div className="method-steps">
+          {services.cards.map((card, idx) => (
+            <div key={idx} className="method-step">
+              <h3 className="step-title">{card.title}</h3>
+              <p className="step-description">{card.summary}</p>
+              <ul className="step-description">
+                {card.bullets.map((bullet, i) => (
+                  <li key={i}>• {bullet}</li>
+                ))}
+              </ul>
+              <p className="step-price">{services.fromLabel} {card.price}</p>
             </div>
-            <p>{service.summary}</p>
-            <ul>
-              {service.bullets.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-            <a
-              href={upworkUrl}
-              className="service-cta btn btn-ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {services.learnMoreCta}
-            </a>
-          </article>
-        ))}
-      </div>
-
-      <article className="service-addon">
-        <span className="addon-badge">{services.addon.badge}</span>
-        <div>
-          <h3>{services.addon.title}</h3>
-          <p>{services.addon.summary}</p>
+          ))}
         </div>
-        <a
-          href={consultationHref}
-          className="btn btn-primary btn-lg"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {services.addon.cta}
-        </a>
-      </article>
-    </Section>
+
+        <div className="method-step addon-box">
+          <span className="section-badge">{services.addon.badge}</span>
+          <h3 className="step-title">{services.addon.title}</h3>
+          <p className="step-description">{services.addon.summary}</p>
+          <button className="btn-primary mt-2">{services.addon.cta}</button>
+        </div>
+      </div>
+    </section>
   );
 }

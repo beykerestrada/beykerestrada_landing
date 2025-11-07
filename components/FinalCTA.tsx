@@ -1,34 +1,37 @@
 "use client";
 
-// components/FinalCTA.tsx
-import Section from "./Section";
 import { useTranslations } from "./TranslationProvider";
 
-type Props = { upworkUrl: string; calendlyUrl?: string };
-
-export default function FinalCTA({ upworkUrl, calendlyUrl }: Props) {
+export default function FinalCta() {
   const dictionary = useTranslations();
-  const finalCta = dictionary.finalCta;
+  const final = dictionary.finalCta;
 
   return (
-    <Section id="contact" className="final-cta">
-      <div className="final-cta-shell">
-        <div className="final-cta-copy">
-          <span className="section-badge">{finalCta.badge}</span>
-          <h2>{finalCta.title}</h2>
-          <p>{finalCta.subtitle}</p>
-        </div>
-        <div className="final-cta-actions">
-          <a href={upworkUrl} className="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
-            {finalCta.primaryCta}
-          </a>
-          {calendlyUrl && (
-            <a href={calendlyUrl} className="btn btn-ghost btn-lg" target="_blank" rel="noopener noreferrer">
-              {finalCta.secondaryCta}
+    <section className="section-pad-lg final-cta-section">
+      <div className="container">
+        <div className="final-cta-card">
+          <span className="section-badge">{final.badge}</span>
+          <h2 className="section-title">{final.title}</h2>
+          <p className="section-subtitle">{final.subtitle}</p>
+
+          <div className="cta-actions">
+            <a
+              href="https://www.upwork.com/freelancers/~01577deb572030ada8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+            >
+              {final.primaryCta}
             </a>
-          )}
+            <a
+              href="#contact"
+              className="btn-secondary"
+            >
+              {final.secondaryCta}
+            </a>
+          </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

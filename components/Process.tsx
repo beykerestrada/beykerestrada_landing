@@ -1,7 +1,5 @@
 "use client";
 
-// components/Process.tsx
-import Section from "./Section";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Process() {
@@ -9,26 +7,21 @@ export default function Process() {
   const process = dictionary.process;
 
   return (
-    <Section id="process" className="process">
-      <div className="section-heading">
+    <section className="section-pad-lg">
+      <div className="container">
         <span className="section-badge">{process.badge}</span>
         <h2 className="section-title">{process.title}</h2>
         <p className="section-subtitle">{process.subtitle}</p>
-      </div>
 
-      <ol className="process-track">
-        {process.steps.map((step, index) => (
-          <li key={step.title} className="process-step">
-            <div className="process-step-marker">
-              <span>{index + 1}</span>
+        <div className="method-steps">
+          {process.steps.map((step, idx) => (
+            <div key={idx} className="method-step">
+              <h3 className="step-title">{step.title}</h3>
+              <p className="step-description">{step.desc}</p>
             </div>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </Section>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

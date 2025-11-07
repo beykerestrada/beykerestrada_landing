@@ -1,7 +1,5 @@
 "use client";
 
-// components/Value.tsx
-import Section from "./Section";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Value() {
@@ -9,24 +7,21 @@ export default function Value() {
   const value = dictionary.value;
 
   return (
-    <Section id="value" className="value">
-      <div className="value-headline">
+    <section className="section-pad-lg">
+      <div className="container">
         <span className="section-badge">{value.badge}</span>
         <h2 className="section-title">{value.title}</h2>
         <p className="section-subtitle">{value.subtitle}</p>
-      </div>
 
-      <div className="value-grid">
-        {value.cards.map((item, index) => (
-          <article key={item.title} className="value-card">
-            <span className="value-index">{index + 1}</span>
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
+        <div className="method-steps">
+          {value.cards.map((card, idx) => (
+            <div key={idx} className="method-step">
+              <h3 className="step-title">{card.title}</h3>
+              <p className="step-description">{card.desc}</p>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }
