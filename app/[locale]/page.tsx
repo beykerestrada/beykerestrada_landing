@@ -16,7 +16,7 @@ const CONSULTATION = "https://www.upwork.com/services/consultation/development-i
 export default function Page() {
   return (
     <main className="relative flex min-h-screen flex-col">
-      <Header upworkUrl={UPWORK} />
+      <Header />
       <Hero upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
       <Method />
       <Workflows />

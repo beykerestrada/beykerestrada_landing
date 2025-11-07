@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "./TranslationProvider";
-import { LOCALE_COOKIE } from "@/lib/i18n/dictionaries";
 
 export default function Header() {
   const pathname = usePathname();
@@ -54,6 +53,7 @@ export default function Header() {
             <div className="language-switcher">
               {Object.entries(header.languageNames).map(([locale, name]) => {
                 if (locale === currentLocale) return null;
+
                 return (
                   <Link
                     key={locale}
