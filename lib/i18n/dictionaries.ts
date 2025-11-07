@@ -20,13 +20,17 @@ export type SiteDictionary = {
     languageNames: Record<Locale, string>;
   };
   hero: {
-    badge: string;
     title: string;
     subtitle: string;
-    points: string[];
     primaryCta: string;
     secondaryCta: string;
   };
+  method: {
+    title: string;
+    intro: string;
+    steps: { title: string; description: string }[];
+  };
+
   value: {
     badge: string;
     title: string;
@@ -82,12 +86,12 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     header: {
       brand: "Beyker Estrada",
       nav: {
-      services: "Services",
-      value: "Value",
-      process: "Process",
-      contact: "Contact",
+        services: "Services",
+        value: "Value",
+        process: "Process",
+        contact: "Contact",
       },
-      hireCta: "Hire on Upwork",
+      hireCta: "Hire on Upwork →",
       themeToggle: "Toggle color theme",
       languageToggle: "Change language",
       languageNames: {
@@ -96,16 +100,28 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       },
     },
     hero: {
-      badge: "Notion & n8n systems for scaling teams",
-      title: "I build systems and automations that help teams scale without chaos.",
-      subtitle:
-        "Notion systems, n8n automations, and operational workflows that remove friction and increase clarity for every stakeholder.",
-      points: [
-        "Designing operational architecture for venture-backed teams that need traction without bottlenecks.",
-        "Hands-on build partner across Notion, n8n, and the tools you already rely on.",
-      ],
-      primaryCta: "Hire me on Upwork",
-      secondaryCta: "Book a strategy call",
+      title: "I design systems for people who think deeply and work better with structure.",
+      subtitle: "My name is Beyker Estrada. I help teams and solo founders make sense of their work—by building clear, scalable systems in Notion and automating the parts they shouldn’t touch twice.",
+      primaryCta: "Hire via Upwork",
+      secondaryCta: "Book a call"
+    },
+    method: {
+      title: "How I Work",
+      intro: "A clear structure to build fast, without chaos or handoffs.",
+      steps: [
+        {
+          title: "1. Reduce friction",
+          description: "We simplify everything—turning chaos into workflows and single sources of truth.",
+        },
+        {
+          title: "2. Build systems fast",
+          description: "No lengthy specs or endless back and forth. We build while we think.",
+        },
+        {
+          title: "3. Create clarity",
+          description: "You get dashboards that show progress, surface blockers, and guide action.",
+        }
+      ]
     },
     value: {
       badge: "Where the leverage is",
@@ -129,12 +145,12 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     },
     services: {
       badge: "Services",
-    title: "Build the infrastructure that keeps momentum high.",
-    subtitle:
-      "Every engagement includes discovery, design sprints, implementation, and enablement so your team adopts fast.",
-    fromLabel: "From",
-    learnMoreCta: "Request details",
-    cards: [
+      title: "Build the infrastructure that keeps momentum high.",
+      subtitle:
+        "Every engagement includes discovery, design sprints, implementation, and enablement so your team adopts fast.",
+      fromLabel: "From",
+      learnMoreCta: "Request details",
+      cards: [
         {
           title: "Notion systems",
           summary: "Company operating system tuned to decision velocity.",
@@ -211,10 +227,10 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     header: {
       brand: "Beyker Estrada",
       nav: {
-      services: "Servicios",
-      value: "Valor",
-      process: "Proceso",
-      contact: "Contacto",
+        services: "Servicios",
+        value: "Valor",
+        process: "Proceso",
+        contact: "Contacto",
       },
       hireCta: "Contrata en Upwork",
       themeToggle: "Cambiar tema de color",
@@ -225,16 +241,28 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       },
     },
     hero: {
-      badge: "Sistemas en Notion y n8n para equipos en crecimiento",
-      title: "Construyo sistemas y automatizaciones que permiten escalar sin caos.",
-      subtitle:
-        "Sistemas en Notion, automatizaciones con n8n y flujos operativos que eliminan fricción y dan claridad a cada responsable.",
-      points: [
-        "Arquitectura operativa para equipos con inversión que necesitan tracción sin cuellos de botella.",
-        "Acompañamiento práctico en Notion, n8n y las herramientas que ya usa tu equipo.",
-      ],
-      primaryCta: "Contrátame en Upwork",
-      secondaryCta: "Agenda una sesión estratégica",
+      title: "Diseño sistemas para personas que piensan en serio y trabajan mejor con estructura.",
+      subtitle: "Soy Beyker Estrada. Ayudo a equipos y fundadores a darle sentido a su trabajo—construyendo sistemas claros en Notion y automatizando las partes que no deberían hacerse dos veces.",
+      primaryCta: "Contratar por Upwork",
+      secondaryCta: "Agendar llamada"
+    },
+    method: {
+      title: "Mi forma de trabajar",
+      intro: "Una estructura clara para avanzar rápido, sin caos ni reprocesos.",
+      steps: [
+        {
+          title: "1. Reducir fricción",
+          description: "Simplificamos todo—convirtiendo caos en flujos y fuentes únicas de verdad.",
+        },
+        {
+          title: "2. Construir sistemas rápido",
+          description: "Nada de specs eternos o idas y vueltas. Pensamos y construimos al mismo tiempo.",
+        },
+        {
+          title: "3. Crear claridad",
+          description: "Vas a tener tableros que muestran avances, bloqueos y lo que hay que hacer.",
+        }
+      ]
     },
     value: {
       badge: "Donde está el apalancamiento",

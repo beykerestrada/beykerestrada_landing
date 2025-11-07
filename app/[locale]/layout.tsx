@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { TranslationProvider } from "@/components/TranslationProvider";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { DEFAULT_LOCALE, Locale, SUPPORTED_LOCALES, isLocale } from "@/lib/i18n/config";
+import "../globals.css"; 
+
 
 type ParamsPromise = Promise<{ locale: string }>;
 

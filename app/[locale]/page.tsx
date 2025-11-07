@@ -6,6 +6,7 @@ import Services from "@/components/Services";
 import Process from "@/components/Process";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import Method from "@/components/Method";
 
 const UPWORK = "https://www.upwork.com/freelancers/~01577deb572030ada8";
 const CALENDLY = ""; // set your calendly link when available
@@ -16,6 +17,7 @@ export default function Page() {
     <main className="relative flex min-h-screen flex-col">
       <Header upworkUrl={UPWORK} />
       <Hero upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
+      <Method />
       <Value />
       <Services upworkUrl={UPWORK} consultationUrl={CONSULTATION} />
       <Process />
