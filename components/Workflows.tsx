@@ -1,17 +1,17 @@
-"use client";
+"use client"
 
-import CardShell from "@/components/ui/card-shell";
-import Container from "@/components/ui/container";
-import SectionHeader from "@/components/ui/section-header";
-import Reveal from "@/components/motion/Reveal";
-import { useTranslations } from "./TranslationProvider";
+import CardShell from "@/components/ui/card-shell"
+import Container from "@/components/ui/container"
+import SectionHeader from "@/components/ui/section-header"
+import Reveal from "@/components/motion/Reveal"
+import { useTranslations } from "./TranslationProvider"
 
 export default function Workflows() {
-  const dictionary = useTranslations();
-  const workflows = dictionary.workflows;
+  const dictionary = useTranslations()
+  const workflows = dictionary.workflows
 
   return (
-    <section className="py-24" id="workflows">
+    <section className="bg-muted/60 py-24" id="workflows">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader
@@ -41,5 +41,5 @@ export default function Workflows() {
         </div>
       </Container>
     </section>
-  );
+  )
 }

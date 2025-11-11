@@ -1,24 +1,20 @@
-"use client";
+"use client"
 
-import CardShell from "@/components/ui/card-shell";
-import Container from "@/components/ui/container";
-import SectionHeader from "@/components/ui/section-header";
-import Reveal from "@/components/motion/Reveal";
-import { useTranslations } from "./TranslationProvider";
+import CardShell from "@/components/ui/card-shell"
+import Container from "@/components/ui/container"
+import SectionHeader from "@/components/ui/section-header"
+import Reveal from "@/components/motion/Reveal"
+import { useTranslations } from "./TranslationProvider"
 
 export default function Method() {
-  const dictionary = useTranslations();
-  const method = dictionary.method;
+  const dictionary = useTranslations()
+  const method = dictionary.method
 
   return (
-    <section className="py-24">
+    <section className="bg-muted/60 py-24">
       <Container className="space-y-10">
         <Reveal>
-          <SectionHeader
-            eyebrow={method.title}
-            title={method.intro}
-            align="center"
-          />
+          <SectionHeader eyebrow={method.title} title={method.intro} align="center" />
         </Reveal>
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -35,14 +31,12 @@ export default function Method() {
                 <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                   {step.title}
                 </span>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  {step.description}
-                </p>
+                <p className="text-base leading-relaxed text-muted-foreground">{step.description}</p>
               </CardShell>
             </Reveal>
           ))}
         </div>
       </Container>
     </section>
-  );
+  )
 }

@@ -1,59 +1,42 @@
-"use client";
+"use client"
 
-import Button from "@/components/ui/button";
-import Container from "@/components/ui/container";
-import SectionHeader from "@/components/ui/section-header";
-import Reveal from "@/components/motion/Reveal";
-import { useTranslations } from "./TranslationProvider";
+import Button from "@/components/ui/button"
+import Container from "@/components/ui/container"
+import SectionHeader from "@/components/ui/section-header"
+import Reveal from "@/components/motion/Reveal"
+import { useTranslations } from "./TranslationProvider"
 
 type Props = {
-  upworkUrl: string;
-  calendlyUrl?: string;
-};
+  upworkUrl: string
+  calendlyUrl?: string
+}
 
 export default function FinalCTA({ upworkUrl, calendlyUrl }: Props) {
-  const dictionary = useTranslations();
-  const final = dictionary.finalCta;
+  const dictionary = useTranslations()
+  const final = dictionary.finalCta
 
   return (
-    <section className="section-pad-lg">
-      <Container className="space-y-10 text-center">
+    <section className="relative bg-muted/30 py-24 md:py-32 lg:py-40">
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-muted/20 to-transparent" />
+
+      <Container className="space-y-12 text-center">
         <Reveal>
-          <SectionHeader
-            eyebrow={final.badge}
-            title={final.title}
-            description={final.subtitle}
-            align="center"
-          />
+          <SectionHeader eyebrow={final.badge} title={final.title} description={final.subtitle} align="center" />
         </Reveal>
 
-        <div className="flex flex-wrap justify-center gap-3">
-          <Button
-            as="a"
-            href={upworkUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="primary"
-          >
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <Button as="a" href={upworkUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="lg">
             {final.primaryCta}
           </Button>
           {calendlyUrl && (
-            <Button
-              as="a"
-              href={calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="ghost"
-            >
+            <Button as="a" href={calendlyUrl} target="_blank" rel="noopener noreferrer" variant="ghost" size="lg">
               {final.secondaryCta}
             </Button>
           )}
         </div>
 
-        <p className="text-sm text-muted-foreground">
-          {final.expectation}
-        </p>
+        <p className="text-base text-muted-foreground">{final.expectation}</p>
       </Container>
     </section>
-  );
+  )
 }

@@ -1,25 +1,20 @@
-"use client";
+"use client"
 
-import Reveal from "@/components/motion/Reveal";
-import CardShell from "@/components/ui/card-shell";
-import Container from "@/components/ui/container";
-import SectionHeader from "@/components/ui/section-header";
-import { useTranslations } from "./TranslationProvider";
+import Reveal from "@/components/motion/Reveal"
+import CardShell from "@/components/ui/card-shell"
+import Container from "@/components/ui/container"
+import SectionHeader from "@/components/ui/section-header"
+import { useTranslations } from "./TranslationProvider"
 
 export default function WhoIWorkWith() {
-  const dictionary = useTranslations();
-  const section = dictionary.whoIWorkWith;
+  const dictionary = useTranslations()
+  const section = dictionary.whoIWorkWith
 
   return (
-    <section className="py-24" aria-labelledby="who-i-work-with-heading">
+    <section className="bg-background py-24" aria-labelledby="who-i-work-with-heading">
       <Container className="space-y-10">
         <Reveal>
-          <SectionHeader
-            id="who-i-work-with-heading"
-            eyebrow={section.eyebrow}
-            title={section.title}
-            align="center"
-          />
+          <SectionHeader id="who-i-work-with-heading" eyebrow={section.eyebrow} title={section.title} align="center" />
         </Reveal>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -38,5 +33,5 @@ export default function WhoIWorkWith() {
         </Reveal>
       </Container>
     </section>
-  );
+  )
 }

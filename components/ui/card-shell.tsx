@@ -1,18 +1,18 @@
-import * as React from "react";
+import type * as React from "react"
 
-type Tone = "solid" | "muted";
+type Tone = "solid" | "muted"
 
 type CardShellProps<T extends React.ElementType = "article"> = {
-  as?: T;
-  tone?: Tone;
-  className?: string;
-  children?: React.ReactNode;
-} & Omit<React.ComponentPropsWithoutRef<T>, "as" | "className" | "children">;
+  as?: T
+  tone?: Tone
+  className?: string
+  children?: React.ReactNode
+} & Omit<React.ComponentPropsWithoutRef<T>, "as" | "className" | "children">
 
 const toneStyles: Record<Tone, string> = {
-  solid: "bg-card border-border",
-  muted: "bg-muted border-transparent",
-};
+  solid: "bg-card border-border/60",
+  muted: "bg-muted/40 border-border/40",
+}
 
 export default function CardShell<T extends React.ElementType = "article">({
   as,
@@ -21,19 +21,19 @@ export default function CardShell<T extends React.ElementType = "article">({
   children,
   ...props
 }: CardShellProps<T>) {
-  const Component = (as ?? "article") as React.ElementType;
+  const Component = (as ?? "article") as React.ElementType
   const classes = [
-    "rounded-2xl border shadow-card p-6 md:p-8 transition-shadow duration-base ease-soft",
-    "hover:shadow-subtle focus-within:shadow-subtle",
+    "rounded-xl border p-8 md:p-10 transition-all duration-200 ease-out",
+    "shadow-subtle hover:shadow-card hover:border-border/80 hover:-translate-y-0.5",
     toneStyles[tone],
     className,
   ]
     .filter(Boolean)
-    .join(" ");
+    .join(" ")
 
   return (
     <Component className={classes} {...props}>
       {children}
     </Component>
-  );
+  )
 }

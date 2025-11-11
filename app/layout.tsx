@@ -1,4 +1,3 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StructuredData from "@/components/seo/StructuredData";
@@ -44,6 +43,7 @@ export const metadata: Metadata = {
     description: DEFAULT_SEO.description,
     images: [DEFAULT_SEO.image],
   },
+    generator: 'v0.app'
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

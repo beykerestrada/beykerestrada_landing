@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import Reveal from "@/components/motion/Reveal";
-import Container from "@/components/ui/container";
-import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/Reveal"
+import Container from "@/components/ui/container"
+import SectionHeader from "@/components/ui/section-header"
 
-const LOGOS = ["OpenAI", "Notion", "Zapier", "n8n", "Make", "Google Suite"];
+const LOGOS = ["OpenAI", "Notion", "Zapier", "n8n", "Make", "Google Suite"]
 
 export default function Trust() {
   return (
-    <section className="border-y border-border/60 bg-muted/30 py-16">
+    <section className="border-y border-border/60 bg-background py-16">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader
@@ -30,5 +30,5 @@ export default function Trust() {
         </div>
       </Container>
     </section>
-  );
+  )
 }
