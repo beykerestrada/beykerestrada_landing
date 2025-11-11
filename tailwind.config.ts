@@ -78,7 +78,7 @@ const config: Config = {
     },
   },
   plugins: [
-    function ({ addBase }) {
+    function ({ addBase }: { addBase: (styles: Record<string, unknown>) => void }) {
       addBase({
         ":root": {
           "--tw-ring-color": "hsl(var(--ring))",
