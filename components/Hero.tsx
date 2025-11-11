@@ -1,5 +1,8 @@
 "use client";
 
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import Reveal from "@/components/motion/Reveal";
 import { useTranslations } from "./TranslationProvider";
 
 type Props = {
@@ -12,53 +15,45 @@ export default function Hero({ upworkUrl, calendlyUrl }: Props) {
   const hero = dictionary.hero;
 
   return (
-    <section className="section-pad-lg">
-      <div className="container" style={{ maxWidth: "820px" }}>
-        <h1
-          className="h0"
-          style={{
-            marginBottom: "2.4rem",
-            lineHeight: "1.15",
-            letterSpacing: "-0.015em",
-          }}
-        >
-          {hero.title}
-        </h1>
+    <section className="bg-background py-24 sm:py-32">
+      <Container className="space-y-10">
+        <Reveal>
+          <div className="space-y-6 text-balance">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+              Systems & Automation
+            </p>
+            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+              {hero.title}
+            </h1>
+            <p className="text-lg leading-relaxed text-muted-foreground">
+              {hero.subtitle}
+            </p>
+          </div>
+        </Reveal>
 
-        <p
-          className="p-lg"
-          style={{
-            marginBottom: "3.2rem",
-            fontSize: "18px",
-            lineHeight: "1.75",
-            color: "var(--muted)",
-          }}
-        >
-          {hero.subtitle}
-        </p>
-
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-          <a
+        <div className="flex flex-wrap gap-4">
+          <Button
+            as="a"
             href={upworkUrl}
-            className="btn btn-primary btn-lg"
             target="_blank"
             rel="noopener noreferrer"
+            variant="primary"
           >
             {hero.primaryCta}
-          </a>
-
+          </Button>
           {calendlyUrl && (
-            <a
+            <Button
+              as="a"
               href={calendlyUrl}
-              className="btn btn-ghost btn-lg"
               target="_blank"
               rel="noopener noreferrer"
+              variant="ghost"
             >
               {hero.secondaryCta}
-            </a>
+            </Button>
           )}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -8,6 +8,11 @@ import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import Method from "@/components/Method";
 import Workflows from "@/components/Workflows";
+import Trust from "@/components/Trust";
+import HowIWork from "@/components/HowIWork";
+import MicroTestimonials from "@/components/MicroTestimonials";
+import WhoIWorkWith from "@/components/WhoIWorkWith";
+import CaseSnapshot from "@/components/CaseSnapshot";
 
 const UPWORK = "https://www.upwork.com/freelancers/~01577deb572030ada8";
 const CALENDLY = ""; // set your calendly link when available
@@ -19,10 +24,15 @@ export default function Page() {
       <Header />
       <Hero upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
       <Method />
+      <Trust />
       <Workflows />
       <Value />
       <Services upworkUrl={UPWORK} consultationUrl={CONSULTATION} />
       <Process />
+      <HowIWork />
+      <MicroTestimonials />
+      <CaseSnapshot />
+      <WhoIWorkWith />
       <FinalCTA upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
       <Footer upworkUrl={UPWORK} />
     </main>

@@ -1,5 +1,7 @@
 "use client";
 
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import { useTranslations } from "./TranslationProvider";
 
 type Props = {
@@ -11,19 +13,24 @@ export default function Footer({ upworkUrl }: Props) {
   const footer = dictionary.footer;
 
   return (
-    <footer className="site-footer">
-      <div className="container">
-        <p className="footer-brand">{footer.brand}</p>
+    <footer className="border-t border-border py-12 text-sm text-muted-foreground">
+      <Container className="flex flex-col items-center gap-4 text-center">
+        <p className="text-base font-medium text-foreground">
+          {footer.brand}
+        </p>
 
-        <a
+        <Button
+          as="a"
           href={upworkUrl}
-          className="footer-cta"
           target="_blank"
           rel="noopener noreferrer"
+          variant="ghost"
         >
           {footer.cta}
-        </a>
-      </div>
+        </Button>
+
+        <p className="text-xs text-muted-foreground">{footer.legal}</p>
+      </Container>
     </footer>
   );
 }

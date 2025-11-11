@@ -1,5 +1,10 @@
 "use client";
 
+import Button from "@/components/ui/button";
+import CardShell from "@/components/ui/card-shell";
+import Container from "@/components/ui/container";
+import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/Reveal";
 import { useTranslations } from "./TranslationProvider";
 
 type Props = {
@@ -12,57 +17,71 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
   const services = dictionary.services;
 
   return (
-    <section className="section-pad-lg" id="services">
-      <div className="container">
-        <span className="section-badge">{services.badge}</span>
-        <h2 className="section-title">{services.title}</h2>
-        <p className="p-lg mb-10 max-w-2xl">{services.subtitle}</p>
+    <section className="bg-background py-24" id="services">
+      <Container className="space-y-12">
+        <Reveal>
+          <SectionHeader
+            eyebrow={services.badge}
+            title={services.title}
+            description={services.subtitle}
+            align="center"
+          />
+        </Reveal>
 
-        <div className="workflow-grid">
-          {services.cards.map((card, idx) => (
-            <div key={idx} className="workflow-card">
-              <h3 className="step-title">{card.title}</h3>
-              <p className="step-description mb-3">{card.summary}</p>
-              <ul className="list-disc list-inside mb-2 text-sm text-muted">
-                {card.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx}>{bullet}</li>
-                ))}
-              </ul>
-              <p className="step-price">
-                {services.fromLabel} {card.price}
-              </p>
-            </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.cards.map((card) => (
+            <Reveal key={card.title}>
+              <CardShell className="flex h-full flex-col gap-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold text-foreground">{card.title}</h3>
+                  <p className="text-base text-muted-foreground">{card.summary}</p>
+                </div>
+                <ul className="space-y-1 text-sm text-muted-foreground">
+                  {card.bullets.map((bullet) => (
+                    <li key={bullet} className="list-inside list-disc">
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-sm font-semibold text-foreground">
+                  {services.fromLabel} {card.price}
+                </p>
+              </CardShell>
+            </Reveal>
           ))}
         </div>
 
-        {/* Add-on block */}
-        <div className="addon-box">
-          <span className="section-badge">{services.addon.badge}</span>
-          <h3 className="step-title mt-2">{services.addon.title}</h3>
-          <p className="step-description mb-4">{services.addon.summary}</p>
-          <a
-            href={consultationUrl}
-            className="btn btn-ghost inline-block mt-2"
-            target="_blank"
-          >
-            {services.addon.cta}
-          </a>
-        </div>
+       <Reveal>
+          <CardShell tone="muted" className="space-y-4 text-center md:text-left">
+            <span className="inline-flex items-center justify-center rounded-full border border-border/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+              {services.addon.badge}
+            </span>
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold text-foreground">{services.addon.title}</h3>
+              <p className="text-base text-muted-foreground">{services.addon.summary}</p>
+            </div>
+            <Button
+              as="a"
+              href={consultationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="ghost"
+              className="self-center md:self-start"
+            >
+              {services.addon.cta}
+            </Button>
+          </CardShell>
+        </Reveal>
 
-        {/* CTA */}
-        <div className="services-cta mt-12 flex flex-wrap gap-4">
-          <a href={upworkUrl} className="btn btn-primary" target="_blank">
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button as="a" href={upworkUrl} target="_blank" rel="noopener noreferrer" variant="primary">
             {services.learnMoreCta}
-          </a>
-          <a
-            href={consultationUrl}
-            className="btn btn-ghost"
-            target="_blank"
-          >
+          </Button>
+          <Button as="a" href={consultationUrl} target="_blank" rel="noopener noreferrer" variant="ghost">
             {services.addon.cta}
-          </a>
+          </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

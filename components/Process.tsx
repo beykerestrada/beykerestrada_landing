@@ -1,5 +1,9 @@
 "use client";
 
+import CardShell from "@/components/ui/card-shell";
+import Container from "@/components/ui/container";
+import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/Reveal";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Process() {
@@ -7,21 +11,28 @@ export default function Process() {
   const process = dictionary.process;
 
   return (
-    <section className="section-pad-lg">
-      <div className="container">
-        <span className="section-badge">{process.badge}</span>
-        <h2 className="section-title">{process.title}</h2>
-        <p className="section-subtitle">{process.subtitle}</p>
+    <section className="py-24" id="process">
+      <Container className="space-y-12">
+        <Reveal>
+          <SectionHeader
+            eyebrow={process.badge}
+            title={process.title}
+            description={process.subtitle}
+            align="center"
+          />
+        </Reveal>
 
-        <div className="method-steps">
-          {process.steps.map((step, idx) => (
-            <div key={idx} className="method-step">
-              <h3 className="step-title">{step.title}</h3>
-              <p className="step-description">{step.desc}</p>
-            </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {process.steps.map((step) => (
+            <Reveal key={step.title}>
+              <CardShell className="space-y-2">
+                <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
+                <p className="text-base text-muted-foreground">{step.desc}</p>
+              </CardShell>
+            </Reveal>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

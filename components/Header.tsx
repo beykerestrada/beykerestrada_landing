@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Container from "@/components/ui/container";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Header() {
@@ -18,59 +19,53 @@ export default function Header() {
   };
 
   return (
-    <header className="site-header">
-      <div className="container">
-        <div className="nav-wrapper">
-          <Link href={`/${currentLocale}`} className="brand">
-            {header.brand}
+    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
+      <Container className="flex items-center justify-between py-5">
+        <Link href={`/${currentLocale}`} className="font-semibold tracking-tight text-foreground">
+          {header.brand}
+        </Link>
+
+        <nav className="hidden items-center gap-6 text-sm font-medium text-muted-foreground md:flex">
+          <Link href={`/${currentLocale}#services`} className="hover:text-foreground">
+            {header.nav.services}
           </Link>
+          <Link href={`/${currentLocale}#value`} className="hover:text-foreground">
+            {header.nav.value}
+          </Link>
+          <Link href={`/${currentLocale}#process`} className="hover:text-foreground">
+            {header.nav.process}
+          </Link>
+          <Link href={`/${currentLocale}#contact`} className="hover:text-foreground">
+            {header.nav.contact}
+          </Link>
+        </nav>
 
-          <nav className="nav-links">
-            <Link href={`/${currentLocale}#services`} className="nav-link">
-              {header.nav.services}
-            </Link>
-            <Link href={`/${currentLocale}#value`} className="nav-link">
-              {header.nav.value}
-            </Link>
-            <Link href={`/${currentLocale}#process`} className="nav-link">
-              {header.nav.process}
-            </Link>
-            <Link href={`/${currentLocale}#contact`} className="nav-link">
-              {header.nav.contact}
-            </Link>
-          </nav>
+        <div className="flex items-center gap-4">
+          <a
+            href="https://www.upwork.com/freelancers/~01577deb572030ada8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center rounded-full border border-border/70 px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-muted"
+          >
+            {header.hireCta}
+          </a>
 
-          <div className="nav-actions">
-            <a
-              href="https://www.upwork.com/freelancers/~01577deb572030ada8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hire-cta"
-            >
-              {header.hireCta}
-            </a>
-
-            <div className="language-switcher">
-              {Object.entries(header.languageNames).map(([locale, name]) => {
-                if (locale === currentLocale) return null;
-
-                return (
-                  <Link
-                    key={locale}
-                    href={buildLocalizedPath(locale)}
-                    className="language-button"
-                    hrefLang={locale}
-                    prefetch={false}
-                    locale={false}
-                  >
-                    {name}
-                  </Link>
-                );
-              })}
-            </div>
+          <div className="hidden items-center gap-3 text-xs uppercase tracking-[0.3em] text-muted-foreground sm:flex">
+            {Object.entries(header.languageNames).map(([locale, name]) => (
+              <Link
+                key={locale}
+                href={buildLocalizedPath(locale)}
+                hrefLang={locale}
+                prefetch={false}
+                locale={false}
+                className={locale === currentLocale ? "text-foreground" : "hover:text-foreground"}
+              >
+                {name}
+              </Link>
+            ))}
           </div>
         </div>
-      </div>
+      </Container>
     </header>
   );
 }

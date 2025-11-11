@@ -1,5 +1,9 @@
 "use client";
 
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
+import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/Reveal";
 import { useTranslations } from "./TranslationProvider";
 
 type Props = {
@@ -13,21 +17,43 @@ export default function FinalCTA({ upworkUrl, calendlyUrl }: Props) {
 
   return (
     <section className="section-pad-lg">
-      <div className="container center-content">
-        <h2 className="section-title">{final.title}</h2>
-        <p className="section-description">{final.subtitle}</p>
+      <Container className="space-y-10 text-center">
+        <Reveal>
+          <SectionHeader
+            eyebrow={final.badge}
+            title={final.title}
+            description={final.subtitle}
+            align="center"
+          />
+        </Reveal>
 
-        <div className="cta-buttons">
-          <a href={upworkUrl} className="btn btn-primary" target="_blank">
+        <div className="flex flex-wrap justify-center gap-3">
+          <Button
+            as="a"
+            href={upworkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="primary"
+          >
             {final.primaryCta}
-          </a>
+          </Button>
           {calendlyUrl && (
-            <a href={calendlyUrl} className="btn btn-ghost" target="_blank">
+            <Button
+              as="a"
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="ghost"
+            >
               {final.secondaryCta}
-            </a>
+            </Button>
           )}
         </div>
-      </div>
+
+        <p className="text-sm text-muted-foreground">
+          {final.expectation}
+        </p>
+      </Container>
     </section>
   );
 }

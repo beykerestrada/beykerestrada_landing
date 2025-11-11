@@ -1,27 +1,48 @@
-// components/Method.tsx
 "use client";
 
+import CardShell from "@/components/ui/card-shell";
+import Container from "@/components/ui/container";
+import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/Reveal";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Method() {
-    const dictionary = useTranslations();
-    const method = dictionary.method;
+  const dictionary = useTranslations();
+  const method = dictionary.method;
 
-    return (
-        <section className="section-pad-lg method-section">
-            <div className="container">
-                <span className="section-badge">{method.title}</span>
-                <h2 className="section-title">{method.intro}</h2>
+  return (
+    <section className="py-24">
+      <Container className="space-y-10">
+        <Reveal>
+          <SectionHeader
+            eyebrow={method.title}
+            title={method.intro}
+            align="center"
+          />
+        </Reveal>
 
-                <div className="method-steps">
-                    {method.steps.map((step, idx) => (
-                        <div key={idx} className="method-step">
-                            <h3 className="step-title">{step.title}</h3>
-                            <p className="step-description">{step.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+        <div className="grid gap-6 md:grid-cols-2">
+          {method.steps.map((step, idx) => (
+            <Reveal
+              key={step.title}
+              transition={{
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+                delay: idx * 0.12,
+              }}
+            >
+              <CardShell className="space-y-2">
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                  {step.title}
+                </span>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
+              </CardShell>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
 }

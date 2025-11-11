@@ -1,5 +1,9 @@
 "use client";
 
+import CardShell from "@/components/ui/card-shell";
+import Container from "@/components/ui/container";
+import SectionHeader from "@/components/ui/section-header";
+import Reveal from "@/components/motion/Reveal";
 import { useTranslations } from "./TranslationProvider";
 
 export default function Value() {
@@ -7,21 +11,28 @@ export default function Value() {
   const value = dictionary.value;
 
   return (
-    <section className="section-pad-lg">
-      <div className="container">
-        <span className="section-badge">{value.badge}</span>
-        <h2 className="section-title">{value.title}</h2>
-        <p className="section-subtitle">{value.subtitle}</p>
+    <section className="bg-background py-24" id="value">
+      <Container className="space-y-10">
+        <Reveal>
+          <SectionHeader
+            eyebrow={value.badge}
+            title={value.title}
+            description={value.subtitle}
+            align="center"
+          />
+        </Reveal>
 
-        <div className="method-steps">
-          {value.cards.map((card, idx) => (
-            <div key={idx} className="method-step">
-              <h3 className="step-title">{card.title}</h3>
-              <p className="step-description">{card.desc}</p>
-            </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {value.cards.map((card) => (
+            <Reveal key={card.title}>
+              <CardShell className="space-y-2">
+                <h3 className="text-lg font-semibold text-foreground">{card.title}</h3>
+                <p className="text-base text-muted-foreground">{card.desc}</p>
+              </CardShell>
+            </Reveal>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

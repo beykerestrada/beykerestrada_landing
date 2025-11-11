@@ -75,6 +75,20 @@ export type SiteDictionary = {
     subtitle: string;
     primaryCta: string;
     secondaryCta: string;
+    expectation: string;
+  };
+  whoIWorkWith: {
+    eyebrow: string;
+    title: string;
+    bullets: { title: string; detail: string }[];
+    note: string;
+  };
+  caseSnapshot: {
+    eyebrow: string;
+    title: string;
+    client: string;
+    scope: string;
+    outcome: string;
   };
   footer: {
     description: string;
@@ -258,11 +272,38 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     },
     finalCta: {
       badge: "Final step",
-      title: "Ready to streamline your operations?",
+      title: "Engage with a strategic systems partner.",
       subtitle:
-        "Kick off with a scoped engagement on Upwork or book a strategy session to map the next build.",
-      primaryCta: "Hire me on Upwork",
-      secondaryCta: "Book a strategy call",
+        "Clarify the next build, align on decision cadence, and keep your operating stack evolving with the realities of your team.",
+      primaryCta: "Schedule a Strategy Session",
+      secondaryCta: "Discuss Your System Needs",
+      expectation: "We focus on founders and teams building scalable, operationally excellent companies.",
+    },
+    whoIWorkWith: {
+      eyebrow: "Who I work with",
+      title: "For founders and operators building resilient, scalable systems",
+      bullets: [
+        {
+          title: "Founders stewarding complex operations",
+          detail: "Hands-on leaders bringing clarity to how product, go-to-market, and delivery teams move in sync.",
+        },
+        {
+          title: "Operators scaling high-leverage teams",
+          detail: "Ops, BizOps, and Chiefs of Staff designing rituals, data, and automations for predictable execution.",
+        },
+        {
+          title: "Product builders embedding intelligence",
+          detail: "Teams weaving AI, workflows, and human context into the stack without losing governance or pace.",
+        },
+      ],
+      note: "Not a fit for one-off tasks or automation hacks.",
+    },
+    caseSnapshot: {
+      eyebrow: "Recent Work",
+      title: "A systems engagement example",
+      client: "Client: Revenue operations team scaling across 4 business units.",
+      scope: "System scope: Notion OS + n8n automations + reporting layer connected to CRM and product data.",
+      outcome: "Outcome: Single source of truth for priorities, 40% faster standups, clear decision cadence across leads.",
     },
     footer: {
       description: "Beyker Estrada — Senior automation consultant.",
@@ -447,11 +488,38 @@ const dictionaries: Record<Locale, SiteDictionary> = {
   },
   finalCta: {
     badge: "Último paso",
-    title: "¿Listo para optimizar tus operaciones?",
+    title: "Trabaja con un socio estratégico en sistemas.",
     subtitle:
-      "Comencemos con un alcance definido en Upwork o agenda una sesión estratégica para mapear el siguiente build.",
-    primaryCta: "Contrátame en Upwork",
-    secondaryCta: "Agenda una sesión estratégica",
+      "Definimos el próximo build, alineamos cadencias de decisión y mantenemos tu stack operativo en sintonía con la realidad del equipo.",
+    primaryCta: "Agenda una sesión estratégica",
+    secondaryCta: "Conversemos sobre tus sistemas",
+    expectation: "Nos enfocamos en fundadores y equipos que construyen compañías operativamente excelentes y escalables.",
+  },
+  whoIWorkWith: {
+    eyebrow: "Con quién trabajo",
+    title: "Para fundadores y operadores que construyen sistemas resilientes",
+    bullets: [
+      {
+        title: "Fundadores con operaciones complejas",
+        detail: "Líderes involucrados que buscan claridad sobre cómo producto, go-to-market y delivery se sincronizan.",
+      },
+      {
+        title: "Operadores que escalan equipos de alto apalancamiento",
+        detail: "Ops, BizOps o Chiefs of Staff que diseñan rituales, datos y automatizaciones para ejecutar con precisión.",
+      },
+      {
+        title: "Constructores de producto que integran inteligencia",
+        detail: "Equipos que incorporan IA, workflows y contexto humano sin perder gobernanza ni ritmo.",
+      },
+    ],
+    note: "No es un fit para tareas puntuales o automatizaciones improvisadas.",
+  },
+  caseSnapshot: {
+    eyebrow: "Trabajo reciente",
+    title: "Ejemplo de un engagement de sistemas",
+    client: "Cliente: Equipo de revenue operations escalando en 4 unidades de negocio.",
+    scope: "Alcance: Notion OS + automatizaciones en n8n + capa de reporting conectada a CRM y datos de producto.",
+    outcome: "Resultado: Fuente única de verdad, standups 40% más ágiles y cadencia clara entre responsables.",
   },
   footer: {
     description: "Beyker Estrada — Consultor senior en automatización.",
