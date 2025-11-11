@@ -9,7 +9,7 @@ type RevealProps<T extends React.ElementType = "div"> = {
   transition?: MotionProps["transition"];
   className?: string;
   children: React.ReactNode;
-} & Omit<React.ComponentPropsWithoutRef<T>, "as" | keyof MotionProps>;
+} & Omit<React.ComponentPropsWithoutRef<T>, "as" | "children">;
 
 // Mirrors tokens: var(--dur-long) = 0.4s and var(--ease-soft) = cubic-bezier(0.22, 1, 0.36, 1)
 const DEFAULT_EASE: MotionProps["transition"] = {
@@ -26,28 +26,30 @@ export default function Reveal<T extends React.ElementType = "div">({
   ...rest
 }: RevealProps<T>) {
   const shouldReduceMotion = useReducedMotion();
-  const Component = motion(as ?? "div") as React.ComponentType<
+  const ComponentTag = (as ?? "div") as React.ElementType;
+  const MotionComponent = motion(ComponentTag) as React.ComponentType<
     React.ComponentPropsWithoutRef<T> & MotionProps
   >;
+  const componentProps = rest as React.ComponentPropsWithoutRef<T>;
 
   if (shouldReduceMotion) {
     return (
-      <Component className={className} {...rest}>
+      <ComponentTag className={className} {...componentProps}>
         {children}
-      </Component>
+      </ComponentTag>
     );
   }
 
   return (
-    <Component
+    <MotionComponent
       className={className}
       initial={{ opacity: 0, y: 8 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={transition ?? { ...DEFAULT_EASE, delay }}
-      {...rest}
+      {...componentProps}
     >
       {children}
-    </Component>
+    </MotionComponent>
   );
 }
