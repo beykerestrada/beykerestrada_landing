@@ -45,11 +45,11 @@ export type SiteDictionary = {
     badge: string
     title: string
     subtitle: string
-    intro: string // ← AÑADIDO
+    intro: string
     fromLabel: string
     learnMoreCta: string
-    primaryCta: string // ← AÑADIDO
-    secondaryCta: string // ← AÑADIDO
+    primaryCta: string
+    secondaryCta: string
     cards: {
       title: string
       summary: string
@@ -104,8 +104,9 @@ export type SiteDictionary = {
 const dictionaries: Record<Locale, SiteDictionary> = {
   en: {
     meta: {
-      title: "Beyker Estrada · Notion, n8n Systems",
-      description: "I build Notion systems and n8n automations that reduce friction and scale teams.",
+      title: "Beyker Estrada · Business Operating Systems",
+      description:
+        "I transform disconnected operations into clear, centralized and automated systems that give teams time and leadership control.",
     },
     header: {
       brand: "Beyker Estrada",
@@ -115,7 +116,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         process: "Process",
         contact: "Contact",
       },
-      hireCta: "Hire on Upwork →",
+      hireCta: "Hire on Upwork",
       themeToggle: "Toggle color theme",
       languageToggle: "Change language",
       languageNames: {
@@ -124,180 +125,227 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       },
     },
     hero: {
-      title: "I design systems for people who think deeply and work better with structure.",
+      title: "Transform disconnected operations into a business that runs on systems",
       subtitle:
-        "My name is Beyker Estrada. I help teams and solo founders make sense of their work—by building clear, scalable systems in Notion and automating the parts they shouldn’t touch twice.",
-      primaryCta: "Hire via Upwork",
-      secondaryCta: "Book a call",
+        "I work with founders and teams who are already busy ; but feel their operation is heavier than it should be. Together we design and implement a clear, centralized and automated operating system so work flows, people align and decisions are made on real data instead of constant firefighting.",
+      primaryCta: "Book a working session",
+      secondaryCta: "View Upwork profile",
     },
     method: {
-      title: "How I Work",
-      intro: "A clear structure to build fast, without chaos or handoffs.",
+      title: "How we move from chaos to clarity",
+      intro: "A structured process that starts from how your business really works today and lands in a system your team actually uses.",
       steps: [
         {
-          title: "1. Reduce friction",
-          description: "We simplify everything—turning chaos into workflows and single sources of truth.",
+          title: "Operational diagnosis",
+          description:
+            "We map your current processes, tools and recurring problems. The goal is to see how work actually flows, not how it looks in a slide.",
         },
         {
-          title: "2. Build systems fast",
-          description: "No lengthy specs or endless back and forth. We build while we think.",
+          title: "System architecture",
+          description:
+            "We design how your business should run as a system. Where information lives, how tasks move, what gets automated and what leadership needs to see every day.",
         },
         {
-          title: "3. Create clarity",
-          description: "You get dashboards that show progress, surface blockers, and guide action.",
+          title: "Build and automation",
+          description:
+            "I implement your Business OS in Notion and connect the necessary tools with automations. From lead intake and client management to projects, finances and reporting.",
+        },
+        {
+          title: "Decision dashboards",
+          description:
+            "We create the views and dashboards that matter for each role. Everyone sees what they need without chasing updates.",
+        },
+        {
+          title: "Rollout and training",
+          description:
+            "We onboard your team, remove friction and close gaps so the system becomes part of everyday work instead of another abandoned project.",
         },
       ],
     },
     workflows: {
-      badge: "Workflows",
-      title: "What my systems actually look like",
-      intro: "Examples of real systems I build to streamline operations.",
+      badge: "Systems in practice",
+      title: "What these systems look like in real teams",
+      intro:
+        "Each engagement is tailored ; but most systems fall into a few recognizable patterns that combine clients, work, numbers and decisions.",
       steps: [
         {
-          title: "Notion Control Hub",
-          description: "A central dashboard connecting Projects, Tasks, and Company OS for visibility and action.",
+          title: "Sales and CRM workspace",
+          description:
+            "A Notion based CRM connected to Calendly and email. Leads move across clear stages, follow ups are visible and pipeline is something you see, not something you ask for.",
         },
         {
-          title: "n8n Lead Flow",
-          description: "Webhook intake → enrichment → routing. No manual follow-ups or handoffs.",
+          title: "Finance and operations control",
+          description:
+            "A simple operational finance system that tracks payments to suppliers, payments from clients, tax exposure and profitability so the owner stops guessing and starts deciding.",
+        },
+        {
+          title: "Coaching business OS",
+          description:
+            "Clients, sessions, payments and acquisition channels in one place with a dashboard that shows revenue, funnel health and service performance.",
+        },
+        {
+          title: "Team collaboration and delivery",
+          description:
+            "Shared projects and tasks for the team ; strategic views for management. Less follow up, fewer surprises and a clearer sense of where work is stuck.",
         },
       ],
     },
     value: {
       badge: "Where the leverage is",
-      title: "Operational clarity without the complexity.",
+      title: "Operational clarity the whole team can feel",
       subtitle:
-        "Engagements combine systems thinking with hands-on build so that your team gains leverage immediately.",
+        "The goal is not a pretty workspace. The goal is a business that runs on explicit processes, shared data and predictable execution instead of improvisation and heroic efforts.",
       cards: [
         {
-          title: "Reduce operational friction",
-          desc: "Tight workflows, single sources of truth, and automations that replace handoffs.",
+          title: "Time back for the people who decide",
+          desc: "Systems and automations take over repetitive and low leverage work so leadership can focus on strategy and key conversations.",
         },
         {
-          title: "Ship systems fast",
-          desc: "Strategy, build, and iteration moved into one engagement with clear ownership.",
+          title: "Alignment without more meetings",
+          desc: "When work, clients and numbers live in one system, teams align through shared views instead of extra status calls.",
         },
         {
-          title: "Leadership visibility",
-          desc: "Executive-ready dashboards that surface risk, velocity, and the signals that matter.",
+          title: "Decisions grounded in real data",
+          desc: "Dashboards and reporting show what is happening across pipeline, workload and performance so decisions stop relying on guesswork.",
         },
       ],
     },
     services: {
       badge: "Services",
-      title: "Build the infrastructure that keeps momentum high.",
+      title: "Business operating systems for teams already in motion",
       subtitle:
-        "Every engagement includes discovery, design sprints, implementation, and enablement so your team adopts fast.",
-      intro: "High-leverage systems for clarity and scale.",
+        "I prefer a few deep projects rather than many scattered ones. Work is focused on building the systems that will matter for years, not weeks.",
+      intro: "Clear offers built around architecture, implementation and ongoing evolution of your operating system.",
       fromLabel: "From",
       learnMoreCta: "Request details",
-      primaryCta: "View profile on Upwork",
-      secondaryCta: "Request a consultation",
+      primaryCta: "Discuss your context",
+      secondaryCta: "Request a systems audit",
       cards: [
         {
-          title: "Notion systems",
-          summary: "Company operating system tuned to decision velocity.",
-          bullets: ["Company OS", "CRM & pipeline views", "Cross-functional projects"],
-          price: "$1,500",
+          title: "Business OS design and implementation",
+          summary:
+            "Full engagement where we map your operation, design your Business OS and implement it with automations and dashboards.",
+          bullets: [
+            "End to end systems architecture",
+            "Notion based Business OS implementation",
+            "Automation of critical workflows",
+          ],
+          price: "$3,000+",
         },
         {
-          title: "n8n automation builds",
-          summary: "Orchestrated workflows that keep teams in sync without manual effort.",
-          bullets: ["Data syncs & enrichment", "Lifecycle & email automations", "CRM hygiene routines"],
-          price: "$1,800",
+          title: "Operational systems audit",
+          summary:
+            "A focused review of your current tools, workflows and data model. You keep a clear diagnosis and a prioritized action plan.",
+          bullets: [
+            "Audit of tools and processes",
+            "Systems blueprint and gaps",
+            "Prioritized roadmap for improvements",
+          ],
+          price: "$900+",
         },
         {
-          title: "Operational architecture",
-          summary: "Systems blueprint that scales onboarding, collaboration, and reporting.",
-          bullets: ["Process design & SOPs", "Onboarding workflows", "Automation roadmap"],
-          price: "$2,000",
+          title: "Ongoing systems advisory",
+          summary:
+            "For teams that already run on a system and want a strategic partner to evolve it as the business grows.",
+          bullets: [
+            "Monthly improvements and iterations",
+            "New automations and modules over time",
+            "Direct access for operational questions",
+          ],
+          price: "Monthly retainer",
         },
       ],
       addon: {
-        badge: "Add-on",
-        title: "Workspace audit & consultation",
+        badge: "Optional add on",
+        title: "Workspace and systems review",
         summary:
-          "Not sure where to begin? Book a consultation — I’ll review your current workspace, map gaps, and deliver actionable recommendations for the next build.",
-        cta: "Book a consultation call",
+          "If you are not sure where to begin, we start with a review of your current systems. You get clarity on what to keep, what to simplify and what to rebuild.",
+        cta: "Book a review session",
       },
     },
     process: {
       badge: "Process",
-      title: "A grounded path from idea to adoption.",
-      subtitle: "Engagements stay lean, transparent, and accountable — so you always know what is shipping next.",
+      title: "From scattered tools to a real operating system",
+      subtitle:
+        "The work stays lean and transparent. You know what is being built, what is being tested and when the system will start supporting your team.",
       steps: [
         {
           title: "Discover",
-          desc: "Context deep dive, success metrics, and tooling audit.",
+          desc: "Context deep dive, business constraints and current stack review.",
         },
         {
           title: "Design",
-          desc: "Systems architecture, prototypes, and approval loops.",
+          desc: "Systems architecture and key workflows defined before heavy build.",
         },
         {
           title: "Build",
-          desc: "Iterative implementation with checkpoints for stakeholders.",
+          desc: "Iterative implementation in Notion and the automation layer with clear checkpoints.",
         },
         {
           title: "Test",
-          desc: "QA, edge cases, and documentation before rollout.",
+          desc: "Edge cases, documentation and dry runs so the system survives real usage.",
         },
         {
-          title: "Handoff + Support",
-          desc: "Enablement, training, and support for the first sprint post-launch.",
+          title: "Adopt",
+          desc: "Rollout with your team, adjustments and support during the first weeks of use.",
         },
       ],
     },
     finalCta: {
-      badge: "Final step",
-      title: "Engage with a strategic systems partner.",
+      badge: "Next step",
+      title: "Ready to stop running on scattered tools",
       subtitle:
-        "Clarify the next build, align on decision cadence, and keep your operating stack evolving with the realities of your team.",
-      primaryCta: "Schedule a Strategy Session",
-      secondaryCta: "Discuss Your System Needs",
-      expectation: "We focus on founders and teams building scalable, operationally excellent companies.",
+        "If your business already has motion but your operation feels heavier than it should, we should talk. The sooner you design a real operating system, the easier it is to scale without burning yourself or your team.",
+      primaryCta: "Book a working session",
+      secondaryCta: "Hire me on Upwork",
+      expectation:
+        "I focus on founders and teams who are serious about building a business that runs on systems instead of constant heroic effort.",
     },
     whoIWorkWith: {
       eyebrow: "Who I work with",
-      title: "For founders and operators building resilient, scalable systems",
+      title: "For founders and operators who care about how the business actually runs",
       bullets: [
         {
-          title: "Founders stewarding complex operations",
-          detail: "Hands-on leaders bringing clarity to how product, go-to-market, and delivery teams move in sync.",
-        },
-        {
-          title: "Operators scaling high-leverage teams",
+          title: "Growing service businesses and agencies",
           detail:
-            "Ops, BizOps, and Chiefs of Staff designing rituals, data, and automations for predictable execution.",
+            "Teams with enough clients and projects to feel the cost of disconnected tools, manual updates and unclear ownership.",
         },
         {
-          title: "Product builders embedding intelligence",
-          detail: "Teams weaving AI, workflows, and human context into the stack without losing governance or pace.",
+          title: "Founders too involved in operations",
+          detail:
+            "Leaders who spend a large part of their week pushing work forward and want systems to take over that role.",
+        },
+        {
+          title: "Teams with tools ; but no real system",
+          detail:
+            "Companies that use several apps ; but lack a single source of truth and a predictable way to execute work.",
         },
       ],
-      note: "Not a fit for one-off tasks or automation hacks.",
+      note: "Not a fit for one off tasks, quick hacks or people who only want a template.",
     },
     caseSnapshot: {
-      eyebrow: "Recent Work",
-      title: "A systems engagement example",
-      client: "Client: Revenue operations team scaling across 4 business units.",
-      scope: "System scope: Notion OS + n8n automations + reporting layer connected to CRM and product data.",
+      eyebrow: "Recent work",
+      title: "Example of a systems engagement",
+      client: "Client: Service business with a small team and growing project load.",
+      scope:
+        "Scope: Notion based Business OS, CRM and projects hub, finance and operations tracking plus an automation layer connecting forms, calendar and email.",
       outcome:
-        "Outcome: Single source of truth for priorities, 40% faster standups, clear decision cadence across leads.",
+        "Outcome: A single place to see clients, work and numbers. Less chasing people for updates and more time spent on decisions and delivery.",
     },
     footer: {
-      description: "Beyker Estrada — Senior automation consultant.",
-      legal: "Contracts and payments via Upwork.",
+      description: "Business operations and systems design for teams that are past the tools phase.",
+      legal: "Contracts and payments handled through Upwork or direct agreement.",
       hireCta: "Hire me on Upwork",
       brand: "Beyker Estrada",
-      cta: "Let’s work together",
+      cta: "Let us work together",
     },
   },
 
   es: {
     meta: {
-      title: "Beyker Estrada · Sistemas en Notion y n8n",
-      description: "Diseño sistemas en Notion y automatizaciones con n8n que reducen fricción y escalan equipos.",
+      title: "Beyker Estrada · Sistemas Operativos de Negocio",
+      description:
+        "Transformo operaciones desconectadas en sistemas claros, centralizados y automatizados que devuelven tiempo al equipo y control al liderazgo.",
     },
     header: {
       brand: "Beyker Estrada",
@@ -316,176 +364,217 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       },
     },
     hero: {
-      title: "Diseño sistemas para personas que piensan en serio y trabajan mejor con estructura.",
+      title: "Transformo operaciones desconectadas en un negocio que funciona con sistemas",
       subtitle:
-        "Soy Beyker Estrada. Ayudo a equipos y fundadores a darle sentido a su trabajo—construyendo sistemas claros en Notion y automatizando las partes que no deberían hacerse dos veces.",
-      primaryCta: "Contratar por Upwork",
-      secondaryCta: "Agendar llamada",
+        "Trabajo con founders y equipos que ya tienen movimiento ; pero sienten que su operación pesa más de lo que debería. Diseñamos e implementamos un sistema operativo claro, centralizado y automatizado para que el trabajo fluya, el equipo se alinee y las decisiones se tomen con datos reales en lugar de apagar incendios todo el día.",
+      primaryCta: "Reserva una sesión de trabajo",
+      secondaryCta: "Ver perfil en Upwork",
     },
     method: {
-      title: "Mi forma de trabajar",
-      intro: "Una estructura clara para avanzar rápido, sin caos ni reprocesos.",
+      title: "Cómo pasamos del caos a la claridad",
+      intro:
+        "Un proceso estructurado que parte de cómo funciona tu negocio hoy y termina en un sistema que tu equipo realmente usa.",
       steps: [
         {
-          title: "1. Reducir fricción",
-          description: "Simplificamos todo—convirtiendo caos en flujos y fuentes únicas de verdad.",
+          title: "Diagnóstico operativo",
+          description:
+            "Mapeamos tus procesos actuales, tus herramientas y los problemas que se repiten. Queremos ver cómo fluye el trabajo en la realidad, no solo en un diagrama.",
         },
         {
-          title: "2. Construir sistemas rápido",
-          description: "Nada de specs eternos o idas y vueltas. Pensamos y construimos al mismo tiempo.",
+          title: "Arquitectura del sistema",
+          description:
+            "Diseñamos cómo debe funcionar tu negocio como sistema. Dónde vive la información, cómo se mueven las tareas, qué se automatiza y qué necesita ver liderazgo cada día.",
         },
         {
-          title: "3. Crear claridad",
-          description: "Vas a tener tableros que muestran avances, bloqueos y lo que hay que hacer.",
+          title: "Construcción y automatización",
+          description:
+            "Implemento tu Business OS en Notion y conecto las herramientas necesarias con una capa de automatización. Desde la entrada de leads y gestión de clientes hasta proyectos, finanzas y reporting.",
+        },
+        {
+          title: "Tableros para decidir",
+          description:
+            "Creamos vistas y tableros pensados para cada rol. Cada persona ve lo que necesita sin perseguir actualizaciones.",
+        },
+        {
+          title: "Despliegue y adopción",
+          description:
+            "Aterrizamos el sistema con tu equipo, quitamos fricciones y cerramos brechas para que se convierta en parte del trabajo diario y no en otro proyecto olvidado.",
         },
       ],
     },
     workflows: {
-      badge: "Workflows",
-      title: "Así se ven mis sistemas en la práctica",
-      intro: "Ejemplos reales de sistemas que he construido para escalar operaciones.",
+      badge: "Sistemas en práctica",
+      title: "Cómo se ven estos sistemas en equipos reales",
+      intro:
+        "Cada proyecto se adapta a tu contexto ; pero la mayoría de los sistemas terminan siendo variaciones de algunos patrones claros que conectan clientes, trabajo, números y decisiones.",
       steps: [
         {
-          title: "Control Hub en Notion",
+          title: "Workspace de ventas y CRM",
           description:
-            "Dashboard central conectando Proyectos, Tareas y Company OS para dar visibilidad y guiar la acción.",
+            "CRM en Notion conectado con Calendly y correo. Los leads avanzan por etapas claras, los seguimientos son visibles y el pipeline se ve en un tablero, no en una conversación suelta.",
         },
         {
-          title: "Flujo de leads con n8n",
-          description: "Webhook → enriquecimiento → enrutamiento. Sin seguimientos manuales ni entregas pendientes.",
+          title: "Control financiero y operativo",
+          description:
+            "Sistema operativo financiero para registrar pagos a proveedores, cobros de clientes, impuestos y rentabilidad. Decisiones basadas en números claros, no en intuición.",
+        },
+        {
+          title: "Business OS para coaching",
+          description:
+            "Clientes, sesiones, pagos y canales de adquisición en un solo lugar con un tablero que muestra ingresos, salud del embudo y rendimiento de cada servicio.",
+        },
+        {
+          title: "Colaboración y entrega de equipo",
+          description:
+            "Proyectos y tareas compartidas para el equipo ; vistas estratégicas para management. Menos persecución, menos sorpresas y más claridad sobre dónde se traba el trabajo.",
         },
       ],
     },
     value: {
-      badge: "Donde está el apalancamiento",
-      title: "Claridad operativa sin complejidad innecesaria.",
-      subtitle: "Los proyectos combinan pensamiento sistémico con ejecución directa para generar impacto inmediato.",
+      badge: "Dónde está el apalancamiento",
+      title: "Claridad operativa que se siente en el día a día",
+      subtitle:
+        "El objetivo no es tener un workspace bonito. El objetivo es tener un negocio que funciona sobre procesos explícitos, datos compartidos y ejecución predecible en lugar de improvisación y esfuerzos heroicos.",
       cards: [
         {
-          title: "Reduce la fricción operativa",
-          desc: "Flujos precisos, fuentes únicas de información y automatizaciones que sustituyen entregas manuales.",
+          title: "Más tiempo para quienes deciden",
+          desc: "Los sistemas y las automatizaciones se quedan con el trabajo repetitivo de poco retorno. Tú te quedas con las decisiones y las conversaciones importantes.",
         },
         {
-          title: "Entrega sistemas rápido",
-          desc: "Estrategia, construcción e iteración en una misma colaboración con responsabilidad clara.",
+          title: "Alineación sin más reuniones",
+          desc: "Cuando el trabajo, los clientes y los números viven en un solo sistema, la alineación se da en las vistas compartidas, no en más reuniones de seguimiento.",
         },
         {
-          title: "Visibilidad para liderazgo",
-          desc: "Tableros ejecutivos que muestran riesgo, velocidad y las señales que importan.",
+          title: "Decisiones basadas en la realidad",
+          desc: "Tableros y reporting que muestran pipeline, carga de trabajo y rendimiento. Decisiones que dejan de depender del olfato y se apoyan en datos.",
         },
       ],
     },
     services: {
       badge: "Servicios",
-      title: "Infraestructura operativa para mantener el impulso.",
+      title: "Sistemas operativos de negocio para equipos que ya están en juego",
       subtitle:
-        "Cada proyecto incluye descubrimiento, diseño, implementación y habilitación para que el equipo adopte rápido.",
-      intro: "Sistemas con alto apalancamiento para claridad y escala.",
+        "Prefiero pocos proyectos profundos en lugar de muchos dispersos. El foco está en construir los sistemas que van a sostener tu operación durante años.",
+      intro: "Ofertas claras centradas en arquitectura, implementación y evolución continua de tu sistema operativo.",
       fromLabel: "Desde",
-      learnMoreCta: "Solicitar detalles",
-      primaryCta: "Ver perfil en Upwork",
-      secondaryCta: "Solicitar consulta",
+      learnMoreCta: "Pedir detalles",
+      primaryCta: "Hablemos de tu contexto",
+      secondaryCta: "Solicitar una auditoría de sistemas",
       cards: [
         {
-          title: "Sistemas en Notion",
-          summary: "Sistema operativo empresarial orientado a la toma de decisiones.",
-          bullets: ["Company OS", "Vistas de CRM y pipeline", "Proyectos cross-funcionales"],
-          price: "US$1,500",
-        },
-        {
-          title: "Automatizaciones con n8n",
-          summary: "Flujos orquestados que mantienen equipos sincronizados sin trabajo manual.",
+          title: "Diseño e implementación de Business OS",
+          summary:
+            "Proyecto completo donde mapeamos tu operación, diseñamos tu Business OS y lo implementamos con automatizaciones y tableros.",
           bullets: [
-            "Sincronizaciones y enriquecimiento de datos",
-            "Automatizaciones de lifecycle y email",
-            "Rutinas de higiene de CRM",
+            "Arquitectura integral de sistemas",
+            "Implementación de Business OS en Notion",
+            "Automatización de flujos críticos",
           ],
-          price: "US$1,800",
+          price: "US$3,000+",
         },
         {
-          title: "Arquitectura operativa",
-          summary: "Blueprint de procesos que escala onboarding, colaboración y reporting.",
-          bullets: ["Diseño de procesos y SOPs", "Workflows de onboarding", "Roadmap de automatización"],
-          price: "US$2,000",
+          title: "Auditoría de sistemas operativos",
+          summary:
+            "Revisión enfocada de tus herramientas, workflows y modelo de datos. Te quedas con un diagnóstico claro y un plan de acción priorizado.",
+          bullets: [
+            "Auditoría de herramientas y procesos",
+            "Blueprint del sistema y brechas",
+            "Roadmap priorizado de mejoras",
+          ],
+          price: "US$900+",
+        },
+        {
+          title: "Asesoría continua en sistemas",
+          summary:
+            "Para equipos que ya corren sobre un sistema y quieren un socio estratégico para evolucionarlo a medida que el negocio crece.",
+          bullets: [
+            "Mejoras e iteraciones mensuales",
+            "Nuevas automatizaciones y módulos con el tiempo",
+            "Acceso directo para decisiones operativas",
+          ],
+          price: "Retainer mensual",
         },
       ],
       addon: {
-        badge: "Add-on",
-        title: "Auditoría de workspace y consulta",
+        badge: "Add on opcional",
+        title: "Revisión de workspace y sistemas",
         summary:
-          "¿No sabes por dónde comenzar? Agenda una consulta: audito tu workspace, identifico brechas y te entrego recomendaciones accionables para el siguiente build.",
-        cta: "Agenda una consulta",
+          "Si no tienes claro por dónde empezar, partimos con una revisión de tus sistemas actuales. Te llevas claridad sobre qué mantener, qué simplificar y qué reconstruir.",
+        cta: "Agenda una sesión de revisión",
       },
     },
     process: {
       badge: "Proceso",
-      title: "Un camino claro desde la idea hasta la adopción.",
+      title: "De herramientas sueltas a un sistema operativo real",
       subtitle:
-        "La colaboración se mantiene ágil, transparente y con responsables, para que siempre sepas qué se entrega después.",
+        "El trabajo se mantiene ágil y transparente. Sabes qué se está construyendo, qué se está probando y cuándo el sistema empieza a sostener a tu equipo.",
       steps: [
         {
           title: "Descubrir",
-          desc: "Análisis de contexto, métricas objetivo y auditoría de herramientas.",
+          desc: "Análisis de contexto, restricciones del negocio y revisión del stack actual.",
         },
         {
           title: "Diseñar",
-          desc: "Arquitectura de sistemas, prototipos y ciclos de aprobación.",
+          desc: "Arquitectura de sistemas y definición de flujos clave antes de construir en serio.",
         },
         {
           title: "Construir",
-          desc: "Implementación iterativa con checkpoints para stakeholders.",
+          desc: "Implementación iterativa en Notion y en la capa de automatización con checkpoints claros.",
         },
         {
           title: "Probar",
-          desc: "QA, casos borde y documentación antes del lanzamiento.",
+          desc: "Casos borde, documentación y pruebas en condiciones reales para que el sistema aguante el uso diario.",
         },
         {
-          title: "Entrega + Soporte",
-          desc: "Habilitación, training y soporte para el primer sprint post lanzamiento.",
+          title: "Adoptar",
+          desc: "Despliegue con el equipo, ajustes finos y soporte durante las primeras semanas de uso.",
         },
       ],
     },
     finalCta: {
-      badge: "Último paso",
-      title: "Trabaja con un socio estratégico en sistemas.",
+      badge: "Siguiente paso",
+      title: "¿Listo para dejar de depender de herramientas dispersas",
       subtitle:
-        "Definimos el próximo build, alineamos cadencias de decisión y mantenemos tu stack operativo en sintonía con la realidad del equipo.",
-      primaryCta: "Agenda una sesión estratégica",
-      secondaryCta: "Conversemos sobre tus sistemas",
+        "Si tu negocio ya tiene movimiento ; pero tu operación se siente más pesada de lo que debería, hablemos. Mientras antes diseñes un sistema operativo real, más fácil será escalar sin quemarte tú ni tu equipo.",
+      primaryCta: "Reserva una sesión de trabajo",
+      secondaryCta: "Contrata en Upwork",
       expectation:
-        "Nos enfocamos en fundadores y equipos que construyen compañías operativamente excelentes y escalables.",
+        "Me enfoco en founders y equipos que quieren construir una empresa que funcione sobre sistemas y no sobre esfuerzo heroico permanente.",
     },
     whoIWorkWith: {
       eyebrow: "Con quién trabajo",
-      title: "Para fundadores y operadores que construyen sistemas resilientes",
+      title: "Para fundadores y operadores a los que les importa cómo funciona el negocio por dentro",
       bullets: [
         {
-          title: "Fundadores con operaciones complejas",
+          title: "Negocios de servicios y agencias en crecimiento",
           detail:
-            "Líderes involucrados que buscan claridad sobre cómo producto, go-to-market y delivery se sincronizan.",
+            "Equipos con suficientes clientes y proyectos como para sentir el coste de herramientas desconectadas, actualizaciones manuales y responsabilidades difusas.",
         },
         {
-          title: "Operadores que escalan equipos de alto apalancamiento",
+          title: "Founders demasiado metidos en la operación",
           detail:
-            "Ops, BizOps o Chiefs of Staff que diseñan rituales, datos y automatizaciones para ejecutar con precisión.",
+            "Líderes que dedican gran parte de su semana a empujar el trabajo y quieren que los sistemas se queden con esa carga.",
         },
         {
-          title: "Constructores de producto que integran inteligencia",
-          detail: "Equipos que incorporan IA, workflows y contexto humano sin perder gobernanza ni ritmo.",
+          title: "Equipos con muchas herramientas ; pero sin sistema",
+          detail:
+            "Empresas que ya usan varias apps ; pero no tienen una fuente única de verdad ni una forma predecible de ejecutar el trabajo.",
         },
       ],
-      note: "No es un fit para tareas puntuales o automatizaciones improvisadas.",
+      note: "No es un fit para tareas sueltas, hacks rápidos o quien solo quiere una plantilla.",
     },
     caseSnapshot: {
       eyebrow: "Trabajo reciente",
-      title: "Ejemplo de un engagement de sistemas",
-      client: "Cliente: Equipo de revenue operations escalando en 4 unidades de negocio.",
-      scope: "Alcance: Notion OS + automatizaciones en n8n + capa de reporting conectada a CRM y datos de producto.",
-      outcome: "Resultado: Fuente única de verdad, standups 40% más ágiles y cadencia clara entre responsables.",
+      title: "Ejemplo de un proyecto de sistemas",
+      client: "Cliente: Negocio de servicios con un pequeño equipo y carga creciente de proyectos.",
+      scope:
+        "Alcance: Business OS en Notion, hub de clientes y proyectos, seguimiento financiero y operativo, más capa de automatización conectando formularios, calendario y correo.",
+      outcome:
+        "Resultado: Un solo lugar para ver clientes, trabajo y números. Menos tiempo persiguiendo actualizaciones y más tiempo tomando decisiones y entregando valor.",
     },
     footer: {
-      description: "Beyker Estrada — Consultor senior en automatización.",
-      legal: "Contratos y pagos disponibles vía Upwork.",
+      description: "Operaciones del negocio y diseño de sistemas para equipos que ya superaron la fase de herramientas sueltas.",
+      legal: "Contratos y pagos gestionados vía Upwork o acuerdo directo.",
       hireCta: "Contrata en Upwork",
       brand: "Beyker Estrada",
       cta: "Trabajemos juntos",
