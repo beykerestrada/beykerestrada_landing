@@ -23,6 +23,8 @@ export type SiteDictionary = {
     subtitle: string
     primaryCta: string
     secondaryCta: string
+    trustIndicator: string
+    urgencyNote: string
   }
   method: {
     title: string
@@ -50,11 +52,14 @@ export type SiteDictionary = {
     learnMoreCta: string
     primaryCta: string
     secondaryCta: string
+    popularBadge: string
+    guaranteeNote: string
     cards: {
       title: string
       summary: string
       bullets: string[]
       price: string
+      isPopular?: boolean
     }[]
     addon: {
       badge: string
@@ -89,6 +94,24 @@ export type SiteDictionary = {
     client: string
     scope: string
     outcome: string
+    metrics: { label: string; value: string }[]
+  }
+  contact: {
+    badge: string
+    title: string
+    subtitle: string
+    responseTime: string
+    email: string
+    emailLabel: string
+  }
+  leadMagnet: {
+    badge: string
+    title: string
+    subtitle: string
+    benefits: string[]
+    ctaPlaceholder: string
+    ctaButton: string
+    privacyNote: string
   }
   footer: {
     description: string
@@ -127,9 +150,11 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     hero: {
       title: "Transform disconnected operations into a business that runs on systems",
       subtitle:
-        "I work with founders and teams who are already busy ; but feel their operation is heavier than it should be. Together we design and implement a clear, centralized and automated operating system so work flows, people align and decisions are made on real data instead of constant firefighting.",
+        "From 20+ hours per week in operational firefighting to a centralized system that runs your business—typically in 4-6 weeks. I work with founders and teams who need their operations to work for them, not against them.",
       primaryCta: "Book a working session",
       secondaryCta: "View Upwork profile",
+      trustIndicator: "Trusted by growing service businesses and agencies",
+      urgencyNote: "Limited to 3 deep projects per quarter · Next availability: Early 2026",
     },
     method: {
       title: "How we move from chaos to clarity",
@@ -220,6 +245,8 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       learnMoreCta: "Request details",
       primaryCta: "Discuss your context",
       secondaryCta: "Request a systems audit",
+      popularBadge: "Most Popular",
+      guaranteeNote: "If you don't see ROI in the first 90 days, I'll refine it at no extra cost",
       cards: [
         {
           title: "Business OS design and implementation",
@@ -231,6 +258,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
             "Automation of critical workflows",
           ],
           price: "$3,000+",
+          isPopular: true,
         },
         {
           title: "Operational systems audit",
@@ -256,38 +284,38 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         },
       ],
       addon: {
-        badge: "Optional add on",
-        title: "Workspace and systems review",
+        badge: "For strategic partners",
+        title: "White-label systems implementation for agencies",
         summary:
-          "If you are not sure where to begin, we start with a review of your current systems. You get clarity on what to keep, what to simplify and what to rebuild.",
-        cta: "Book a review session",
+          "For marketing and growth agencies looking to offer automation and operational systems as a service to their clients. I partner with you to deliver Business OS implementations under your brand while you focus on client relationships and core strategy.",
+        cta: "Discuss partnership",
       },
     },
     process: {
       badge: "Process",
-      title: "From scattered tools to a real operating system",
+      title: "How we move from scattered tools to a real operating system",
       subtitle:
-        "The work stays lean and transparent. You know what is being built, what is being tested and when the system will start supporting your team.",
+        "A structured process that starts from how your business really works today and lands in a system your team actually uses.",
       steps: [
         {
-          title: "Discover",
-          desc: "Context deep dive, business constraints and current stack review.",
+          title: "Operational diagnosis",
+          desc: "We map your current processes, tools and recurring problems. The goal is to see how work really flows today, not how it is supposed to work on paper.",
         },
         {
-          title: "Design",
-          desc: "Systems architecture and key workflows defined before heavy build.",
+          title: "System architecture",
+          desc: "We design how your business should run as a system — where information lives, how tasks move, what gets automated and what leadership needs to see every day.",
         },
         {
-          title: "Build",
-          desc: "Iterative implementation in Notion and the automation layer with clear checkpoints.",
+          title: "Build and automation",
+          desc: "I implement your Business OS in Notion and connect the necessary tools through automations. From lead intake and client management to projects, finances and reporting.",
         },
         {
-          title: "Test",
-          desc: "Edge cases, documentation and dry runs so the system survives real usage.",
+          title: "Dashboards and decision layer",
+          desc: "We design the views and dashboards that matter for you and your team. So everyone sees what they need to move work forward without asking for updates.",
         },
         {
-          title: "Adopt",
-          desc: "Rollout with your team, adjustments and support during the first weeks of use.",
+          title: "Rollout and training",
+          desc: "We onboard your team, adjust friction points and close gaps. The system becomes part of how you work day to day, not another abandoned project.",
         },
       ],
     },
@@ -331,6 +359,32 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         "Scope: Notion based Business OS, CRM and projects hub, finance and operations tracking plus an automation layer connecting forms, calendar and email.",
       outcome:
         "Outcome: A single place to see clients, work and numbers. Less chasing people for updates and more time spent on decisions and delivery.",
+      metrics: [
+        { label: "Time saved per week", value: "15+ hours" },
+        { label: "Manual tasks automated", value: "12" },
+        { label: "Implementation time", value: "5 weeks" },
+      ],
+    },
+    contact: {
+      badge: "Get in touch",
+      title: "Let's talk about your operations",
+      subtitle: "Reach out to discuss your context, ask questions about the approach or schedule a diagnostic call.",
+      responseTime: "I typically respond within 24 hours",
+      email: "contact@beykerestrada.com",
+      emailLabel: "Email me directly",
+    },
+    leadMagnet: {
+      badge: "Free resource",
+      title: "Get the Business OS Readiness Checklist",
+      subtitle: "A practical guide to assess if your operations are ready for systems transformation—and what to prepare before we start.",
+      benefits: [
+        "15-point diagnostic to assess your current state",
+        "Key readiness indicators for systems transformation",
+        "What to prepare before implementing a Business OS",
+      ],
+      ctaPlaceholder: "your@email.com",
+      ctaButton: "Send me the checklist",
+      privacyNote: "No spam. Unsubscribe anytime.",
     },
     footer: {
       description: "Business operations and systems design for teams that are past the tools phase.",
@@ -366,9 +420,11 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     hero: {
       title: "Transformo operaciones desconectadas en un negocio que funciona con sistemas",
       subtitle:
-        "Trabajo con founders y equipos que ya tienen movimiento ; pero sienten que su operación pesa más de lo que debería. Diseñamos e implementamos un sistema operativo claro, centralizado y automatizado para que el trabajo fluya, el equipo se alinee y las decisiones se tomen con datos reales en lugar de apagar incendios todo el día.",
+        "De 20+ horas semanales apagando incendios operativos a un sistema centralizado que dirige tu negocio—típicamente en 4-6 semanas. Trabajo con founders y equipos que necesitan que sus operaciones trabajen para ellos, no en su contra.",
       primaryCta: "Reserva una sesión de trabajo",
       secondaryCta: "Ver perfil en Upwork",
+      trustIndicator: "De confianza para negocios de servicios y agencias en crecimiento",
+      urgencyNote: "Limitado a 3 proyectos profundos por trimestre · Próxima disponibilidad: Inicio 2026",
     },
     method: {
       title: "Cómo pasamos del caos a la claridad",
@@ -460,6 +516,8 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       learnMoreCta: "Pedir detalles",
       primaryCta: "Hablemos de tu contexto",
       secondaryCta: "Solicitar una auditoría de sistemas",
+      popularBadge: "Más Popular",
+      guaranteeNote: "Si no ves ROI en los primeros 90 días, lo refinaré sin costo adicional",
       cards: [
         {
           title: "Diseño e implementación de Business OS",
@@ -471,6 +529,7 @@ const dictionaries: Record<Locale, SiteDictionary> = {
             "Automatización de flujos críticos",
           ],
           price: "US$3,000+",
+          isPopular: true,
         },
         {
           title: "Auditoría de sistemas operativos",
@@ -496,38 +555,38 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         },
       ],
       addon: {
-        badge: "Add on opcional",
-        title: "Revisión de workspace y sistemas",
+        badge: "Para socios estratégicos",
+        title: "Implementación de sistemas white-label para agencias",
         summary:
-          "Si no tienes claro por dónde empezar, partimos con una revisión de tus sistemas actuales. Te llevas claridad sobre qué mantener, qué simplificar y qué reconstruir.",
-        cta: "Agenda una sesión de revisión",
+          "Para agencias de marketing y crecimiento que buscan ofrecer automatización y sistemas operacionales como servicio a sus clientes. Me asocio contigo para entregar implementaciones de Business OS bajo tu marca mientras te enfocas en las relaciones con clientes y estrategia central.",
+        cta: "Discutir alianza",
       },
     },
     process: {
       badge: "Proceso",
-      title: "De herramientas sueltas a un sistema operativo real",
+      title: "Cómo pasamos de herramientas dispersas a un sistema operativo real",
       subtitle:
-        "El trabajo se mantiene ágil y transparente. Sabes qué se está construyendo, qué se está probando y cuándo el sistema empieza a sostener a tu equipo.",
+        "Un proceso estructurado que parte de cómo funciona tu negocio hoy y termina en un sistema que tu equipo realmente usa.",
       steps: [
         {
-          title: "Descubrir",
-          desc: "Análisis de contexto, restricciones del negocio y revisión del stack actual.",
+          title: "Diagnóstico operativo",
+          desc: "Mapeamos tus procesos actuales, herramientas y problemas recurrentes. El objetivo es ver cómo fluye realmente el trabajo hoy, no cómo se supone que debería funcionar en papel.",
         },
         {
-          title: "Diseñar",
-          desc: "Arquitectura de sistemas y definición de flujos clave antes de construir en serio.",
+          title: "Arquitectura del sistema",
+          desc: "Diseñamos cómo debe funcionar tu negocio como sistema — dónde vive la información, cómo se mueven las tareas, qué se automatiza y qué necesita ver el liderazgo cada día.",
         },
         {
-          title: "Construir",
-          desc: "Implementación iterativa en Notion y en la capa de automatización con checkpoints claros.",
+          title: "Construcción y automatización",
+          desc: "Implemento tu Business OS en Notion y conecto las herramientas necesarias mediante automatizaciones. Desde la captación de leads y gestión de clientes hasta proyectos, finanzas y reporting.",
         },
         {
-          title: "Probar",
-          desc: "Casos borde, documentación y pruebas en condiciones reales para que el sistema aguante el uso diario.",
+          title: "Tableros y capa de decisión",
+          desc: "Diseñamos las vistas y tableros que importan para ti y tu equipo. Para que todos vean lo que necesitan para avanzar el trabajo sin pedir actualizaciones.",
         },
         {
-          title: "Adoptar",
-          desc: "Despliegue con el equipo, ajustes finos y soporte durante las primeras semanas de uso.",
+          title: "Despliegue y capacitación",
+          desc: "Incorporamos a tu equipo, ajustamos puntos de fricción y cerramos brechas. El sistema se convierte en parte de cómo trabajas día a día, no en otro proyecto abandonado.",
         },
       ],
     },
@@ -571,6 +630,32 @@ const dictionaries: Record<Locale, SiteDictionary> = {
         "Alcance: Business OS en Notion, hub de clientes y proyectos, seguimiento financiero y operativo, más capa de automatización conectando formularios, calendario y correo.",
       outcome:
         "Resultado: Un solo lugar para ver clientes, trabajo y números. Menos tiempo persiguiendo actualizaciones y más tiempo tomando decisiones y entregando valor.",
+      metrics: [
+        { label: "Tiempo ahorrado por semana", value: "15+ horas" },
+        { label: "Tareas manuales automatizadas", value: "12" },
+        { label: "Tiempo de implementación", value: "5 semanas" },
+      ],
+    },
+    contact: {
+      badge: "Contacto",
+      title: "Hablemos de tu operación",
+      subtitle: "Escríbeme para hablar de tu contexto, hacer preguntas sobre el enfoque o agendar una llamada de diagnóstico.",
+      responseTime: "Normalmente respondo en menos de 24 horas",
+      email: "contact@beykerestrada.com",
+      emailLabel: "Escríbeme directamente",
+    },
+    leadMagnet: {
+      badge: "Recurso gratuito",
+      title: "Obtén el Checklist de Preparación para Business OS",
+      subtitle: "Una guía práctica para evaluar si tus operaciones están listas para la transformación de sistemas—y qué preparar antes de empezar.",
+      benefits: [
+        "Diagnóstico de 15 puntos para evaluar tu estado actual",
+        "Indicadores clave de preparación para transformación de sistemas",
+        "Qué preparar antes de implementar un Business OS",
+      ],
+      ctaPlaceholder: "tu@email.com",
+      ctaButton: "Envíame el checklist",
+      privacyNote: "Sin spam. Cancela cuando quieras.",
     },
     footer: {
       description: "Operaciones del negocio y diseño de sistemas para equipos que ya superaron la fase de herramientas sueltas.",

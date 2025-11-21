@@ -41,24 +41,31 @@
   /* Neutral grayscale palette */
   --bg: 0 0% 99%;
   --fg: 0 0% 8%;
-  --muted: 0 0% 94%;
-  --muted-fg: 0 0% 30%;
-  /* Primary interaction color */
-  --brand: 0 0% 12%;
+  --muted: 0 0% 96%;
+  --muted-fg: 0 0% 40%;
+  /* Primary interaction color - enhanced with subtle blue tint */
+  --brand: 222 47% 11%;
   --brand-fg: 0 0% 98%;
-  --primary: 0 0% 12%;
+  --primary: 222 47% 11%;
   --primary-fg: 0 0% 98%;
-  --secondary: 0 0% 18%;
+  --secondary: 220 13% 18%;
   --secondary-fg: 0 0% 98%;
-  /* Accent for strategic highlights */
-  --accent: 0 0% 82%;
+  /* Accent for strategic highlights - subtle electric blue */
+  --accent: 233 100% 67%;
   --accent-fg: 0 0% 8%;
+  /* Surface colors with depth */
   --card: 0 0% 100%;
   --card-fg: 0 0% 8%;
-  --border: 0 0% 80%;
+  --surface: 0 0% 98%;
+  --elevated: 0 0% 100%;
+  /* Border and input enhancements */
+  --border: 0 0% 89%;
   --input: 0 0% 96%;
-  --ring: 0 0% 25%;
-  --shadow: 0 0% 20%;
+  --ring: 233 100% 67%;
+  --shadow: 220 13% 9%;
+  /* Gradient accents inspired by Notion */
+  --gradient-from: 0 0% 98%;
+  --gradient-to: 220 13% 96%;
 }
 
 .dark {
@@ -95,25 +102,29 @@
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
 
-  /* Dark grayscale palette */
-  --bg: 0 0% 8%;
+  /* Dark grayscale palette with blue accents */
+  --bg: 220 13% 9%;
   --fg: 0 0% 96%;
-  --muted: 0 0% 16%;
+  --muted: 220 13% 16%;
   --muted-fg: 0 0% 65%;
-  --brand: 0 0% 90%;
-  --brand-fg: 0 0% 10%;
-  --primary: 0 0% 92%;
-  --primary-fg: 0 0% 8%;
-  --secondary: 0 0% 25%;
+  --brand: 233 100% 67%;
+  --brand-fg: 220 13% 9%;
+  --primary: 233 100% 67%;
+  --primary-fg: 220 13% 9%;
+  --secondary: 220 13% 25%;
   --secondary-fg: 0 0% 94%;
-  --accent: 0 0% 45%;
+  --accent: 233 100% 67%;
   --accent-fg: 0 0% 95%;
-  --card: 0 0% 13%;
+  --card: 220 13% 13%;
   --card-fg: 0 0% 94%;
-  --border: 0 0% 25%;
-  --input: 0 0% 18%;
-  --ring: 0 0% 60%;
+  --surface: 220 13% 11%;
+  --elevated: 220 13% 15%;
+  --border: 220 13% 25%;
+  --input: 220 13% 18%;
+  --ring: 233 100% 67%;
   --shadow: 0 0% 0%;
+  --gradient-from: 220 13% 11%;
+  --gradient-to: 220 13% 15%;
 }
 
 @theme inline {
@@ -163,6 +174,10 @@
   border-color: hsl(var(--border));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -178,6 +193,15 @@ body {
   /* Clean white background without gradients for editorial clarity */
   opacity: 0;
   animation: page-fade 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Accent text utilities */
+.text-accent {
+  color: hsl(var(--accent));
+}
+
+.text-brand {
+  color: hsl(var(--brand));
 }
 
 .dark body {

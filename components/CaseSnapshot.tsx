@@ -23,12 +23,22 @@ export default function CaseSnapshot() {
         </Reveal>
 
         <Reveal>
-          <CardShell className="space-y-4 text-left">
+          <CardShell className="space-y-6 text-left">
             <p className="text-sm uppercase tracking-[0.3em] text-foreground/80">
               {snapshot.client}
             </p>
             <p className="text-base text-foreground">{snapshot.scope}</p>
             <p className="text-base text-foreground/80">{snapshot.outcome}</p>
+
+            {/* Metrics grid */}
+            <div className="grid gap-6 border-t border-border/60 pt-6 sm:grid-cols-3">
+              {snapshot.metrics.map((metric) => (
+                <div key={metric.label} className="space-y-2">
+                  <p className="text-3xl font-bold tracking-tight text-[hsl(var(--brand))]">{metric.value}</p>
+                  <p className="text-sm text-muted-foreground">{metric.label}</p>
+                </div>
+              ))}
+            </div>
           </CardShell>
         </Reveal>
       </Container>

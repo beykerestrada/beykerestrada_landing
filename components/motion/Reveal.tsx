@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { MotionProps, motion, useReducedMotion } from "framer-motion";
+import { MotionProps, motion, useReducedMotion, useInView } from "framer-motion";
 
 type RevealProps<T extends React.ElementType = "div"> = {
   as?: T;
@@ -26,6 +26,9 @@ export default function Reveal<T extends React.ElementType = "div">({
   ...rest
 }: RevealProps<T>) {
   const shouldReduceMotion = useReducedMotion();
+  const ref = React.useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
+
   const ComponentTag = (as ?? "div") as React.ElementType;
   const MotionComponent = motion(ComponentTag) as React.ComponentType<
     React.ComponentPropsWithoutRef<T> & MotionProps
@@ -42,10 +45,10 @@ export default function Reveal<T extends React.ElementType = "div">({
 
   return (
     <MotionComponent
+      ref={ref}
       className={className}
-      initial={{ opacity: 0, y: 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
+      initial={{ opacity: 0, y: 12 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
       transition={transition ?? { ...DEFAULT_EASE, delay }}
       {...componentProps}
     >

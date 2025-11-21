@@ -1,9 +1,8 @@
 "use client"
 
 import Container from "@/components/ui/container"
-import Button from "@/components/ui/button"
 import { useTranslations } from "./TranslationProvider"
-import { Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react"
+import { Linkedin, Twitter, Mail } from "lucide-react"
 
 type Props = {
   upworkUrl: string
@@ -29,7 +28,7 @@ export default function Footer({ upworkUrl }: Props) {
                 href="https://linkedin.com/in/beykerestrada"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-[hsl(var(--brand))] transition-colors hover:border-[hsl(var(--brand))] hover:bg-muted/50"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-foreground transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
@@ -38,14 +37,14 @@ export default function Footer({ upworkUrl }: Props) {
                 href="https://twitter.com/beykerestrada"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-[hsl(var(--brand))] transition-colors hover:border-[hsl(var(--brand))] hover:bg-muted/50"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-foreground transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent"
                 aria-label="Twitter"
               >
                 <Twitter className="h-4 w-4" />
               </a>
               <a
                 href="mailto:contact@beykerestrada.com"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-[hsl(var(--brand))] transition-colors hover:border-[hsl(var(--brand))] hover:bg-muted/50"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-foreground transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4" />
@@ -104,20 +103,6 @@ export default function Footer({ upworkUrl }: Props) {
                     Who I Work With
                   </a>
                 </li>
-                <li>
-                  <Button
-                    as="a"
-                    href={upworkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="ghost"
-                    size="sm"
-                    className="group inline-flex items-center gap-2 pl-0 text-sm font-semibold text-[hsl(var(--brand))]"
-                  >
-                    Upwork Profile
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Button>
-                </li>
               </ul>
             </div>
 
@@ -138,29 +123,9 @@ export default function Footer({ upworkUrl }: Props) {
                     Email
                   </a>
                 </li>
-                <li>
-                  <Button
-                    as="a"
-                    href={upworkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="ghost"
-                    size="sm"
-                    className="group inline-flex items-center gap-2 pl-0 text-sm font-semibold text-[hsl(var(--brand))]"
-                  >
-                    {footer.hireCta}
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Button>
-                </li>
               </ul>
             </div>
           </div>
-        </div>
-
-        <div className="mt-8 flex justify-center">
-          <Button as="a" href={upworkUrl} target="_blank" rel="noopener noreferrer" variant="primary">
-            {footer.cta}
-          </Button>
         </div>
 
         {/* Bottom Bar */}
