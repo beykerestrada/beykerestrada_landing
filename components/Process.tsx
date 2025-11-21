@@ -1,44 +1,58 @@
 "use client"
 
 import Container from "@/components/ui/container"
-import SectionHeader from "@/components/ui/section-header"
-import Reveal from "@/components/motion/Reveal"
 import { useTranslations } from "./TranslationProvider"
+import { motion } from "framer-motion"
 
 export default function Process() {
   const dictionary = useTranslations()
   const process = dictionary.process
 
   return (
-    <section className="bg-[#f5f5f5] py-24 md:py-32 lg:py-40" id="process">
-      <Container className="space-y-20">
-        <Reveal>
-          <SectionHeader eyebrow={process.badge} title={process.title} description={process.subtitle} align="center" />
-        </Reveal>
+    <section id="process" className="section-pad-lg section-surface pb-28">
+      <Container>
+        {/* Two Column Layout */}
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.4fr)_minmax(0,0.6fr)] items-start mt-4">
+          {/* Left summary column - static, no animation */}
+          <div className="space-y-4 lg:top-32 self-start">
+            <span className="section-badge">{process.badge}</span>
+            <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-(--text-main)">
+              {process.title}
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-(--text-muted) leading-relaxed max-w-md">
+              {process.intro}
+            </p>
+          </div>
 
-        {/* Timeline-style vertical layout */}
-        <div className="mx-auto max-w-4xl space-y-12">
-          {process.steps.map((step, index) => (
-            <Reveal key={step.title} transition={{ delay: index * 0.15 }}>
-              <div className="relative flex gap-8">
-                {/* Step number indicator with connecting line */}
-                <div className="relative flex flex-col items-center">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[hsl(var(--brand))] text-lg font-bold text-[hsl(var(--brand-fg))] shadow-md">
-                    {index + 1}
-                  </div>
-                  {index < process.steps.length - 1 && (
-                    <div className="absolute top-12 h-full w-0.5 bg-border" />
-                  )}
+          {/* Right steps column - per-step scroll reveals */}
+          <div className="space-y-8">
+            {process.steps.map((step, index) => (
+              <motion.div
+                key={step.label ?? index}
+                className="flex items-start gap-4"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{
+                  duration: 0.35,
+                  ease: "easeOut",
+                  delay: index * 0.06,
+                }}
+              >
+                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-(--accent-soft) text-xs font-medium text-(--accent-primary)">
+                  {step.label ?? String(index + 1).padStart(2, "0")}
                 </div>
-
-                {/* Step content */}
-                <div className="flex-1 space-y-3 pb-12">
-                  <h3 className="text-2xl font-bold tracking-tight text-foreground">{step.title}</h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">{step.desc}</p>
+                <div className="space-y-1 max-w-xl">
+                  <h3 className="text-base sm:text-lg font-semibold text-(--text-main)">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-(--text-muted) leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

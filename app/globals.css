@@ -4,127 +4,161 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Notion/AFFiNE inspired color system - Light theme */
 
-  /* Neutral grayscale palette */
-  --bg: 0 0% 99%;
-  --fg: 0 0% 8%;
-  --muted: 0 0% 96%;
-  --muted-fg: 0 0% 40%;
-  /* Primary interaction color - enhanced with subtle blue tint */
-  --brand: 222 47% 11%;
-  --brand-fg: 0 0% 98%;
-  --primary: 222 47% 11%;
-  --primary-fg: 0 0% 98%;
-  --secondary: 220 13% 18%;
-  --secondary-fg: 0 0% 98%;
-  /* Accent for strategic highlights - subtle electric blue */
-  --accent: 233 100% 67%;
-  --accent-fg: 0 0% 8%;
-  /* Surface colors with depth */
-  --card: 0 0% 100%;
-  --card-fg: 0 0% 8%;
-  --surface: 0 0% 98%;
+  /* Page and surface backgrounds */
+  --bg-page: #F7F7FB;
+  --bg-surface: #FFFFFF;
+  --bg-surface-alt: #F3F4F8;
+
+  /* Text colors */
+  --text-main: #111827;
+  --text-muted: #6B7280;
+
+  /* Borders */
+  --border-subtle: #E5E7EB;
+  --border-strong: #D1D5DB;
+
+  /* Primary accent (vivid blue) */
+  --accent-primary: #2563EB;
+  --accent-primary-hover: #1D4ED8;
+  --accent-soft: #EEF2FF;
+
+  /* Support accents */
+  --accent-amber: #F59E0B;
+  --accent-emerald: #22C55E;
+  --accent-rose: #F97373;
+
+  /* States */
+  --success: #16A34A;
+  --warning: #EAB308;
+  --error: #DC2626;
+
+  /* Radius tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius: 0.625rem;
+
+  /* Shadcn/UI compatibility layer - map to new system */
+  --background: #F7F7FB;
+  --foreground: #111827;
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  --popover: #FFFFFF;
+  --popover-foreground: #111827;
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F3F4F8;
+  --secondary-foreground: #111827;
+  --muted: #F3F4F8;
+  --muted-foreground: #6B7280;
+  --accent: #EEF2FF;
+  --accent-foreground: #2563EB;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #2563EB;
+
+  /* Legacy HSL format compatibility */
+  --bg: 240 14% 97%;
+  --fg: 220 18% 12%;
+  --brand: 217 91% 60%;
+  --brand-fg: 0 0% 100%;
+  --surface: 240 9% 97%;
   --elevated: 0 0% 100%;
-  /* Border and input enhancements */
-  --border: 0 0% 89%;
-  --input: 0 0% 96%;
-  --ring: 233 100% 67%;
   --shadow: 220 13% 9%;
-  /* Gradient accents inspired by Notion */
-  --gradient-from: 0 0% 98%;
-  --gradient-to: 220 13% 96%;
+
+  /* Chart colors */
+  --chart-1: #2563EB;
+  --chart-2: #22C55E;
+  --chart-3: #F59E0B;
+  --chart-4: #DC2626;
+  --chart-5: #8B5CF6;
+
+  /* Sidebar (if used) */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #2563EB;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F3F4F8;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #2563EB;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  /* Dark mode - keeping existing structure */
+  --bg-page: #0F1419;
+  --bg-surface: #1A1F26;
+  --bg-surface-alt: #151A20;
 
-  /* Dark grayscale palette with blue accents */
-  --bg: 220 13% 9%;
-  --fg: 0 0% 96%;
-  --muted: 220 13% 16%;
-  --muted-fg: 0 0% 65%;
-  --brand: 233 100% 67%;
-  --brand-fg: 220 13% 9%;
-  --primary: 233 100% 67%;
-  --primary-fg: 220 13% 9%;
-  --secondary: 220 13% 25%;
-  --secondary-fg: 0 0% 94%;
-  --accent: 233 100% 67%;
-  --accent-fg: 0 0% 95%;
-  --card: 220 13% 13%;
-  --card-fg: 0 0% 94%;
-  --surface: 220 13% 11%;
-  --elevated: 220 13% 15%;
-  --border: 220 13% 25%;
-  --input: 220 13% 18%;
-  --ring: 233 100% 67%;
+  --text-main: #F3F4F6;
+  --text-muted: #9CA3AF;
+
+  --border-subtle: #2D3748;
+  --border-strong: #4A5568;
+
+  --accent-primary: #3B82F6;
+  --accent-primary-hover: #2563EB;
+  --accent-soft: #1E293B;
+
+  --accent-amber: #F59E0B;
+  --accent-emerald: #22C55E;
+  --accent-rose: #F97373;
+
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #EF4444;
+
+  /* Shadcn/UI compatibility */
+  --background: #0F1419;
+  --foreground: #F3F4F6;
+  --card: #1A1F26;
+  --card-foreground: #F3F4F6;
+  --popover: #1A1F26;
+  --popover-foreground: #F3F4F6;
+  --primary: #3B82F6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2D3748;
+  --secondary-foreground: #F3F4F6;
+  --muted: #2D3748;
+  --muted-foreground: #9CA3AF;
+  --accent: #1E293B;
+  --accent-foreground: #3B82F6;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #2D3748;
+  --input: #2D3748;
+  --ring: #3B82F6;
+
+  /* Legacy HSL format */
+  --bg: 215 25% 7%;
+  --fg: 240 5% 96%;
+  --brand: 217 91% 60%;
+  --brand-fg: 0 0% 100%;
+  --surface: 215 20% 10%;
+  --elevated: 215 18% 13%;
+  --border: 215 15% 25%;
   --shadow: 0 0% 0%;
-  --gradient-from: 220 13% 11%;
-  --gradient-to: 220 13% 15%;
+
+  /* Chart colors for dark mode */
+  --chart-1: #3B82F6;
+  --chart-2: #22C55E;
+  --chart-3: #F59E0B;
+  --chart-4: #EF4444;
+  --chart-5: #A78BFA;
+
+  /* Sidebar */
+  --sidebar: #1A1F26;
+  --sidebar-foreground: #F3F4F6;
+  --sidebar-primary: #3B82F6;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #2D3748;
+  --sidebar-accent-foreground: #F3F4F6;
+  --sidebar-border: #2D3748;
+  --sidebar-ring: #3B82F6;
 }
 
 @theme inline {
@@ -181,32 +215,69 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: hsl(var(--bg));
-  color: hsl(var(--fg));
-  /* Inter font for Notion-like typography */
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-feature-settings: "ss01" on, "ss02" on, "cv05" on, "cv11" on, "liga" on, "calt" on, "kern" on;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  /* Notion-like system font stack */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  /* Clean white background without gradients for editorial clarity */
   opacity: 0;
   animation: page-fade 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Accent text utilities */
+/* Typography utilities */
 .text-accent {
-  color: hsl(var(--accent));
+  color: var(--accent-primary);
 }
 
 .text-brand {
-  color: hsl(var(--brand));
+  color: var(--accent-primary);
 }
 
-.dark body {
-  /* Solid dark background */
-  background-color: hsl(var(--bg));
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-main);
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.75rem;
+  }
+  h2 {
+    font-size: 2.25rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.25rem;
+  }
 }
 
 img,
@@ -216,15 +287,186 @@ video {
 }
 
 ::selection {
-  /* Brand accent color for selection */
-  background-color: hsl(var(--brand) / 0.2);
-  color: hsl(var(--fg));
+  background-color: var(--accent-soft);
+  color: var(--accent-primary);
+}
+
+/* ==================================================
+   LAYOUT UTILITIES
+   ================================================== */
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Section utilities */
+.section-pad-lg {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.section-surface {
+  background-color: var(--bg-surface);
+}
+
+.section-alt {
+  background-color: var(--bg-surface-alt);
+}
+
+/* Section content */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  background-color: var(--accent-soft);
+}
+
+.section-title {
+  margin-top: 0.75rem;
+  font-size: 1.9rem;
+  line-height: 1.1;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.4rem;
+  }
+}
+
+.section-description {
+  margin-top: 0.75rem;
+  max-width: 40rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ==================================================
+   CARDS
+   ================================================== */
+
+.card {
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+/* ==================================================
+   BUTTONS
+   ================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.16s ease,
+    color 0.16s ease,
+    border-color 0.16s ease,
+    transform 0.08s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+  border-color: var(--accent-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-main);
+  border-color: var(--border-subtle);
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--border-strong);
+}
+
+/* ==================================================
+   TAGS & LABELS
+   ================================================== */
+
+.tag-amber {
+  background-color: #FEF3C7;
+  color: #92400E;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tag-emerald {
+  background-color: #DCFCE7;
+  color: #166534;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tag-rose {
+  background-color: #FFE4E6;
+  color: #9F1239;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Dark mode adjustments for tags */
+.dark .tag-amber {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #FCD34D;
+}
+
+.dark .tag-emerald {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #86EFAC;
+}
+
+.dark .tag-rose {
+  background-color: rgba(249, 115, 115, 0.15);
+  color: #FCA5A5;
 }
 
 @media (prefers-reduced-motion: reduce) {
   body {
     animation: none;
     opacity: 1;
+  }
+  .btn {
+    transition: none;
   }
 }
 

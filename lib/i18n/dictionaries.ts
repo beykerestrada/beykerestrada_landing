@@ -19,14 +19,14 @@ export type SiteDictionary = {
     languageNames: Record<Locale, string>
   }
   hero: {
+    badge: string
     title: string
     subtitle: string
     primaryCta: string
     secondaryCta: string
-    trustIndicator: string
-    urgencyNote: string
   }
   method: {
+    badge: string
     title: string
     intro: string
     steps: { title: string; description: string }[]
@@ -46,33 +46,41 @@ export type SiteDictionary = {
   services: {
     badge: string
     title: string
-    subtitle: string
     intro: string
-    fromLabel: string
-    learnMoreCta: string
-    primaryCta: string
-    secondaryCta: string
-    popularBadge: string
-    guaranteeNote: string
-    cards: {
-      title: string
-      summary: string
-      bullets: string[]
-      price: string
-      isPopular?: boolean
-    }[]
-    addon: {
+    audit: {
       badge: string
       title: string
-      summary: string
-      cta: string
+      description: string
+      bullets: [string, string, string]
+      price: string
+      ctaLabel: string
     }
+    primary: {
+      id: string
+      badge: string | null
+      title: string
+      description: string
+      bullets: [string, string, string]
+      price: string
+      ctaLabel: string
+      type: "project" | "retainer"
+    }[]
+    secondary: {
+      id: string
+      badge: string | null
+      title: string
+      description: string
+      bullets: [string, string, string]
+      price: string
+      ctaLabel: string
+      type: "retainer" | "partner"
+    }[]
   }
   process: {
     badge: string
     title: string
-    subtitle: string
-    steps: { title: string; desc: string }[]
+    intro: string
+    steps: { label: string; title: string; description: string }[]
   }
   finalCta: {
     badge: string
@@ -148,42 +156,32 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       },
     },
     hero: {
-      title: "Transform disconnected operations into a business that runs on systems",
+      badge: "Systems that make work flow",
+      title: "I build Notion systems and n8n automations so your team can work with clarity and less friction.",
       subtitle:
-        "From 20+ hours per week in operational firefighting to a centralized system that runs your business—typically in 4-6 weeks. I work with founders and teams who need their operations to work for them, not against them.",
-      primaryCta: "Book a working session",
-      secondaryCta: "View Upwork profile",
-      trustIndicator: "Trusted by growing service businesses and agencies",
-      urgencyNote: "Limited to 3 deep projects per quarter · Next availability: Early 2026",
+        "I turn scattered work into a single operating system, a place where decisions, tasks, dashboards and automated workflows stay organized and easy to maintain.",
+      primaryCta: "Start a scoped engagement on Upwork",
+      secondaryCta: "Book a strategy session",
     },
     method: {
-      title: "How we move from chaos to clarity",
-      intro: "A structured process that starts from how your business really works today and lands in a system your team actually uses.",
+      badge: "How I work",
+      title: "A clear structure that keeps projects fast and predictable.",
+      intro: "I work through a simple path that reduces friction, avoids chaos, and keeps every step visible. Nothing vague. No endless revisions. One rhythm from discovery to delivery.",
       steps: [
         {
-          title: "Operational diagnosis",
+          title: "Reduce friction",
           description:
-            "We map your current processes, tools and recurring problems. The goal is to see how work actually flows, not how it looks in a slide.",
+            "I map how your team works today: tools, documents, tasks, workflows. We identify bottlenecks and simplify everything into one source of truth inside Notion.",
         },
         {
-          title: "System architecture",
+          title: "Build systems fast",
           description:
-            "We design how your business should run as a system. Where information lives, how tasks move, what gets automated and what leadership needs to see every day.",
+            "We design dashboards, processes, views, and automations with a live working approach. You see every decision in real time so the system takes shape quickly.",
         },
         {
-          title: "Build and automation",
+          title: "Create clarity",
           description:
-            "I implement your Business OS in Notion and connect the necessary tools with automations. From lead intake and client management to projects, finances and reporting.",
-        },
-        {
-          title: "Decision dashboards",
-          description:
-            "We create the views and dashboards that matter for each role. Everyone sees what they need without chasing updates.",
-        },
-        {
-          title: "Rollout and training",
-          description:
-            "We onboard your team, remove friction and close gaps so the system becomes part of everyday work instead of another abandoned project.",
+            "We document the structure, define ownership, and put in place the exact workflows your team will follow. Everyone understands what to do and where to do it.",
         },
       ],
     },
@@ -237,85 +235,131 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     },
     services: {
       badge: "Services",
-      title: "Business operating systems for teams already in motion",
-      subtitle:
-        "I prefer a few deep projects rather than many scattered ones. Work is focused on building the systems that will matter for years, not weeks.",
-      intro: "Clear offers built around architecture, implementation and ongoing evolution of your operating system.",
-      fromLabel: "From",
-      learnMoreCta: "Request details",
-      primaryCta: "Discuss your context",
-      secondaryCta: "Request a systems audit",
-      popularBadge: "Most Popular",
-      guaranteeNote: "If you don't see ROI in the first 90 days, I'll refine it at no extra cost",
-      cards: [
+      title: "Business operating systems, automations, and ongoing partnership for teams already in motion",
+      intro:
+        "I take on a few deep engagements at a time, not endless small tasks. Most clients begin with an audit or a focused project, then move into a retainer when their system is ready to scale.",
+      audit: {
+        badge: "Not sure where to start?",
+        title: "Systems & Notion audit",
+        description:
+          "A complete review of your Notion workspace, your core workflows, and your current automations. You get a clear diagnosis of what is working, what is slowing you down, and a step by step roadmap to improve your operations.",
+        bullets: [
+          "Deep analysis of your workspace and processes",
+          "Clear identification of bottlenecks, risks, and duplicated work",
+          "Prioritized roadmap with actionable next steps",
+        ],
+        price: "From $600+ (credited toward a project if you move forward)",
+        ctaLabel: "Request an audit",
+      },
+      primary: [
         {
-          title: "Business OS design and implementation",
-          summary:
-            "Full engagement where we map your operation, design your Business OS and implement it with automations and dashboards.",
+          id: "business-os",
+          badge: "Most popular",
+          title: "Business OS design & implementation",
+          description:
+            "A full engagement where we map how your team works, design your Business OS in Notion, and implement it with dashboards, automations, and the structure your operation needs to run smoothly.",
           bullets: [
             "End to end systems architecture",
-            "Notion based Business OS implementation",
-            "Automation of critical workflows",
+            "Notion based OS; projects, tasks, CRM, knowledge, reporting",
+            "Key automations with n8n or Zapier",
           ],
-          price: "$3,000+",
-          isPopular: true,
+          price: "From $3,000+",
+          ctaLabel: "Discuss your context",
+          type: "project",
         },
         {
-          title: "Operational systems audit",
-          summary:
-            "A focused review of your current tools, workflows and data model. You keep a clear diagnosis and a prioritized action plan.",
+          id: "automation-projects",
+          badge: null,
+          title: "Tailored automation projects (n8n, Zapier & more)",
+          description:
+            "Focused automation work around your existing tech stack. Ideal for removing repetitive manual tasks without having to rebuild everything.",
           bullets: [
-            "Audit of tools and processes",
-            "Systems blueprint and gaps",
-            "Prioritized roadmap for improvements",
+            "Workflow discovery and analysis",
+            "Automation design and build in n8n, Zapier or similar tools",
+            "Error handling, logging and documentation",
           ],
-          price: "$900+",
+          price: "From $1,200+",
+          ctaLabel: "Request a scoped project",
+          type: "project",
         },
         {
-          title: "Ongoing systems advisory",
-          summary:
-            "For teams that already run on a system and want a strategic partner to evolve it as the business grows.",
+          id: "notion-architect",
+          badge: null,
+          title: "Notion Architect on retainer",
+          description:
+            "Ongoing partnership to evolve and maintain the architecture of your Notion workspace. We scale your system without letting complexity take over.",
           bullets: [
-            "Monthly improvements and iterations",
-            "New automations and modules over time",
-            "Direct access for operational questions",
+            "Monthly sessions for structure, views and permissions",
+            "Design of new internal spaces and dashboards",
+            "Guidance so your team builds safely",
           ],
           price: "Monthly retainer",
+          ctaLabel: "Explore retainers",
+          type: "retainer",
         },
       ],
-      addon: {
-        badge: "For strategic partners",
-        title: "White-label systems implementation for agencies",
-        summary:
-          "For marketing and growth agencies looking to offer automation and operational systems as a service to their clients. I partner with you to deliver Business OS implementations under your brand while you focus on client relationships and core strategy.",
-        cta: "Discuss partnership",
-      },
+      secondary: [
+        {
+          id: "automation-ops",
+          badge: null,
+          title: "Automation Ops partner",
+          description:
+            "For teams that rely on n8n or Zapier and want someone dependable to maintain, debug, update, and extend their automations. I own the operations of your automation stack.",
+          bullets: [
+            "Maintenance of n8n, Zapier and related integrations",
+            "Monitoring, debugging and recovery for failed runs",
+            "New workflow design and implementation as needs evolve",
+          ],
+          price: "Monthly retainer",
+          ctaLabel: "Explore retainers",
+          type: "retainer",
+        },
+        {
+          id: "white-label",
+          badge: "For strategic partners",
+          title: "White label systems implementation for agencies",
+          description:
+            "For agencies looking to deliver Business OS and automation services under their brand. I handle the architecture and implementation while you keep the client relationship and strategy.",
+          bullets: [
+            "Delivered under your brand, tools and communication style",
+            "Full systems and automation projects for your clients",
+            "Clear collaboration model designed to scale together",
+          ],
+          price: "",
+          ctaLabel: "Discuss partnership",
+          type: "partner",
+        },
+      ],
     },
     process: {
       badge: "Process",
-      title: "How we move from scattered tools to a real operating system",
-      subtitle:
+      title: "How we move from scattered tools to a real operating system.",
+      intro:
         "A structured process that starts from how your business really works today and lands in a system your team actually uses.",
       steps: [
         {
+          label: "01",
           title: "Operational diagnosis",
-          desc: "We map your current processes, tools and recurring problems. The goal is to see how work really flows today, not how it is supposed to work on paper.",
+          description:
+            "We map your current processes; tools and recurring problems. The goal is to see how work really flows today; not how it is supposed to work on paper.",
         },
         {
+          label: "02",
           title: "System architecture",
-          desc: "We design how your business should run as a system — where information lives, how tasks move, what gets automated and what leadership needs to see every day.",
+          description:
+            "We design how your business should run as a system; where information lives; how tasks move; what gets automated and what leadership needs to see every day.",
         },
         {
+          label: "03",
           title: "Build and automation",
-          desc: "I implement your Business OS in Notion and connect the necessary tools through automations. From lead intake and client management to projects, finances and reporting.",
+          description:
+            "We turn the architecture into real Notion workspaces and n8n workflows; shipped in small slices you can test with real work; not demo data.",
         },
         {
-          title: "Dashboards and decision layer",
-          desc: "We design the views and dashboards that matter for you and your team. So everyone sees what they need to move work forward without asking for updates.",
-        },
-        {
-          title: "Rollout and training",
-          desc: "We onboard your team, adjust friction points and close gaps. The system becomes part of how you work day to day, not another abandoned project.",
+          label: "04",
+          title: "Rollout and support",
+          description:
+            "We roll out the system with your team; refine what does not feel natural and stay close during the first weeks so adoption is smooth and the system sticks.",
         },
       ],
     },
@@ -418,43 +462,33 @@ const dictionaries: Record<Locale, SiteDictionary> = {
       },
     },
     hero: {
-      title: "Transformo operaciones desconectadas en un negocio que funciona con sistemas",
+      badge: "Sistemas que hacen que el trabajo fluya",
+      title: "Construyo sistemas en Notion y automatizaciones en n8n para que tu equipo trabaje con claridad y menos fricción.",
       subtitle:
-        "De 20+ horas semanales apagando incendios operativos a un sistema centralizado que dirige tu negocio—típicamente en 4-6 semanas. Trabajo con founders y equipos que necesitan que sus operaciones trabajen para ellos, no en su contra.",
-      primaryCta: "Reserva una sesión de trabajo",
-      secondaryCta: "Ver perfil en Upwork",
-      trustIndicator: "De confianza para negocios de servicios y agencias en crecimiento",
-      urgencyNote: "Limitado a 3 proyectos profundos por trimestre · Próxima disponibilidad: Inicio 2026",
+        "Convierto trabajo disperso en un sistema operativo único, un lugar donde decisiones, tareas, tableros y flujos automatizados se mantienen organizados y fáciles de mantener.",
+      primaryCta: "Inicia un proyecto acotado en Upwork",
+      secondaryCta: "Agenda una sesión estratégica",
     },
     method: {
-      title: "Cómo pasamos del caos a la claridad",
+      badge: "Cómo trabajo",
+      title: "Una estructura clara que mantiene los proyectos ágiles y predecibles.",
       intro:
-        "Un proceso estructurado que parte de cómo funciona tu negocio hoy y termina en un sistema que tu equipo realmente usa.",
+        "Trabajo con una ruta simple que reduce fricción, evita el caos y mantiene cada paso visible. Nada vago. Sin revisiones infinitas. Un solo ritmo desde el discovery hasta la entrega.",
       steps: [
         {
-          title: "Diagnóstico operativo",
+          title: "Reducir fricción",
           description:
-            "Mapeamos tus procesos actuales, tus herramientas y los problemas que se repiten. Queremos ver cómo fluye el trabajo en la realidad, no solo en un diagrama.",
+            "Mapeo cómo trabaja hoy tu equipo: herramientas, documentos, tareas, flujos. Identificamos cuellos de botella y simplificamos todo en una única fuente de verdad dentro de Notion.",
         },
         {
-          title: "Arquitectura del sistema",
+          title: "Construir sistemas rápido",
           description:
-            "Diseñamos cómo debe funcionar tu negocio como sistema. Dónde vive la información, cómo se mueven las tareas, qué se automatiza y qué necesita ver liderazgo cada día.",
+            "Diseñamos dashboards, procesos, vistas y automatizaciones en sesiones de trabajo en vivo. Ves cada decisión en tiempo real, así el sistema toma forma rápido.",
         },
         {
-          title: "Construcción y automatización",
+          title: "Crear claridad",
           description:
-            "Implemento tu Business OS en Notion y conecto las herramientas necesarias con una capa de automatización. Desde la entrada de leads y gestión de clientes hasta proyectos, finanzas y reporting.",
-        },
-        {
-          title: "Tableros para decidir",
-          description:
-            "Creamos vistas y tableros pensados para cada rol. Cada persona ve lo que necesita sin perseguir actualizaciones.",
-        },
-        {
-          title: "Despliegue y adopción",
-          description:
-            "Aterrizamos el sistema con tu equipo, quitamos fricciones y cerramos brechas para que se convierta en parte del trabajo diario y no en otro proyecto olvidado.",
+            "Documentamos la estructura, definimos responsables y establecemos los flujos exactos que seguirá tu equipo. Todos saben qué hacer y dónde hacerlo.",
         },
       ],
     },
@@ -508,85 +542,131 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     },
     services: {
       badge: "Servicios",
-      title: "Sistemas operativos de negocio para equipos que ya están en juego",
-      subtitle:
-        "Prefiero pocos proyectos profundos en lugar de muchos dispersos. El foco está en construir los sistemas que van a sostener tu operación durante años.",
-      intro: "Ofertas claras centradas en arquitectura, implementación y evolución continua de tu sistema operativo.",
-      fromLabel: "Desde",
-      learnMoreCta: "Pedir detalles",
-      primaryCta: "Hablemos de tu contexto",
-      secondaryCta: "Solicitar una auditoría de sistemas",
-      popularBadge: "Más Popular",
-      guaranteeNote: "Si no ves ROI en los primeros 90 días, lo refinaré sin costo adicional",
-      cards: [
+      title: "Sistemas operativos de negocio, automatizaciones y acompañamiento continuo para equipos que ya están en marcha",
+      intro:
+        "Trabajo con pocos proyectos profundos a la vez; no con una lista infinita de tareas sueltas. La mayoría de los clientes comienza con una auditoría o un proyecto enfocado y luego pasa a un retainer cuando el sistema está listo para escalar.",
+      audit: {
+        badge: "¿No sabes por dónde empezar?",
+        title: "Auditoría de sistemas y Notion",
+        description:
+          "Reviso en detalle tu espacio de trabajo en Notion, tus flujos clave y las automatizaciones que ya tienes. Obtienes un diagnóstico claro de qué funciona, qué te frena y un plan de acción paso a paso para mejorar tus operaciones.",
+        bullets: [
+          "Análisis profundo de tu espacio de trabajo y procesos",
+          "Identificación clara de cuellos de botella, riesgos y trabajo duplicado",
+          "Hoja de ruta priorizada con próximos pasos accionables",
+        ],
+        price: "Desde 600 USD+ (se descuenta si avanzas a un proyecto)",
+        ctaLabel: "Solicitar auditoría",
+      },
+      primary: [
         {
+          id: "business-os",
+          badge: "Más contratado",
           title: "Diseño e implementación de Business OS",
-          summary:
-            "Proyecto completo donde mapeamos tu operación, diseñamos tu Business OS y lo implementamos con automatizaciones y tableros.",
+          description:
+            "Proyecto completo en el que mapeamos cómo trabaja tu equipo, diseñamos tu Business OS en Notion y lo implementamos con tableros, automatizaciones y la estructura que tu operación necesita para funcionar con fluidez.",
           bullets: [
-            "Arquitectura integral de sistemas",
-            "Implementación de Business OS en Notion",
-            "Automatización de flujos críticos",
+            "Arquitectura de sistemas de principio a fin",
+            "OS en Notion; proyectos, tareas, CRM, conocimiento, reportes",
+            "Automatizaciones clave con n8n o Zapier",
           ],
-          price: "US$3,000+",
-          isPopular: true,
+          price: "Desde 3.000 USD+",
+          ctaLabel: "Hablar sobre tu contexto",
+          type: "project",
         },
         {
-          title: "Auditoría de sistemas operativos",
-          summary:
-            "Revisión enfocada de tus herramientas, workflows y modelo de datos. Te quedas con un diagnóstico claro y un plan de acción priorizado.",
+          id: "automation-projects",
+          badge: null,
+          title: "Proyectos de automatización a medida (n8n, Zapier y más)",
+          description:
+            "Trabajo de automatización enfocado alrededor de las herramientas que ya usas. Ideal para eliminar tareas manuales repetitivas sin tener que reconstruir todo.",
           bullets: [
-            "Auditoría de herramientas y procesos",
-            "Blueprint del sistema y brechas",
-            "Roadmap priorizado de mejoras",
+            "Descubrimiento y análisis de tus flujos actuales",
+            "Diseño e implementación de automatizaciones en n8n, Zapier u otras plataformas",
+            "Manejo de errores, logging y documentación",
           ],
-          price: "US$900+",
+          price: "Desde 1.200 USD+",
+          ctaLabel: "Solicitar proyecto a medida",
+          type: "project",
         },
         {
-          title: "Asesoría continua en sistemas",
-          summary:
-            "Para equipos que ya corren sobre un sistema y quieren un socio estratégico para evolucionarlo a medida que el negocio crece.",
+          id: "notion-architect",
+          badge: null,
+          title: "Notion Architect en retainer",
+          description:
+            "Acompañamiento continuo para evolucionar y mantener la arquitectura de tu espacio de trabajo en Notion. Escalamos el sistema sin dejar que la complejidad se descontrole.",
           bullets: [
-            "Mejoras e iteraciones mensuales",
-            "Nuevas automatizaciones y módulos con el tiempo",
-            "Acceso directo para decisiones operativas",
+            "Sesiones mensuales para estructura, vistas y permisos",
+            "Diseño de nuevos espacios internos y tableros",
+            "Guía para que tu equipo construya sin romper lo que ya funciona",
           ],
           price: "Retainer mensual",
+          ctaLabel: "Ver opciones de retainer",
+          type: "retainer",
         },
       ],
-      addon: {
-        badge: "Para socios estratégicos",
-        title: "Implementación de sistemas white-label para agencias",
-        summary:
-          "Para agencias de marketing y crecimiento que buscan ofrecer automatización y sistemas operacionales como servicio a sus clientes. Me asocio contigo para entregar implementaciones de Business OS bajo tu marca mientras te enfocas en las relaciones con clientes y estrategia central.",
-        cta: "Discutir alianza",
-      },
+      secondary: [
+        {
+          id: "automation-ops",
+          badge: null,
+          title: "Automation Ops partner",
+          description:
+            "Para equipos que dependen de n8n o Zapier y quieren alguien confiable que mantenga, depure, actualice y amplíe sus automatizaciones. Me hago cargo del lado operativo de tu stack de automatización.",
+          bullets: [
+            "Mantenimiento de n8n, Zapier e integraciones relacionadas",
+            "Monitoreo, debug y recuperación de ejecuciones con error",
+            "Diseño e implementación de nuevos flujos a medida que el negocio cambia",
+          ],
+          price: "Retainer mensual",
+          ctaLabel: "Ver opciones de retainer",
+          type: "retainer",
+        },
+        {
+          id: "white-label",
+          badge: "Para socios estratégicos",
+          title: "Implementación white label para agencias",
+          description:
+            "Para agencias que quieren ofrecer Business OS y servicios de automatización bajo su propia marca. Yo me encargo de la arquitectura y la implementación mientras tú mantienes la relación y la estrategia con el cliente.",
+          bullets: [
+            "Entrega bajo tu marca, procesos y herramientas",
+            "Proyectos completos de sistemas y automatización para tus clientes",
+            "Modelo de colaboración claro, preparado para escalar juntos",
+          ],
+          price: "",
+          ctaLabel: "Hablar sobre una alianza",
+          type: "partner",
+        },
+      ],
     },
     process: {
       badge: "Proceso",
-      title: "Cómo pasamos de herramientas dispersas a un sistema operativo real",
-      subtitle:
-        "Un proceso estructurado que parte de cómo funciona tu negocio hoy y termina en un sistema que tu equipo realmente usa.",
+      title: "Cómo pasamos de herramientas dispersas a un sistema operativo real.",
+      intro:
+        "Un proceso estructurado que parte de cómo funciona realmente tu negocio hoy y termina en un sistema que tu equipo realmente usa.",
       steps: [
         {
-          title: "Diagnóstico operativo",
-          desc: "Mapeamos tus procesos actuales, herramientas y problemas recurrentes. El objetivo es ver cómo fluye realmente el trabajo hoy, no cómo se supone que debería funcionar en papel.",
+          label: "01",
+          title: "Diagnóstico operacional",
+          description:
+            "Mapeamos tus procesos actuales, herramientas y problemas recurrentes. El objetivo es ver cómo fluye realmente el trabajo hoy; no cómo se supone que funciona en el papel.",
         },
         {
+          label: "02",
           title: "Arquitectura del sistema",
-          desc: "Diseñamos cómo debe funcionar tu negocio como sistema — dónde vive la información, cómo se mueven las tareas, qué se automatiza y qué necesita ver el liderazgo cada día.",
+          description:
+            "Diseñamos la estructura: flujos de trabajo, bases de datos, vistas, automatizaciones y puntos de integración. Todo antes de construir.",
         },
         {
+          label: "03",
           title: "Construcción y automatización",
-          desc: "Implemento tu Business OS en Notion y conecto las herramientas necesarias mediante automatizaciones. Desde la captación de leads y gestión de clientes hasta proyectos, finanzas y reporting.",
+          description:
+            "Implementamos Notion + n8n. Creamos tableros, bases de datos, workflows y webhooks. Probamos en paralelo contigo y ajustamos según sea necesario.",
         },
         {
-          title: "Tableros y capa de decisión",
-          desc: "Diseñamos las vistas y tableros que importan para ti y tu equipo. Para que todos vean lo que necesitan para avanzar el trabajo sin pedir actualizaciones.",
-        },
-        {
-          title: "Despliegue y capacitación",
-          desc: "Incorporamos a tu equipo, ajustamos puntos de fricción y cerramos brechas. El sistema se convierte en parte de cómo trabajas día a día, no en otro proyecto abandonado.",
+          label: "04",
+          title: "Lanzamiento y soporte",
+          description:
+            "Te transferimos todo: acceso completo, documentación interna y 30 días de soporte posterior al lanzamiento para asegurar que el sistema se mantenga.",
         },
       ],
     },

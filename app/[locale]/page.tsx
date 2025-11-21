@@ -1,7 +1,7 @@
 // app/[locale]/page.tsx
 import Header from "@/components/Header"
 import Hero from "@/components/Hero"
-import Value from "@/components/Value"
+import Method from "@/components/Method"
 import Services from "@/components/Services"
 import Process from "@/components/Process"
 import Footer from "@/components/Footer"
@@ -23,14 +23,12 @@ export default function LocaleLandingPage() {
       {/* 1. Hero: propuesta central + CTA */}
       <Hero upworkUrl={UPWORK} calendlyUrl={CALENDLY || undefined} />
 
-      {/* 2. Qué cambia en la operación (value prop) */}
-      <Value />
+      {/* 2. How I work - methodology */}
+      <Method />
 
       {/* 3. Proceso y metodología */}
       <Process />
 
-      {/* 4. Lead magnet - soft conversion */}
-      <LeadMagnet />
 
       {/* 5. Formas de trabajar juntos */}
       <Services upworkUrl={UPWORK} consultationUrl={CONSULTATION} />
