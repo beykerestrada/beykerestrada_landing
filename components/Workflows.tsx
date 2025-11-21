@@ -11,7 +11,7 @@ export default function Workflows() {
   const workflows = dictionary.workflows
 
   return (
-    <section className="bg-muted/60 py-24" id="workflows">
+    <section className="bg-[#f5f5f5] py-24" id="workflows">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader

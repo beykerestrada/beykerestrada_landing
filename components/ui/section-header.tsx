@@ -17,7 +17,7 @@ export default function SectionHeader({
   ...props
 }: SectionHeaderProps) {
   const alignment = align === "center" ? "items-center text-center" : "items-start text-left"
-  const stackWidth = align === "center" ? "max-w-3xl mx-auto" : "max-w-3xl"
+  const stackWidth = align === "center" ? "  mx-auto" : "max-w-3xl"
 
   const classes = ["flex flex-col gap-6", alignment, className].filter(Boolean).join(" ")
 
@@ -29,7 +29,7 @@ export default function SectionHeader({
         </span>
       )}
 
-      <div className={["flex flex-col gap-5", stackWidth].join(" ")}>
+      <div className={["flex flex-col gap-8 pb-8", stackWidth].join(" ")}>
         <h2 className="text-balance text-4xl font-bold leading-[1.15] tracking-tighter text-foreground md:text-5xl lg:text-6xl">
           {title}
         </h2>

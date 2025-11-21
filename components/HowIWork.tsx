@@ -21,7 +21,7 @@ const STEPS = [
 
 export default function HowIWork() {
   return (
-    <section className="bg-background py-24" aria-labelledby="how-i-work-heading">
+    <section className="bg-[#f5f5f5] py-24" aria-labelledby="how-i-work-heading">
       <Container className="space-y-10">
         <SectionHeader
           id="how-i-work-heading"
@@ -34,7 +34,7 @@ export default function HowIWork() {
           {STEPS.map((step) => (
             <CardShell key={step.title} className="space-y-3">
               <h3 className="text-lg font-semibold text-foreground">{step.title}</h3>
-              <p className="text-base leading-relaxed text-muted-foreground">{step.body}</p>
+              <p className="text-base leading-relaxed text-foreground/80">{step.body}</p>
             </CardShell>
           ))}
         </div>

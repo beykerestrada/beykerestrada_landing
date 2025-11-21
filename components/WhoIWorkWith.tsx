@@ -11,7 +11,7 @@ export default function WhoIWorkWith() {
   const section = dictionary.whoIWorkWith
 
   return (
-    <section className="bg-background py-24" aria-labelledby="who-i-work-with-heading">
+    <section className="bg-white py-24" aria-labelledby="who-i-work-with-heading">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader id="who-i-work-with-heading" eyebrow={section.eyebrow} title={section.title} align="center" />
@@ -22,7 +22,7 @@ export default function WhoIWorkWith() {
             <Reveal key={item.title}>
               <CardShell className="space-y-2">
                 <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
-                <p className="text-base text-muted-foreground">{item.detail}</p>
+                <p className="text-base text-foreground/80">{item.detail}</p>
               </CardShell>
             </Reveal>
           ))}

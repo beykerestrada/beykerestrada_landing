@@ -11,7 +11,7 @@ export default function Process() {
   const process = dictionary.process
 
   return (
-    <section className="bg-muted/60 py-24 md:py-32 lg:py-40" id="process">
+    <section className="bg-white py-24 md:py-32 lg:py-40" id="process">
       <Container className="space-y-20">
         <Reveal>
           <SectionHeader eyebrow={process.badge} title={process.title} description={process.subtitle} align="center" />
@@ -22,7 +22,7 @@ export default function Process() {
             <Reveal key={step.title}>
               <CardShell className="space-y-4">
                 <h3 className="text-xl font-bold tracking-tight text-foreground">{step.title}</h3>
-                <p className="text-base leading-relaxed text-muted-foreground">{step.desc}</p>
+                <p className="text-base leading-relaxed text-foreground/80">{step.desc}</p>
               </CardShell>
             </Reveal>
           ))}

@@ -11,7 +11,7 @@ export default function CaseSnapshot() {
   const snapshot = dictionary.caseSnapshot;
 
   return (
-    <section className="border-y border-border/60 bg-muted/20 py-20" aria-labelledby="case-snapshot-heading">
+    <section className="border-y border-border/60 bg-[#f5f5f5] py-20" aria-labelledby="case-snapshot-heading">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader
@@ -24,11 +24,11 @@ export default function CaseSnapshot() {
 
         <Reveal>
           <CardShell className="space-y-4 text-left">
-            <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground">
+            <p className="text-sm uppercase tracking-[0.3em] text-foreground/80">
               {snapshot.client}
             </p>
             <p className="text-base text-foreground">{snapshot.scope}</p>
-            <p className="text-base text-muted-foreground">{snapshot.outcome}</p>
+            <p className="text-base text-foreground/80">{snapshot.outcome}</p>
           </CardShell>
         </Reveal>
       </Container>

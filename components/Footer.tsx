@@ -1,8 +1,9 @@
 "use client"
 
 import Container from "@/components/ui/container"
+import Button from "@/components/ui/button"
 import { useTranslations } from "./TranslationProvider"
-import { Linkedin, Twitter, Mail } from "lucide-react"
+import { Linkedin, Twitter, Mail, ArrowUpRight } from "lucide-react"
 
 type Props = {
   upworkUrl: string
@@ -14,7 +15,7 @@ export default function Footer({ upworkUrl }: Props) {
   const header = dictionary.header
 
   return (
-    <footer className="border-t border-border/30 bg-background py-16">
+    <footer className="border-t border-border/30 bg-white py-16">
       <Container>
         <div className="grid gap-12 md:grid-cols-12">
           {/* Brand + Description Column */}
@@ -28,7 +29,7 @@ export default function Footer({ upworkUrl }: Props) {
                 href="https://linkedin.com/in/beykerestrada"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-muted-foreground transition-colors hover:border-border hover:bg-muted/50 hover:text-foreground"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-[hsl(var(--brand))] transition-colors hover:border-[hsl(var(--brand))] hover:bg-muted/50"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
@@ -37,14 +38,14 @@ export default function Footer({ upworkUrl }: Props) {
                 href="https://twitter.com/beykerestrada"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-muted-foreground transition-colors hover:border-border hover:bg-muted/50 hover:text-foreground"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-[hsl(var(--brand))] transition-colors hover:border-[hsl(var(--brand))] hover:bg-muted/50"
                 aria-label="Twitter"
               >
                 <Twitter className="h-4 w-4" />
               </a>
               <a
                 href="mailto:contact@beykerestrada.com"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-muted-foreground transition-colors hover:border-border hover:bg-muted/50 hover:text-foreground"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border/50 text-[hsl(var(--brand))] transition-colors hover:border-[hsl(var(--brand))] hover:bg-muted/50"
                 aria-label="Email"
               >
                 <Mail className="h-4 w-4" />
@@ -104,14 +105,18 @@ export default function Footer({ upworkUrl }: Props) {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <Button
+                    as="a"
                     href={upworkUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    variant="ghost"
+                    size="sm"
+                    className="group inline-flex items-center gap-2 pl-0 text-sm font-semibold text-[hsl(var(--brand))]"
                   >
                     Upwork Profile
-                  </a>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Button>
                 </li>
               </ul>
             </div>
@@ -134,18 +139,28 @@ export default function Footer({ upworkUrl }: Props) {
                   </a>
                 </li>
                 <li>
-                  <a
+                  <Button
+                    as="a"
                     href={upworkUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    variant="ghost"
+                    size="sm"
+                    className="group inline-flex items-center gap-2 pl-0 text-sm font-semibold text-[hsl(var(--brand))]"
                   >
                     {footer.hireCta}
-                  </a>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </Button>
                 </li>
               </ul>
             </div>
           </div>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Button as="a" href={upworkUrl} target="_blank" rel="noopener noreferrer" variant="primary">
+            {footer.cta}
+          </Button>
         </div>
 
         {/* Bottom Bar */}

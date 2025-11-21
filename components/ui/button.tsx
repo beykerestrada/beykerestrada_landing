@@ -11,10 +11,11 @@ type ButtonProps<T extends React.ElementType = "button"> = {
 } & Omit<React.ComponentPropsWithoutRef<T>, "as" | "className">
 
 const variantStyles: Record<Variant, string> = {
-  primary: "bg-brand text-brand-foreground hover:bg-brand/90 shadow-sm hover:shadow-md",
-  ghost: "bg-transparent text-foreground hover:bg-accent/80 border border-border hover:border-border/80",
-  muted: "bg-muted text-foreground hover:bg-muted/80",
-  brand: "bg-brand text-brand-foreground hover:bg-brand/90 shadow-sm hover:shadow-md",
+  primary: "bg-[hsl(var(--brand))] text-[hsl(var(--brand-fg))] hover:bg-[hsl(var(--brand))/0.85] shadow-sm hover:shadow-md",
+  ghost:
+    "border border-border text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] hover:text-[hsl(var(--foreground))]",
+  muted: "bg-[hsl(var(--muted))] text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))/0.9]",
+  brand: "bg-[hsl(var(--brand))] text-[hsl(var(--brand-fg))] hover:bg-[hsl(var(--brand))/0.85] shadow-sm hover:shadow-md",
 }
 
 const sizeStyles: Record<Size, string> = {

@@ -8,7 +8,7 @@ const LOGOS = ["OpenAI", "Notion", "Zapier", "n8n", "Make", "Google Suite"]
 
 export default function Trust() {
   return (
-    <section className="border-y border-border/60 bg-background py-16">
+    <section className="border-y border-border/60 bg-white py-16">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader
@@ -22,7 +22,7 @@ export default function Trust() {
           {LOGOS.map((logo) => (
             <div
               key={logo}
-              className="flex items-center justify-center rounded-xl border border-border/70 bg-background/80 px-4 py-6 transition hover:text-foreground"
+              className="flex items-center justify-center rounded-xl border border-border/70 bg-white/80 px-4 py-6 transition hover:text-foreground"
             >
               {logo}
             </div>

@@ -11,7 +11,7 @@ export default function Method() {
   const method = dictionary.method
 
   return (
-    <section className="bg-muted/60 py-24">
+    <section className="bg-[#f5f5f5] py-24">
       <Container className="space-y-10">
         <Reveal>
           <SectionHeader eyebrow={method.title} title={method.intro} align="center" />
@@ -28,10 +28,10 @@ export default function Method() {
               }}
             >
               <CardShell className="space-y-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
+                <span className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground/80">
                   {step.title}
                 </span>
-                <p className="text-base leading-relaxed text-muted-foreground">{step.description}</p>
+                <p className="text-base leading-relaxed text-foreground/80">{step.description}</p>
               </CardShell>
             </Reveal>
           ))}

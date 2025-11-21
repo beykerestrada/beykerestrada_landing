@@ -17,7 +17,7 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
   const services = dictionary.services
 
   return (
-    <section className="bg-background py-24 md:py-32 lg:py-40" id="services">
+    <section className="bg-[#f5f5f5] py-24 md:py-32 lg:py-40" id="services">
       <Container className="space-y-20">
         <Reveal>
           <SectionHeader
@@ -28,15 +28,15 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
           />
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.cards.map((card) => (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.cards.map((card, index) => (
             <Reveal key={card.title}>
-              <CardShell className="flex h-full flex-col gap-6">
+              <CardShell className="flex h-full flex-col gap-6 border-2 border-transparent bg-white/90 shadow-lg shadow-black/5 transition-all hover:-translate-y-1 hover:border-[hsl(var(--brand))/30]">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold tracking-tight text-foreground">{card.title}</h3>
-                  <p className="text-base leading-relaxed text-muted-foreground">{card.summary}</p>
+                  <p className="text-base leading-relaxed text-foreground/80">{card.summary}</p>
                 </div>
-                <ul className="space-y-2.5 text-sm leading-relaxed text-muted-foreground">
+                <ul className="space-y-2.5 text-sm leading-relaxed text-foreground/70">
                   {card.bullets.map((bullet) => (
                     <li
                       key={bullet}
@@ -46,9 +46,22 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-auto pt-6 text-base font-bold text-foreground">
-                  {services.fromLabel} {card.price}
-                </p>
+                <div className="mt-auto space-y-4 pt-6">
+                  <p className="text-base font-bold text-foreground">
+                    {services.fromLabel} {card.price}
+                  </p>
+                  <Button
+                    as="a"
+                    href={upworkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="primary"
+                    size="lg"
+                    className="w-full justify-center"
+                  >
+                    {index === 0 ? services.primaryCta : services.secondaryCta}
+                  </Button>
+                </div>
               </CardShell>
             </Reveal>
           ))}
@@ -56,12 +69,12 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
 
         <Reveal>
           <CardShell tone="muted" className="space-y-6 text-center md:text-left">
-            <span className="inline-flex items-center justify-center rounded-full border border-border/50 bg-muted/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            <span className="inline-flex items-center justify-center rounded-full border border-border/50 bg-muted/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-foreground/80">
               {services.addon.badge}
             </span>
             <div className="space-y-4">
               <h3 className="text-2xl font-bold tracking-tight text-foreground">{services.addon.title}</h3>
-              <p className="text-lg leading-relaxed text-muted-foreground">{services.addon.summary}</p>
+              <p className="text-lg leading-relaxed text-foreground/80">{services.addon.summary}</p>
             </div>
             <Button
               as="a"
@@ -76,15 +89,6 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
             </Button>
           </CardShell>
         </Reveal>
-
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button as="a" href={upworkUrl} target="_blank" rel="noopener noreferrer" variant="brand" size="lg">
-            {services.learnMoreCta}
-          </Button>
-          <Button as="a" href={consultationUrl} target="_blank" rel="noopener noreferrer" variant="ghost" size="lg">
-            {services.addon.cta}
-          </Button>
-        </div>
       </Container>
     </section>
   )

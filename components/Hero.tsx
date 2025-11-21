@@ -15,15 +15,14 @@ export default function Hero({ upworkUrl, calendlyUrl }: Props) {
   const hero = dictionary.hero
 
   return (
-    <section className="relative overflow-hidden bg-background py-28 sm:py-36 md:py-44 lg:py-52">
-      <Container className="space-y-14">
+    <section className="relative overflow-hidden bg-white py-28 sm:py-36 md:py-44 lg:py-48">
+      <Container className="space-y-24">
         <Reveal>
-          <div className="mx-auto max-w-4xl space-y-8 text-center">
-            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Systems & Automation</p>
+          <div className="mx-auto  space-y-8 text-center">
             <h1 className="text-balance text-5xl font-bold leading-[1.08] tracking-[-0.02em] text-foreground sm:text-6xl md:text-7xl lg:text-[5rem]">
               {hero.title}
             </h1>
-            <p className="mx-auto max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl">
+            <p className="mx-auto text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl md:text-2xl">
               {hero.subtitle}
             </p>
           </div>

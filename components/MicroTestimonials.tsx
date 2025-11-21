@@ -3,6 +3,7 @@
 import CardShell from "@/components/ui/card-shell"
 import Container from "@/components/ui/container"
 import SectionHeader from "@/components/ui/section-header"
+import Button from "@/components/ui/button"
 
 const TESTIMONIALS = [
   {
@@ -22,7 +23,7 @@ const TESTIMONIALS = [
 
 export default function MicroTestimonials() {
   return (
-    <section className="bg-muted/60 py-24" aria-labelledby="testimonials-heading">
+    <section className="bg-white py-24" aria-labelledby="testimonials-heading">
       <Container className="space-y-10">
         <SectionHeader
           id="testimonials-heading"
@@ -38,6 +39,12 @@ export default function MicroTestimonials() {
               <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{author}</span>
             </CardShell>
           ))}
+        </div>
+
+        <div className="flex justify-center pt-4">
+          <Button as="a" href="#process" variant="primary">
+            See how I work
+          </Button>
         </div>
       </Container>
     </section>
