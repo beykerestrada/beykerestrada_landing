@@ -47,34 +47,62 @@ export type SiteDictionary = {
     badge: string
     title: string
     intro: string
-    audit: {
-      badge: string
+    startHere: {
+      label: string
       title: string
-      description: string
-      bullets: [string, string, string]
-      price: string
-      ctaLabel: string
+      subtitle: string
+      card: {
+        title: string
+        body: [string, string]
+        bullets: [string, string, string]
+        price: string
+        ctaLabel: string
+      }
     }
-    primary: {
-      id: string
-      badge: string | null
+    projects: {
+      label: string
       title: string
-      description: string
-      bullets: [string, string, string]
-      price: string
-      ctaLabel: string
-      type: "project" | "retainer"
-    }[]
-    secondary: {
-      id: string
-      badge: string | null
+      subtitle: string
+      items: {
+        id: string
+        tag: string
+        title: string
+        oneLiner: string
+        description: string
+        bullets: [string, string, string]
+        price: string
+        ctaLabel: string
+        meta: string
+      }[]
+    }
+    partnership: {
+      label: string
       title: string
-      description: string
-      bullets: [string, string, string]
-      price: string
-      ctaLabel: string
-      type: "retainer" | "partner"
-    }[]
+      subtitle: string
+      items: {
+        id: string
+        tag: string
+        title: string
+        oneLiner: string
+        description: string
+        bullets: [string, string, string]
+        price: string
+        ctaLabel: string
+      }[]
+    }
+    agencies: {
+      label: string
+      title: string
+      subtitle: string
+      card: {
+        tag: string
+        title: string
+        description: string
+        bullets: [string, string, string]
+        meta: string
+        ctaLabel: string
+      }
+    }
   }
   process: {
     badge: string
@@ -235,101 +263,122 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     },
     services: {
       badge: "Services",
-      title: "Business operating systems, automations, and ongoing partnership for teams already in motion",
+      title: "Ways we can work together",
       intro:
-        "I take on a few deep engagements at a time, not endless small tasks. Most clients begin with an audit or a focused project, then move into a retainer when their system is ready to scale.",
-      audit: {
-        badge: "Not sure where to start?",
-        title: "Systems & Notion audit",
-        description:
-          "A complete review of your Notion workspace, your core workflows, and your current automations. You get a clear diagnosis of what is working, what is slowing you down, and a step by step roadmap to improve your operations.",
-        bullets: [
-          "Deep analysis of your workspace and processes",
-          "Clear identification of bottlenecks, risks, and duplicated work",
-          "Prioritized roadmap with actionable next steps",
-        ],
-        price: "From $600+ (credited toward a project if you move forward)",
-        ctaLabel: "Request an audit",
+        "I take on a limited number of deep engagements; from clarifying where to start; to designing your Business OS in Notion; to maintaining the automations that keep everything moving.",
+      startHere: {
+        label: "01 · Start here",
+        title: "Not sure where to start?",
+        subtitle: "Get a clear picture of your systems before you commit to a bigger project.",
+        card: {
+          title: "Systems & Notion audit",
+          body: [
+            "I review your Notion workspace; core workflows and existing automations.",
+            "You get a clear diagnosis of what is working; what is slowing you down; and a practical roadmap for your next steps.",
+          ],
+          bullets: [
+            "Deep dive into your current workspace and processes",
+            "Map of bottlenecks; risks and duplicated work",
+            "Prioritized plan; quick wins and medium term improvements",
+          ],
+          price: "From $600+ (credited toward a project if you move forward)",
+          ctaLabel: "Request an audit",
+        },
       },
-      primary: [
-        {
-          id: "business-os",
-          badge: "Most popular",
-          title: "Business OS design & implementation",
-          description:
-            "A full engagement where we map how your team works, design your Business OS in Notion, and implement it with dashboards, automations, and the structure your operation needs to run smoothly.",
-          bullets: [
-            "End to end systems architecture",
-            "Notion based OS; projects, tasks, CRM, knowledge, reporting",
-            "Key automations with n8n or Zapier",
-          ],
-          price: "From $3,000+",
-          ctaLabel: "Discuss your context",
-          type: "project",
-        },
-        {
-          id: "automation-projects",
-          badge: null,
-          title: "Tailored automation projects (n8n, Zapier & more)",
-          description:
-            "Focused automation work around your existing tech stack. Ideal for removing repetitive manual tasks without having to rebuild everything.",
-          bullets: [
-            "Workflow discovery and analysis",
-            "Automation design and build in n8n, Zapier or similar tools",
-            "Error handling, logging and documentation",
-          ],
-          price: "From $1,200+",
-          ctaLabel: "Request a scoped project",
-          type: "project",
-        },
-        {
-          id: "notion-architect",
-          badge: null,
-          title: "Notion Architect on retainer",
-          description:
-            "Ongoing partnership to evolve and maintain the architecture of your Notion workspace. We scale your system without letting complexity take over.",
-          bullets: [
-            "Monthly sessions for structure, views and permissions",
-            "Design of new internal spaces and dashboards",
-            "Guidance so your team builds safely",
-          ],
-          price: "Monthly retainer",
-          ctaLabel: "Explore retainers",
-          type: "retainer",
-        },
-      ],
-      secondary: [
-        {
-          id: "automation-ops",
-          badge: null,
-          title: "Automation Ops partner",
-          description:
-            "For teams that rely on n8n or Zapier and want someone dependable to maintain, debug, update, and extend their automations. I own the operations of your automation stack.",
-          bullets: [
-            "Maintenance of n8n, Zapier and related integrations",
-            "Monitoring, debugging and recovery for failed runs",
-            "New workflow design and implementation as needs evolve",
-          ],
-          price: "Monthly retainer",
-          ctaLabel: "Explore retainers",
-          type: "retainer",
-        },
-        {
-          id: "white-label",
-          badge: "For strategic partners",
+      projects: {
+        label: "02 · Project engagements",
+        title: "Focused projects to design or upgrade your systems.",
+        subtitle: "From full Business OS design to targeted automation projects around the tools you already use.",
+        items: [
+          {
+            id: "business-os",
+            tag: "Flagship project",
+            title: "Business OS design & implementation",
+            oneLiner: "Turn scattered tools and docs into one operating system in Notion.",
+            description:
+              "We map how your team works; design your Business OS in Notion; and implement it with the dashboards; databases and automations your operation needs to run smoothly.",
+            bullets: [
+              "Systems architecture; data model and permissions",
+              "Notion based OS for projects; tasks; CRM; knowledge and reporting",
+              "Key automations using n8n or Zapier",
+            ],
+            price: "From $3,000+",
+            ctaLabel: "Discuss your context",
+            meta: "Typical timeline; 4–8 weeks depending on scope.",
+          },
+          {
+            id: "automation-projects",
+            tag: "Automation builds",
+            title: "Tailored automation projects (n8n, Zapier & more)",
+            oneLiner: "Remove repetitive manual work while keeping your existing tools.",
+            description:
+              "We design and build automations around the stack you already use; connecting forms; CRMs; inboxes and internal tools so information flows without constant copy paste.",
+            bullets: [
+              "Workflow discovery; triggers and failure points",
+              "Automations built in n8n; Zapier or similar platforms",
+              "Error handling; logging and documentation for handover",
+            ],
+            price: "From $1,200+",
+            ctaLabel: "Request a scoped project",
+            meta: "",
+          },
+        ],
+      },
+      partnership: {
+        label: "03 · Ongoing partnership",
+        title: "Keep your systems healthy once they are in place.",
+        subtitle: "Retainers for the architecture and operations work most teams do not want in house.",
+        items: [
+          {
+            id: "notion-architect",
+            tag: "For evolving workspaces",
+            title: "Notion Architect on retainer",
+            oneLiner: "Architecture and design support so your workspace grows without turning into a mess.",
+            description:
+              "I act as your Notion Architect; planning structural changes; designing new spaces; and keeping the workspace coherent as more teams and workflows move into Notion.",
+            bullets: [
+              "Monthly sessions for structure; views and permissions",
+              "Design of new areas; dashboards and databases",
+              "Guidance so your internal team can build safely on top",
+            ],
+            price: "Monthly retainer",
+            ctaLabel: "Explore retainers",
+          },
+          {
+            id: "automation-ops",
+            tag: "For automation heavy teams",
+            title: "Automation Ops partner",
+            oneLiner: "Someone who owns the day to day health of your automations.",
+            description:
+              "I maintain and update your n8n or Zapier instances; monitor failures; debug edge cases and design new workflows as the business changes; so your systems do not depend on heroic fixes.",
+            bullets: [
+              "Maintenance and updates for n8n; Zapier and related integrations",
+              "Monitoring; debugging and recovery for failed runs",
+              "Design and launch of new workflows on demand",
+            ],
+            price: "Monthly retainer",
+            ctaLabel: "Explore retainers",
+          },
+        ],
+      },
+      agencies: {
+        label: "04 · For agencies",
+        title: "White label systems implementation for agencies.",
+        subtitle: "Partnerships for agencies that want to offer systems and automations without building an internal delivery team.",
+        card: {
+          tag: "For strategic partners",
           title: "White label systems implementation for agencies",
           description:
-            "For agencies looking to deliver Business OS and automation services under their brand. I handle the architecture and implementation while you keep the client relationship and strategy.",
+            "For marketing; growth and consulting agencies that want to offer Notion based systems and automations to their clients without building an internal team. I deliver the work under your brand while you keep the client relationship and strategy.",
           bullets: [
-            "Delivered under your brand, tools and communication style",
-            "Full systems and automation projects for your clients",
-            "Clear collaboration model designed to scale together",
+            "White label delivery under your brand and processes",
+            "Scoped Business OS and automation projects for your clients",
+            "Clear collaboration model and SLAs so we can scale together",
           ],
-          price: "",
+          meta: "Partner rates shared after an initial fit call.",
           ctaLabel: "Discuss partnership",
-          type: "partner",
         },
-      ],
+      },
     },
     process: {
       badge: "Process",
@@ -542,101 +591,122 @@ const dictionaries: Record<Locale, SiteDictionary> = {
     },
     services: {
       badge: "Servicios",
-      title: "Sistemas operativos de negocio, automatizaciones y acompañamiento continuo para equipos que ya están en marcha",
+      title: "Formas de trabajar juntos",
       intro:
-        "Trabajo con pocos proyectos profundos a la vez; no con una lista infinita de tareas sueltas. La mayoría de los clientes comienza con una auditoría o un proyecto enfocado y luego pasa a un retainer cuando el sistema está listo para escalar.",
-      audit: {
-        badge: "¿No sabes por dónde empezar?",
-        title: "Auditoría de sistemas y Notion",
-        description:
-          "Reviso en detalle tu espacio de trabajo en Notion, tus flujos clave y las automatizaciones que ya tienes. Obtienes un diagnóstico claro de qué funciona, qué te frena y un plan de acción paso a paso para mejorar tus operaciones.",
-        bullets: [
-          "Análisis profundo de tu espacio de trabajo y procesos",
-          "Identificación clara de cuellos de botella, riesgos y trabajo duplicado",
-          "Hoja de ruta priorizada con próximos pasos accionables",
-        ],
-        price: "Desde 600 USD+ (se descuenta si avanzas a un proyecto)",
-        ctaLabel: "Solicitar auditoría",
+        "Trabajo con un número limitado de proyectos profundos; desde clarificar por dónde empezar; hasta diseñar tu Business OS en Notion; hasta mantener las automatizaciones que mantienen todo en movimiento.",
+      startHere: {
+        label: "01 · Empieza aquí",
+        title: "¿No sabes por dónde empezar?",
+        subtitle: "Obtén una imagen clara de tus sistemas antes de comprometerte con un proyecto más grande.",
+        card: {
+          title: "Auditoría de sistemas y Notion",
+          body: [
+            "Reviso tu espacio de trabajo en Notion; flujos principales y automatizaciones existentes.",
+            "Obtienes un diagnóstico claro de qué funciona; qué te frena; y una hoja de ruta práctica para tus próximos pasos.",
+          ],
+          bullets: [
+            "Análisis profundo de tu workspace y procesos actuales",
+            "Mapa de cuellos de botella; riesgos y trabajo duplicado",
+            "Plan priorizado; victorias rápidas y mejoras a mediano plazo",
+          ],
+          price: "Desde 600 USD+ (se descuenta si avanzas a un proyecto)",
+          ctaLabel: "Solicitar auditoría",
+        },
       },
-      primary: [
-        {
-          id: "business-os",
-          badge: "Más contratado",
-          title: "Diseño e implementación de Business OS",
-          description:
-            "Proyecto completo en el que mapeamos cómo trabaja tu equipo, diseñamos tu Business OS en Notion y lo implementamos con tableros, automatizaciones y la estructura que tu operación necesita para funcionar con fluidez.",
-          bullets: [
-            "Arquitectura de sistemas de principio a fin",
-            "OS en Notion; proyectos, tareas, CRM, conocimiento, reportes",
-            "Automatizaciones clave con n8n o Zapier",
-          ],
-          price: "Desde 3.000 USD+",
-          ctaLabel: "Hablar sobre tu contexto",
-          type: "project",
-        },
-        {
-          id: "automation-projects",
-          badge: null,
-          title: "Proyectos de automatización a medida (n8n, Zapier y más)",
-          description:
-            "Trabajo de automatización enfocado alrededor de las herramientas que ya usas. Ideal para eliminar tareas manuales repetitivas sin tener que reconstruir todo.",
-          bullets: [
-            "Descubrimiento y análisis de tus flujos actuales",
-            "Diseño e implementación de automatizaciones en n8n, Zapier u otras plataformas",
-            "Manejo de errores, logging y documentación",
-          ],
-          price: "Desde 1.200 USD+",
-          ctaLabel: "Solicitar proyecto a medida",
-          type: "project",
-        },
-        {
-          id: "notion-architect",
-          badge: null,
-          title: "Notion Architect en retainer",
-          description:
-            "Acompañamiento continuo para evolucionar y mantener la arquitectura de tu espacio de trabajo en Notion. Escalamos el sistema sin dejar que la complejidad se descontrole.",
-          bullets: [
-            "Sesiones mensuales para estructura, vistas y permisos",
-            "Diseño de nuevos espacios internos y tableros",
-            "Guía para que tu equipo construya sin romper lo que ya funciona",
-          ],
-          price: "Retainer mensual",
-          ctaLabel: "Ver opciones de retainer",
-          type: "retainer",
-        },
-      ],
-      secondary: [
-        {
-          id: "automation-ops",
-          badge: null,
-          title: "Automation Ops partner",
-          description:
-            "Para equipos que dependen de n8n o Zapier y quieren alguien confiable que mantenga, depure, actualice y amplíe sus automatizaciones. Me hago cargo del lado operativo de tu stack de automatización.",
-          bullets: [
-            "Mantenimiento de n8n, Zapier e integraciones relacionadas",
-            "Monitoreo, debug y recuperación de ejecuciones con error",
-            "Diseño e implementación de nuevos flujos a medida que el negocio cambia",
-          ],
-          price: "Retainer mensual",
-          ctaLabel: "Ver opciones de retainer",
-          type: "retainer",
-        },
-        {
-          id: "white-label",
-          badge: "Para socios estratégicos",
+      projects: {
+        label: "02 · Proyectos puntuales",
+        title: "Proyectos enfocados para diseñar o mejorar tus sistemas.",
+        subtitle: "Desde el diseño completo de un Business OS hasta proyectos de automatización enfocados en las herramientas que ya usas.",
+        items: [
+          {
+            id: "business-os",
+            tag: "Proyecto insignia",
+            title: "Diseño e implementación de Business OS",
+            oneLiner: "Convertir herramientas y documentos dispersos en un sistema operativo en Notion.",
+            description:
+              "Mapeamos cómo trabaja tu equipo; diseñamos tu Business OS en Notion; e implementamos con los tableros; bases de datos y automatizaciones que tu operación necesita para funcionar con fluidez.",
+            bullets: [
+              "Arquitectura de sistemas; modelo de datos y permisos",
+              "OS en Notion para proyectos; tareas; CRM; conocimiento y reportes",
+              "Automatizaciones clave con n8n o Zapier",
+            ],
+            price: "Desde 3.000 USD+",
+            ctaLabel: "Hablar sobre tu contexto",
+            meta: "Timeline típico; 4–8 semanas según el alcance.",
+          },
+          {
+            id: "automation-projects",
+            tag: "Construcción de automatizaciones",
+            title: "Proyectos de automatización a medida (n8n, Zapier y más)",
+            oneLiner: "Elimina trabajo manual repetitivo manteniendo tus herramientas actuales.",
+            description:
+              "Diseñamos y construimos automatizaciones alrededor del stack que ya usas; conectando formularios; CRMs; bandejas de entrada y herramientas internas para que la información fluya sin copiar y pegar constantemente.",
+            bullets: [
+              "Descubrimiento de flujos; disparadores y puntos de falla",
+              "Automatizaciones construidas en n8n; Zapier o plataformas similares",
+              "Manejo de errores; logging y documentación para transferencia",
+            ],
+            price: "Desde 1.200 USD+",
+            ctaLabel: "Solicitar proyecto a medida",
+            meta: "",
+          },
+        ],
+      },
+      partnership: {
+        label: "03 · Acompañamiento continuo",
+        title: "Mantén tus sistemas saludables una vez implementados.",
+        subtitle: "Retainers para el trabajo de arquitectura y operaciones que la mayoría de los equipos no quiere tener internamente.",
+        items: [
+          {
+            id: "notion-architect",
+            tag: "Para workspaces en evolución",
+            title: "Notion Architect en retainer",
+            oneLiner: "Soporte de arquitectura y diseño para que tu workspace crezca sin convertirse en un desastre.",
+            description:
+              "Actúo como tu Arquitecto de Notion; planificando cambios estructurales; diseñando nuevos espacios; y manteniendo el workspace coherente a medida que más equipos y flujos se mueven a Notion.",
+            bullets: [
+              "Sesiones mensuales para estructura; vistas y permisos",
+              "Diseño de nuevas áreas; tableros y bases de datos",
+              "Guía para que tu equipo interno pueda construir de forma segura encima",
+            ],
+            price: "Retainer mensual",
+            ctaLabel: "Ver opciones de retainer",
+          },
+          {
+            id: "automation-ops",
+            tag: "Para equipos con muchas automatizaciones",
+            title: "Automation Ops partner",
+            oneLiner: "Alguien que se responsabiliza de la salud diaria de tus automatizaciones.",
+            description:
+              "Mantengo y actualizo tus instancias de n8n o Zapier; monitoreo fallas; depuro casos extremos y diseño nuevos flujos a medida que el negocio cambia; para que tus sistemas no dependan de arreglos heroicos.",
+            bullets: [
+              "Mantenimiento y actualizaciones para n8n; Zapier e integraciones relacionadas",
+              "Monitoreo; debug y recuperación de ejecuciones fallidas",
+              "Diseño y lanzamiento de nuevos flujos bajo demanda",
+            ],
+            price: "Retainer mensual",
+            ctaLabel: "Ver opciones de retainer",
+          },
+        ],
+      },
+      agencies: {
+        label: "04 · Para agencias",
+        title: "Implementación white label para agencias.",
+        subtitle: "Alianzas para agencias que quieren ofrecer sistemas y automatizaciones sin construir un equipo interno de entrega.",
+        card: {
+          tag: "Para socios estratégicos",
           title: "Implementación white label para agencias",
           description:
-            "Para agencias que quieren ofrecer Business OS y servicios de automatización bajo su propia marca. Yo me encargo de la arquitectura y la implementación mientras tú mantienes la relación y la estrategia con el cliente.",
+            "Para agencias de marketing; crecimiento y consultoría que quieren ofrecer sistemas en Notion y automatizaciones a sus clientes sin construir un equipo interno. Entrego el trabajo bajo tu marca mientras mantienes la relación con el cliente y la estrategia.",
           bullets: [
-            "Entrega bajo tu marca, procesos y herramientas",
-            "Proyectos completos de sistemas y automatización para tus clientes",
-            "Modelo de colaboración claro, preparado para escalar juntos",
+            "Entrega white label bajo tu marca y procesos",
+            "Proyectos de Business OS y automatización para tus clientes",
+            "Modelo de colaboración claro y SLAs para escalar juntos",
           ],
-          price: "",
-          ctaLabel: "Hablar sobre una alianza",
-          type: "partner",
+          meta: "Tarifas para socios compartidas después de una llamada inicial de fit.",
+          ctaLabel: "Hablar sobre alianza",
         },
-      ],
+      },
     },
     process: {
       badge: "Proceso",
