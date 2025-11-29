@@ -1,52 +1,69 @@
 "use client"
 
-import Reveal from "@/components/motion/Reveal"
-import CardShell from "@/components/ui/card-shell"
 import Container from "@/components/ui/container"
+import CardShell from "@/components/ui/card-shell"
+import Reveal from "@/components/motion/Reveal"
 import SectionHeader from "@/components/ui/section-header"
 import { useTranslations } from "./TranslationProvider"
+import { Building2, Users, Workflow } from "lucide-react"
+
+const cardIcons = [Building2, Users, Workflow]
 
 export default function WhoIWorkWith() {
   const dictionary = useTranslations()
   const section = dictionary.whoIWorkWith
 
   return (
-    <section className="bg-[#f5f5f5] py-24 md:py-32 lg:py-40" aria-labelledby="who-i-work-with-heading">
-      <Container className="space-y-20">
+    <section id="who-i-work-with" className="section-pad-lg" style={{ backgroundColor: 'var(--bg-page)' }} aria-labelledby="who-i-work-with-heading">
+      <Container>
         <Reveal>
           <SectionHeader id="who-i-work-with-heading" eyebrow={section.eyebrow} title={section.title} align="center" />
         </Reveal>
 
-        {/* Cards with strong visual presence */}
-        <div className="mx-auto max-w-4xl space-y-6">
-          {section.bullets.map((item, index) => (
-            <Reveal key={item.title} transition={{ delay: index * 0.12 }}>
-              <CardShell className="group relative flex gap-6 border-2 border-border/40 bg-white shadow-sm transition-all hover:border-accent/40 hover:shadow-md">
-                {/* Checkmark indicator with connecting line */}
-                <div className="relative flex flex-col items-center pt-1">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-md transition-transform group-hover:scale-105">
-                    <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+        {/* Horizontal Grid - matching Process section */}
+        <Reveal delay={0.2}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12 max-w-5xl mx-auto mt-12">
+            {section.bullets.map((item, index) => {
+              const Icon = cardIcons[index]
+
+              // Subtle accent backgrounds for variety
+              const backgrounds = [
+                'rgba(169, 178, 140, 0.04)', // olive
+                'rgba(231, 220, 200, 0.06)', // sand
+                'rgba(165, 180, 207, 0.04)', // slate
+              ]
+
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-xl p-6 transition-all border"
+                  style={{
+                    backgroundColor: backgrounds[index],
+                    borderColor: 'var(--border-subtle)'
+                  }}
+                >
+                  {/* Step Number */}
+                  <div className="text-xs font-medium mb-3" style={{ color: 'var(--text-subtle)' }}>
+                    {String(index + 1).padStart(2, '0')}
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="flex-1 space-y-3 py-1">
-                  <h3 className="text-2xl font-bold tracking-tight text-foreground">{item.title}</h3>
-                  <p className="text-lg leading-relaxed text-muted-foreground">{item.detail}</p>
+                  <Icon className="w-8 h-8 mb-4" strokeWidth={1.5} style={{ color: 'var(--text-main)' }} />
+                  <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--text-main)' }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                    {item.detail}
+                  </p>
                 </div>
-              </CardShell>
-            </Reveal>
-          ))}
-        </div>
+              )
+            })}
+          </div>
+        </Reveal>
 
-        {/* "Not a fit" note with strong visual separation */}
-        <Reveal>
-          <div className="mx-auto max-w-3xl">
-            <CardShell className="border-2 border-border/60 bg-white/50 text-center">
-              <p className="text-base font-medium text-muted-foreground">{section.note}</p>
-            </CardShell>
+        {/* "Not a fit" note - subtle legend */}
+        <Reveal delay={0.3}>
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-xs" style={{ color: 'var(--text-subtle)' }}>{section.note}</p>
           </div>
         </Reveal>
       </Container>

@@ -24,57 +24,63 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
   // Combine project and partnership items
   const mainServices = [...projects.items, ...partnership.items]
 
-  const cardColors = [
-    { bg: 'from-purple-50 to-purple-100/50', check: 'text-purple-600' },
-    { bg: 'from-green-50 to-green-100/50', check: 'text-green-600' },
-    { bg: 'from-orange-50 to-orange-100/50', check: 'text-orange-600' },
-    { bg: 'from-pink-50 to-pink-100/50', check: 'text-pink-600' }
-  ]
-
   return (
     <>
       {/* Main Services Section */}
-      <section id="services" className="section-pad-lg bg-neutral-50">
-        <Container className="max-w-7xl">
+      <section id="services" className="section-pad-lg" style={{ backgroundColor: 'var(--bg-surface)' }}>
+        <Container className="max-w-6xl">
           {/* Header */}
           <Reveal>
-            <div className="text-center max-w-3xl mx-auto mb-20">
-              <span className="inline-flex items-center bg-white text-neutral-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-neutral-200">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border" style={{
+                backgroundColor: 'rgba(165, 180, 207, 0.08)',
+                color: 'var(--text-main)',
+                borderColor: 'rgba(165, 180, 207, 0.2)'
+              }}>
                 {services.badge}
               </span>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-neutral-900 mt-6 mb-4 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mt-6 mb-4 leading-tight" style={{ color: 'var(--text-main)' }}>
                 {services.title}
               </h2>
-              <p className="text-lg sm:text-xl text-neutral-600 leading-relaxed">{services.intro}</p>
+              <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>{services.intro}</p>
             </div>
           </Reveal>
 
           {/* 2x2 Grid of Service Cards */}
-          <div className="grid gap-6 lg:grid-cols-2 mb-12">
+          <div className="grid gap-4 lg:grid-cols-2 mb-8">
             {mainServices.map((service, idx) => {
-              const colors = cardColors[idx]
+              // Very subtle accent backgrounds
+              const cardBackgrounds = [
+                'rgba(169, 178, 140, 0.03)', // olive
+                'rgba(231, 220, 200, 0.05)', // sand
+                'rgba(165, 180, 207, 0.03)', // slate
+                'var(--bg-surface)' // neutral
+              ]
 
               return (
                 <Reveal key={service.id} delay={0.1 + idx * 0.1}>
-                  <div className={`rounded-3xl bg-linear-to-br ${colors.bg} p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full`}>
+                  <div className="rounded-xl p-6 border transition-all h-full" style={{
+                    backgroundColor: cardBackgrounds[idx],
+                    borderColor: 'var(--border-subtle)'
+                  }}>
                     {/* Title */}
-                    <h3 className="text-2xl font-bold text-neutral-900 mb-4">
+                    <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--text-main)' }}>
                       {service.title}
                     </h3>
 
                     {/* Separator */}
-                    <div className="border-t border-neutral-900/10 mb-6"></div>
+                    <div className="border-t mb-4" style={{ borderColor: 'var(--border-subtle)' }}></div>
 
                     {/* Two column layout */}
                     <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
                       {/* Left: Description, Pricing, Button */}
                       <div className="flex flex-col space-y-4">
-                        <p className="text-sm text-neutral-600 leading-relaxed">
+                        <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                           {service.oneLiner}
                         </p>
 
                         <div className="mt-auto space-y-3">
-                          <div className="text-xl font-bold text-neutral-900">
+                          <div className="text-lg font-semibold" style={{ color: 'var(--text-main)' }}>
                             {service.price}
                           </div>
                           <Button
@@ -94,12 +100,12 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
 
                       {/* Right: Features */}
                       <div className="space-y-2">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900">Features</h4>
+                        <h4 className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-subtle)' }}>Features</h4>
                         <ul className="space-y-1.5">
                           {service.bullets.map((item: string, bulletIdx: number) => (
                             <li key={bulletIdx} className="flex gap-2 items-start">
-                              <Check className={`w-4 h-4 ${colors.check} shrink-0 mt-0.5`} strokeWidth={2.5} />
-                              <span className="text-sm text-neutral-700">{item}</span>
+                              <Check className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={2} style={{ color: 'var(--text-main)' }} />
+                              <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -113,38 +119,44 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
 
           {/* Full-width White Label Card */}
           <Reveal delay={0.5}>
-            <div className="rounded-3xl bg-linear-to-br from-cyan-50 to-cyan-100/50 p-6 sm:p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <div className="rounded-xl p-6 sm:p-8 border transition-all" style={{
+              backgroundColor: 'rgba(165, 180, 207, 0.06)',
+              borderColor: 'rgba(165, 180, 207, 0.15)'
+            }}>
               <div className="grid gap-6 lg:gap-8 lg:grid-cols-[1.2fr_1fr]">
                 {/* Left: Main content */}
                 <div className="space-y-4">
                   {agency.tag && (
-                    <span className="inline-flex text-xs font-semibold px-3 py-1.5 rounded-full bg-neutral-900 text-white">
+                    <span className="inline-flex text-xs font-medium px-3 py-1.5 rounded-md" style={{
+                      backgroundColor: 'var(--accent-primary)',
+                      color: 'var(--accent-inverse)'
+                    }}>
                       {agency.tag}
                     </span>
                   )}
 
-                  <h3 className="text-xl font-bold text-neutral-900">
+                  <h3 className="text-lg font-semibold" style={{ color: 'var(--text-main)' }}>
                     {agency.title}
                   </h3>
 
-                  <p className="text-sm text-neutral-700 leading-relaxed">
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {agency.description}
                   </p>
 
                   <div>
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900 mb-2">Features</h4>
+                    <h4 className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: 'var(--text-subtle)' }}>Features</h4>
                     <ul className="space-y-1.5">
                       {agency.bullets.map((item: string, idx: number) => (
                         <li key={idx} className="flex gap-2 items-start">
-                          <Check className="w-4 h-4 text-cyan-600 shrink-0 mt-0.5" strokeWidth={2.5} />
-                          <span className="text-sm text-neutral-700">{item}</span>
+                          <Check className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={2} style={{ color: 'var(--text-main)' }} />
+                          <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {agency.meta && (
-                    <p className="text-xs text-neutral-500">{agency.meta}</p>
+                    <p className="text-xs" style={{ color: 'var(--text-subtle)' }}>{agency.meta}</p>
                   )}
                 </div>
 
@@ -170,32 +182,39 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
       </section>
 
       {/* Workspace Audit Banner */}
-      <section className="section-pad-lg bg-white">
-        <Container className="max-w-6xl">
+      <section className="section-pad-lg" style={{ backgroundColor: 'var(--bg-page)' }}>
+        <Container className="max-w-5xl">
           <Reveal>
-            <div className="rounded-3xl bg-linear-to-br from-blue-50 to-blue-100/50 p-8 sm:p-12 lg:p-16 shadow-md">
+            <div className="rounded-xl p-8 sm:p-10 lg:p-12 border" style={{
+              backgroundColor: 'rgba(231, 220, 200, 0.08)',
+              borderColor: 'rgba(199, 195, 188, 0.2)'
+            }}>
               <div className="space-y-8">
                 {/* Header */}
                 <div className="max-w-3xl">
-                  <span className="inline-flex items-center bg-white text-neutral-600 px-4 py-2 rounded-full text-xs sm:text-sm font-medium border border-neutral-200 mb-4">
+                  <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border mb-4" style={{
+                    backgroundColor: 'rgba(231, 220, 200, 0.15)',
+                    color: 'var(--text-main)',
+                    borderColor: 'rgba(199, 195, 188, 0.3)'
+                  }}>
                     {start.label}
                   </span>
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 mb-4 leading-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 leading-tight" style={{ color: 'var(--text-main)' }}>
                     {start.title}
                   </h2>
-                  <p className="text-base sm:text-lg text-neutral-600 leading-relaxed">
+                  <p className="text-base sm:text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                     {start.subtitle}
                   </p>
                 </div>
 
                 {/* Content */}
                 <div className="max-w-3xl">
-                  <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 mb-4">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-4" style={{ color: 'var(--text-main)' }}>
                     {start.card.title}
                   </h3>
                   <div className="space-y-3">
                     {start.card.body.map((paragraph: string, idx: number) => (
-                      <p key={idx} className="text-sm text-neutral-600 leading-relaxed">
+                      <p key={idx} className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
                         {paragraph}
                       </p>
                     ))}
@@ -204,27 +223,27 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
 
                 {/* Features */}
                 <div className="max-w-4xl">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-900 mb-4">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider mb-4" style={{ color: 'var(--text-subtle)' }}>
                     What's included
                   </h4>
                   <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {start.card.bullets.map((item: string, idx: number) => (
                       <li key={idx} className="flex gap-2 items-start">
-                        <Check className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" strokeWidth={2.5} />
-                        <span className="text-sm text-neutral-700">{item}</span>
+                        <Check className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={2} style={{ color: 'var(--text-main)' }} />
+                        <span className="text-sm" style={{ color: 'var(--text-muted)' }}>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* CTA */}
-                <div className="border-t border-neutral-900/10 pt-8">
+                <div className="border-t pt-8" style={{ borderColor: 'var(--border-subtle)' }}>
                   <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
                     <div>
-                      <p className="text-xs uppercase tracking-wider text-neutral-500 mb-3">
+                      <p className="text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--text-subtle)' }}>
                         Investment
                       </p>
-                      <div className="text-4xl sm:text-5xl font-bold text-neutral-900">
+                      <div className="text-3xl sm:text-4xl font-semibold" style={{ color: 'var(--text-main)' }}>
                         {start.card.price}
                       </div>
                     </div>
@@ -241,7 +260,7 @@ export default function Services({ upworkUrl, consultationUrl }: Props) {
                       {start.card.ctaLabel}
                     </Button>
                   </div>
-                  <p className="text-xs text-neutral-500 mt-6">
+                  <p className="text-xs mt-6" style={{ color: 'var(--text-subtle)' }}>
                     * One-time fee, credited toward a project if you move forward
                   </p>
                 </div>
