@@ -12,31 +12,39 @@ export default function Method() {
   const method = dictionary.method
 
   return (
-    <section className="section-pad-lg bg-white" id="value">
+    <section className="section-pad-lg" id="value" style={{ backgroundColor: 'var(--bg-surface)' }}>
       <Container>
         {/* Header with pills */}
         <Reveal>
-          <div className="mx-auto max-w-5xl text-center">
+          <div className="mx-auto max-w-4xl text-center">
             {/* Main headline */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight font-bold text-neutral-900 mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl leading-tight font-semibold mb-6" style={{ color: 'var(--text-main)' }}>
               {method.title}
             </h2>
 
-            {/* Pills with icons */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+            {/* Pills with icons - subtle accent style */}
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
               {method.steps.map((step, index) => {
                 const Icon = stepIcons[index]
-                const colors = [
-                  'bg-purple-100 text-purple-600',
-                  'bg-blue-100 text-blue-600',
-                  'bg-orange-100 text-orange-600'
+
+                // Very subtle accent tints for pills
+                const pillStyles = [
+                  { bg: 'rgba(169, 178, 140, 0.08)', border: 'rgba(169, 178, 140, 0.2)' }, // olive
+                  { bg: 'rgba(231, 220, 200, 0.12)', border: 'rgba(199, 195, 188, 0.3)' }, // sand
+                  { bg: 'rgba(165, 180, 207, 0.08)', border: 'rgba(165, 180, 207, 0.2)' }  // slate
                 ]
+
                 return (
                   <span
                     key={step.title}
-                    className={`inline-flex items-center gap-2 ${colors[index]} px-5 py-2.5 rounded-full text-base font-medium italic`}
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium border"
+                    style={{
+                      backgroundColor: pillStyles[index].bg,
+                      color: 'var(--text-main)',
+                      borderColor: pillStyles[index].border
+                    }}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-4 h-4" />
                     {step.title}
                   </span>
                 )
@@ -44,7 +52,7 @@ export default function Method() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-neutral-600 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
               {method.intro}
             </p>
           </div>
@@ -52,37 +60,37 @@ export default function Method() {
 
         {/* Stats Grid - Single Row */}
         <Reveal delay={0.2}>
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {/* Stat 1 - Projects */}
             <div className="text-center relative">
-              <div className="text-6xl sm:text-7xl lg:text-8xl font-bold text-neutral-900 mb-3 leading-none">
-                <span className="text-5xl sm:text-6xl lg:text-7xl align-top">+</span>50
+              <div className="text-5xl sm:text-6xl font-semibold mb-2 leading-none" style={{ color: 'var(--text-main)' }}>
+                50<span className="text-4xl sm:text-5xl">+</span>
               </div>
-              <p className="text-base sm:text-lg text-neutral-600 font-medium">
+              <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>
                 Projects Delivered
               </p>
               {/* Vertical divider */}
-              <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-24 w-px bg-neutral-200" />
+              <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px" style={{ backgroundColor: 'var(--border-subtle)' }} />
             </div>
 
             {/* Stat 2 - Time Saved */}
             <div className="text-center relative">
-              <div className="text-6xl sm:text-7xl lg:text-8xl font-bold text-neutral-900 mb-3 leading-none">
-                <span className="text-5xl sm:text-6xl lg:text-7xl align-top">+</span>1000
+              <div className="text-5xl sm:text-6xl font-semibold mb-2 leading-none" style={{ color: 'var(--text-main)' }}>
+                1000<span className="text-4xl sm:text-5xl">+</span>
               </div>
-              <p className="text-base sm:text-lg text-neutral-600 font-medium">
+              <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>
                 Hours Automated
               </p>
               {/* Vertical divider */}
-              <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-24 w-px bg-neutral-200" />
+              <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-px" style={{ backgroundColor: 'var(--border-subtle)' }} />
             </div>
 
             {/* Stat 3 - Systems */}
             <div className="text-center">
-              <div className="text-6xl sm:text-7xl lg:text-8xl font-bold text-neutral-900 mb-3 leading-none">
-                <span className="text-5xl sm:text-6xl lg:text-7xl align-top">+</span>30
+              <div className="text-5xl sm:text-6xl font-semibold mb-2 leading-none" style={{ color: 'var(--text-main)' }}>
+                30<span className="text-4xl sm:text-5xl">+</span>
               </div>
-              <p className="text-base sm:text-lg text-neutral-600 font-medium">
+              <p className="text-sm font-medium" style={{ color: 'var(--text-muted)' }}>
                 Systems Built
               </p>
             </div>

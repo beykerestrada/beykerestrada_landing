@@ -16,27 +16,28 @@ export default function Contact({ upworkUrl, calendlyUrl }: Props) {
   const contact = dictionary.contact
 
   return (
-    <section id="contact" className="bg-white py-24 md:py-32">
-      <Container className="space-y-12">
+    <section id="contact" className="section-pad-lg" style={{ backgroundColor: 'var(--bg-surface)' }}>
+      <Container className="space-y-10">
         <Reveal>
           <SectionHeader eyebrow={contact.badge} title={contact.title} description={contact.subtitle} align="center" />
         </Reveal>
 
         <Reveal>
-          <div className="mx-auto max-w-2xl space-y-8 text-center">
+          <div className="mx-auto max-w-2xl space-y-6 text-center">
             {/* Email contact */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <a
                 href={`mailto:${contact.email}`}
-                className="inline-flex items-center gap-2 text-xl font-semibold text-[hsl(var(--brand))] transition-opacity hover:opacity-70"
+                className="inline-flex items-center gap-2 text-lg font-medium transition-opacity hover:opacity-70"
+                style={{ color: 'var(--text-main)' }}
               >
                 {contact.email}
               </a>
-              <p className="text-sm text-muted-foreground">{contact.responseTime}</p>
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{contact.responseTime}</p>
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
               {calendlyUrl && (
                 <Button as="a" href={calendlyUrl} target="_blank" rel="noopener noreferrer" variant="brand" size="lg">
                   {contact.emailLabel}
