@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Container from "@/components/ui/container"
 import { useTranslations } from "./TranslationProvider"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, Menu, X } from "lucide-react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,13 +25,13 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
+    <header className="sticky top-0 z-50 border-b border-neutral-200 bg-white/80 backdrop-blur-xl">
       <Container className="relative py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             href={`/${currentLocale}`}
-            className="text-base font-bold tracking-tight text-foreground transition-colors hover:text-foreground/70"
+            className="text-lg font-bold tracking-tight text-neutral-900 transition-colors hover:text-neutral-600"
           >
             {header.brand}
           </Link>
@@ -40,25 +40,25 @@ export default function Header() {
           <nav className="hidden items-center gap-8 md:flex">
             <Link
               href={`/${currentLocale}#services`}
-              className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
+              className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900"
             >
               {header.nav.services}
             </Link>
             <Link
               href={`/${currentLocale}#value`}
-              className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
+              className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900"
             >
               {header.nav.value}
             </Link>
             <Link
               href={`/${currentLocale}#process`}
-              className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
+              className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900"
             >
               {header.nav.process}
             </Link>
             <Link
               href={`/${currentLocale}#contact`}
-              className="text-sm font-semibold text-foreground transition-colors hover:text-accent"
+              className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900"
             >
               {header.nav.contact}
             </Link>
@@ -71,13 +71,13 @@ export default function Header() {
               <button
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
                 onBlur={() => setTimeout(() => setIsLangDropdownOpen(false), 150)}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-border/40 bg-background px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground transition-colors hover:border-[hsl(var(--brand))/40] hover:text-foreground"
+                className="inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-neutral-600 transition-all hover:border-neutral-300 hover:text-neutral-900"
                 aria-label="Language selector"
                 aria-expanded={isLangDropdownOpen}
               >
                 {header.languageNames[currentLocale as keyof typeof header.languageNames]}
                 <ChevronDown
-                  className={`h-3 w-3 transition-transform duration-200 ${
+                  className={`h-3.5 w-3.5 transition-transform duration-200 ${
                     isLangDropdownOpen ? "rotate-180" : ""
                   }`}
                 />
@@ -85,17 +85,17 @@ export default function Header() {
 
               {/* Dropdown Menu */}
               {isLangDropdownOpen && (
-                <div className="absolute right-0 top-full mt-2 w-24 rounded-lg border border-border/40 bg-background shadow-lg">
+                <div className="absolute right-0 top-full mt-2 w-28 rounded-xl border border-neutral-200 bg-white shadow-xl">
                   {Object.entries(header.languageNames).map(([locale, name]) => (
                     <Link
                       key={locale}
                       href={buildLocalizedPath(locale)}
                       hrefLang={locale}
                       prefetch={false}
-                      className={`block px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors first:rounded-t-lg last:rounded-b-lg ${
+                      className={`block px-4 py-2.5 text-xs font-semibold uppercase tracking-wider transition-colors first:rounded-t-xl last:rounded-b-xl ${
                         locale === currentLocale
-                          ? "bg-[hsl(var(--brand))/10] text-[hsl(var(--brand))]"
-                          : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                          ? "bg-neutral-100 text-neutral-900"
+                          : "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
                       }`}
                     >
                       {name}
@@ -110,7 +110,7 @@ export default function Header() {
               href="https://www.upwork.com/freelancers/~01577deb572030ada8"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-lg bg-accent px-5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent/90 hover:shadow-md active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-neutral-800 hover:-translate-y-0.5 shadow-sm hover:shadow-md"
             >
               {header.hireCta}
             </a>
@@ -119,31 +119,17 @@ export default function Header() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex flex-col items-center justify-center gap-1.5 p-2 md:hidden"
+            className="flex items-center justify-center p-2 text-neutral-900 transition-colors hover:text-neutral-600 md:hidden"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
-            <span
-              className={`block h-0.5 w-6 bg-foreground transition-all duration-300 ${
-                isMenuOpen ? "translate-y-2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-6 bg-foreground transition-all duration-300 ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-6 bg-foreground transition-all duration-300 ${
-                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
-            />
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`absolute left-0 right-0 top-full border-b border-border/40 bg-background/95 backdrop-blur-md transition-all duration-300 md:hidden ${
+          className={`absolute left-0 right-0 top-full border-b border-neutral-200 bg-white/95 backdrop-blur-xl transition-all duration-300 md:hidden ${
             isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 overflow-hidden opacity-0"
           }`}
         >
@@ -151,34 +137,34 @@ export default function Header() {
             <Link
               href={`/${currentLocale}#services`}
               onClick={closeMenu}
-              className="rounded-lg px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+              className="rounded-xl px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
             >
               {header.nav.services}
             </Link>
             <Link
               href={`/${currentLocale}#value`}
               onClick={closeMenu}
-              className="rounded-lg px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+              className="rounded-xl px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
             >
               {header.nav.value}
             </Link>
             <Link
               href={`/${currentLocale}#process`}
               onClick={closeMenu}
-              className="rounded-lg px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+              className="rounded-xl px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
             >
               {header.nav.process}
             </Link>
             <Link
               href={`/${currentLocale}#contact`}
               onClick={closeMenu}
-              className="rounded-lg px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+              className="rounded-xl px-4 py-3 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-50 hover:text-neutral-900"
             >
               {header.nav.contact}
             </Link>
 
             {/* Mobile Language Switcher */}
-            <div className="border-t border-border/40 px-4 pt-4">
+            <div className="border-t border-neutral-200 px-4 pt-4">
               <div className="flex gap-2">
                 {Object.entries(header.languageNames).map(([locale, name]) => (
                   <Link
@@ -187,10 +173,10 @@ export default function Header() {
                     onClick={closeMenu}
                     hrefLang={locale}
                     prefetch={false}
-                    className={`flex-1 rounded-lg border px-4 py-2 text-center text-xs font-semibold uppercase tracking-wider transition-colors ${
+                    className={`flex-1 rounded-xl border px-4 py-2.5 text-center text-xs font-semibold uppercase tracking-wider transition-colors ${
                       locale === currentLocale
-                        ? "border-[hsl(var(--brand))] bg-[hsl(var(--brand))/10] text-[hsl(var(--brand))]"
-                        : "border-border/40 text-muted-foreground hover:border-[hsl(var(--brand))/40] hover:bg-muted/50 hover:text-foreground"
+                        ? "border-neutral-900 bg-neutral-900 text-white"
+                        : "border-neutral-200 text-neutral-600 hover:border-neutral-300 hover:bg-neutral-50 hover:text-neutral-900"
                     }`}
                   >
                     {name}
@@ -200,15 +186,17 @@ export default function Header() {
             </div>
 
             {/* Mobile CTA */}
-            <a
-              href="https://www.upwork.com/freelancers/~01577deb572030ada8"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenu}
-              className="mx-4 mt-4 inline-flex items-center justify-center rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-accent/90 active:scale-[0.97]"
-            >
-              {header.hireCta}
-            </a>
+            <div className="px-4 pt-4">
+              <a
+                href="https://www.upwork.com/freelancers/~01577deb572030ada8"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-neutral-800"
+              >
+                {header.hireCta}
+              </a>
+            </div>
           </nav>
         </div>
       </Container>

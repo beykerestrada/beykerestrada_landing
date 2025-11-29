@@ -11,21 +11,18 @@ type Props = React.PropsWithChildren<{
 export default function Section({ id, className, tone = "plain", wide = false, children }: Props) {
   const toneClass =
     tone === "plain"
-      ? ""
+      ? "bg-transparent"
       : tone === "surface"
-        ? "surface-ghost"
-        : "surface";
+        ? "bg-neutral-950/50"
+        : "bg-neutral-900/50";
 
   return (
-    <section id={id} className={`section-pad ${className ?? ""}`}>
+    <section
+      id={id}
+      className={`section-pad-lg ${toneClass} ${className ?? ""}`}
+    >
       <div className={wide ? "" : "container"}>
-        {tone === "plain" ? (
-          children
-        ) : (
-          <div className={`${toneClass} tone-shell`}>
-            {children}
-          </div>
-        )}
+        {children}
       </div>
     </section>
   );
