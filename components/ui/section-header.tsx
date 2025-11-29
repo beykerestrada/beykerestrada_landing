@@ -24,7 +24,7 @@ export default function SectionHeader({
   return (
     <header className={classes} {...props}>
       {eyebrow && (
-        <span className="inline-flex items-center rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent backdrop-blur-sm">
+        <span className="inline-flex items-center bg-white text-neutral-600 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-neutral-200">
           {eyebrow}
         </span>
       )}

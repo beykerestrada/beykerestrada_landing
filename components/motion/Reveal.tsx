@@ -6,20 +6,22 @@ import { MotionProps, motion, useReducedMotion, useInView } from "framer-motion"
 type RevealProps<T extends React.ElementType = "div"> = {
   as?: T;
   delay?: number;
+  stagger?: number;
   transition?: MotionProps["transition"];
   className?: string;
   children: React.ReactNode;
 } & Omit<React.ComponentPropsWithoutRef<T>, "as" | "children">;
 
-// Mirrors tokens: var(--dur-long) = 0.4s and var(--ease-soft) = cubic-bezier(0.22, 1, 0.36, 1)
-const DEFAULT_EASE: MotionProps["transition"] = {
-  duration: 0.4,
-  ease: [0.22, 1, 0.36, 1],
+// Awake Agency-inspired smooth easing
+const AWAKE_EASE: MotionProps["transition"] = {
+  duration: 0.7,
+  ease: [0.16, 1, 0.3, 1], // Custom bezier for smooth, natural motion
 };
 
 export default function Reveal<T extends React.ElementType = "div">({
   as,
   delay = 0,
+  stagger = 0,
   transition,
   className,
   children,
@@ -27,7 +29,7 @@ export default function Reveal<T extends React.ElementType = "div">({
 }: RevealProps<T>) {
   const shouldReduceMotion = useReducedMotion();
   const ref = React.useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.4 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const ComponentTag = (as ?? "div") as React.ElementType;
   const MotionComponent = motion(ComponentTag) as React.ComponentType<
@@ -47,9 +49,9 @@ export default function Reveal<T extends React.ElementType = "div">({
     <MotionComponent
       ref={ref}
       className={className}
-      initial={{ opacity: 0, y: 12 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-      transition={transition ?? { ...DEFAULT_EASE, delay }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={transition ?? { ...AWAKE_EASE, delay: delay + stagger }}
       {...componentProps}
     >
       {children}

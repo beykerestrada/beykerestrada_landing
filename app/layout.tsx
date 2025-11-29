@@ -3,7 +3,12 @@ import { Inter } from "next/font/google";
 import StructuredData from "@/components/seo/StructuredData";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter"
+});
 
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://beykerestrada.com").replace(/\/$/, "");
 const DEFAULT_SEO = {
